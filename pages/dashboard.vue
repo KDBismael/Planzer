@@ -46,63 +46,49 @@
           </div>
         </div>
         <div class="d-flex mt-4">
-          <Friday />
-          <Saturday />
-          <Sunday />
-          <Monday />
-        </div>
-        <!-- <div
-          v-for="(column, index) in columns"
-          :key="index"
-          class="task-column"
-        >
-          <p>{{ column.title }}</p>
-          <p>
-            {{ column.date.getUTCDate() + " " + month[column.date.getMonth()] }}
-          </p>
-          <draggable
-            :id="
-              column.date.getFullYear() +
-              '-' +
-              (column.date.getMonth() < 10 ? 0 : '') +
-              (column.date.getMonth() + 1) +
-              '-' +
-              column.date.getUTCDate()
-            "
-            @end="updateTaskDrop"
-            :list="
-              tasks.filter(
-                filterDateTasks.bind(
-                  this,
-                  column.date.getFullYear() +
-                    '-' +
-                    column.date.getMonth() +
-                    '-' +
-                    column.date.getUTCDate()
-                )
-              )
-            "
-            :animation="200"
-            ghost-class="ghost-card"
-            group="tasks.filter(filterDateTasks.bind(this, column.date.getFullYear() + '-' +column.date.getMonth() + '-' +column.date.getUTCDate()))"
+          <div
+            v-for="(column, index) in columns"
+            :key="index"
+            class="task-column"
           >
-            <task-card
-              v-for="task in tasks.filter(
-                filterDateTasks.bind(
-                  this,
-                  column.date.getFullYear() +
-                    '-' +
-                    column.date.getMonth() +
-                    '-' +
-                    column.date.getUTCDate()
-                )
-              )"
-              :key="task.id"
-              :task="task"
-              :id="task.id"
-            ></task-card>
-          </draggable>
-        </div> -->
+            <div class="day-contain mx-3">
+              <div class="d-flex justify-content-between">
+                <div class="ms-3 mt-2">
+                  <h5 class="fw-bold">{{ column.title }}</h5>
+                  <h6 class="date">
+                    {{ month[column.date.getMonth()] }}
+                    {{ column.date.getUTCDate() }}
+                  </h6>
+                </div>
+                <div class="progress yellow">
+                  <span class="progress-left">
+                    <span class="progress-bar"></span>
+                  </span>
+                  <span class="progress-right">
+                    <span class="progress-bar"></span>
+                  </span>
+                  <div class="progress-value">33%</div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center mt-3">
+                <button class="add-task">Add a Task</button>
+              </div>
+              <Task v-for="task in tasks.filter(
+                  filterDateTasks.bind(
+                    this,
+                    column.date.getFullYear() +
+                      '-' +
+                      column.date.getMonth() +
+                      '-' +
+                      column.date.getUTCDate()
+                  )
+                )"
+                :key="task.id"
+                :task="task"
+                :id="task.id"/>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-3 d-flex">
         <div class="schedule me-3">
@@ -179,11 +165,9 @@
 import draggable from "vuedraggable";
 import TaskCard from "../components/task-card";
 import DropDown from "../components/dropdown.vue";
-import Friday from "../components/friday.vue";
-import Saturday from "../components/saturdays.vue";
-import Sunday from "../components/sunday.vue";
-import Monday from "../components/monday.vue";
+import Task from "../components/task.vue";
 import { Calendar as VCalendar } from "v-calendar";
+import "../assets/style.css";
 
 export default {
   auth: true,
@@ -191,11 +175,8 @@ export default {
     TaskCard,
     draggable,
     DropDown,
-    Friday,
-    Saturday,
-    Sunday,
-    Monday,
     VCalendar,
+    Task,
   },
   computed: {
     tasks() {
@@ -306,17 +287,6 @@ export default {
         "12 AM",
         "1 AM",
       ],
-      contacts: [
-        "meet",
-        "docs",
-        "gmail",
-        "calendar",
-        "drive",
-        "wifi",
-        "unarchive",
-        "auto",
-        "zoom",
-      ],
     };
   },
   destroyed() {
@@ -386,128 +356,3 @@ export default {
   },
 };
 </script>
-<style>
-.task-row {
-  overflow: scroll;
-  /* white-space: nowrap; */
-}
-.task-column {
-  width: 300px;
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 30px;
-}
-.header {
-  height: 149px;
-  padding: 0 49px 0 39px;
-}
-.logo {
-  width: 53px;
-  height: 32px;
-}
-.channel {
-  width: 100%;
-  padding-left: 37px;
-  background-color: #ff4c58;
-  background-image: linear-gradient(to bottom right, #fcf0f4, #f6f7fb);
-  border-radius: 15px;
-}
-.red-gradient {
-  background-image: linear-gradient(to bottom right, #fcf0f4, #f6f7fb);
-  border-radius: 15px;
-}
-.blue-gradient {
-  background-image: linear-gradient(to bottom, #f5f7ff, #ffeff0);
-  border-radius: 15px;
-}
-.allColor {
-  color: #5979df;
-}
-.plus {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  background: #5979df;
-  color: white;
-  border: none;
-}
-.schedule {
-  width: 80%;
-  background-color: #ff4c58;
-  background-image: linear-gradient(to bottom right, #fcf0f4, #f6f7fb);
-  border-radius: 15px;
-}
-.contact {
-  width: 77px;
-}
-.schedule-item {
-  width: 59.95px;
-}
-.task-calendar {
-  width: 300px;
-  height: 48px;
-  background: #eceffe;
-  opacity: 0.8;
-  border-radius: 15px;
-}
-.btn-task {
-  background: #2354e9;
-  border-radius: 10px;
-  width: 153px;
-  height: 40px;
-  font-size: 20px;
-  color: white;
-  border: none;
-}
-.vc-container {
-  background-image: linear-gradient(to bottom right, #fcf0f4, #f6f7fb);
-  border: none;
-}
-.main {
-  position: relative;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-input[type="checkbox"] {
-  visibility: hidden;
-}
-.geekmark {
-  position: absolute;
-  top: 4px;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background: #dfdfdf;
-  border-radius: 6px;
-}
-
-.geekmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.main input:checked ~ .geekmark:after {
-  display: block;
-}
-
-.main .geekmark:after {
-  left: 7px;
-  bottom: 5px;
-  width: 7px;
-  height: 12px;
-  border: solid gray;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-div.vc-highlights + span.vc-day-content {
-  color: #5979df !important;
-  font-weight: normal !important;
-}
-.vc-highlight {
-  background: #dbddfb !important;
-}
-</style>

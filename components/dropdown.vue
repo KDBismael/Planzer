@@ -27,8 +27,3 @@ export default {
   methods: {},
 };
 </script>
-<style>
-ul {
-  list-style-type: none;
-}
-</style>
