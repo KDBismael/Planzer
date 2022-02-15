@@ -8,8 +8,8 @@
       <div class="d-flex align-items-center">
         <img src="../assets/user.png" alt="" />
         <h6 class="ms-2 mb-0">Andreu Jordgen</h6>
-        <img src="../assets/notification.png" class="ms-5" alt="" />
-        <img src="../assets/setting.png" alt="" class="ms-3" />
+        <bell-icon size="1.5x" class="custom-class ms-5"></bell-icon>
+        <hexagon-icon size="1.5x" class="custom-class ms-3"></hexagon-icon>
       </div>
     </div>
     <div class="row">
@@ -73,7 +73,8 @@
               <div class="d-flex justify-content-center mt-3">
                 <button class="add-task">Add a Task</button>
               </div>
-              <Task v-for="task in tasks.filter(
+              <Task
+                v-for="task in tasks.filter(
                   filterDateTasks.bind(
                     this,
                     column.date.getFullYear() +
@@ -85,7 +86,8 @@
                 )"
                 :key="task.id"
                 :task="task"
-                :id="task.id"/>
+                :id="task.id"
+              />
             </div>
           </div>
         </div>
@@ -137,23 +139,25 @@
             <div>
               <img src="../assets/drive.png" class="p-3" alt="" />
             </div>
-            <div>
-              <img src="../assets/wifi.png" class="p-3" alt="" />
+            <div class="p-4">
+              <target-icon size="1.5x" class="custom-class"></target-icon>
             </div>
-            <div>
-              <img src="../assets/unarchive.png" class="p-3" alt="" />
+            <div class="p-4">
+              <archive-icon size="1.5x" class="custom-class"></archive-icon>
             </div>
-            <div>
-              <img src="../assets/auto.png" class="p-3" alt="" />
+            <div class="p-4">
+              <save-icon size="1.5x" class="custom-class"></save-icon>
             </div>
-            <div>
-              <img src="../assets/zoom.png" class="p-3" alt="" />
+            <div class="p-4">
+              <search-icon size="1.5x" class="custom-class"></search-icon>
             </div>
           </div>
           <div
             class="d-flex red-gradient flex-column align-items-center justify-content-center mt-5"
           >
-            <img src="../assets/add.png" class="p-3" alt="" />
+            <div class="p-4">
+              <plus-icon size="1.5x" class="custom-class"></plus-icon>
+            </div>
           </div>
         </div>
       </div>
@@ -167,6 +171,15 @@ import TaskCard from "../components/task-card";
 import DropDown from "../components/dropdown.vue";
 import Task from "../components/task.vue";
 import { Calendar as VCalendar } from "v-calendar";
+import {
+  BellIcon,
+  HexagonIcon,
+  PlusIcon,
+  SearchIcon,
+  TargetIcon,
+  ArchiveIcon,
+  SaveIcon,
+} from "vue-feather-icons";
 import "../assets/style.css";
 
 export default {
@@ -177,6 +190,13 @@ export default {
     DropDown,
     VCalendar,
     Task,
+    BellIcon,
+    HexagonIcon,
+    PlusIcon,
+    SearchIcon,
+    TargetIcon,
+    ArchiveIcon,
+    SaveIcon,
   },
   computed: {
     tasks() {
