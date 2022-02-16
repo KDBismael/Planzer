@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between header">
       <div class="d-flex align-items-center">
         <img src="../assets/logo.png" class="logo" alt="Logo" />
-        <h5 class="fs-5 mb-0 ms-3 fw-bold">Company Name</h5>
+        <h5 class="fs-5 mb-0 ms-3 fw-bold">To do</h5>
       </div>
       <div class="d-flex align-items-center">
         <img src="../assets/user.png" alt="" />
@@ -148,29 +148,8 @@ export default {
           dates: { start: new Date(2022, 1, 4), end: new Date(2022, 1, 7) },
         },
       ],
-      month: [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ],
-      weekday: [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ],
+      month: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      weekday: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       startDate: new Date(),
       endDate: new Date(),
       columns: [],
@@ -238,6 +217,18 @@ export default {
         "10 AM",
         "11 AM",
         "12 AM",
+        "1 PM",
+        "2 PM",
+        "3 PM",
+        "4 PM",
+        "5 PM",
+        "6 PM",
+        "7 PM",
+        "8 PM",
+        "9 PM",
+        "10 PM",
+        "11 PM",
+        "12 PM",
       ],
     }
   },
@@ -281,11 +272,34 @@ export default {
     },
     checkDates(event) {
       if (document.getElementById("task-row").scrollLeft == 0) {
-        console.log("Load 7 old days")
+        var newStartDate = this.columns[0].date
+        newStartDate.setDate(newStartDate.getUTCDate() - 7)
+        var tempArray = []
+        for (var d = newStartDate; d < this.startDate; d.setDate(d.getUTCDate() + 1)) {
+          tempArray.push({
+            title: this.weekday[d.getDay()],
+            date: new Date(d),
+          })
+        }
+        this.columns = tempArray.concat(this.columns)
+        this.$store.dispatch("task/getTasks", {
+          startDate: this.columns[0].date,
+          endDate: this.startDate,
+        })
+        this.startDate.setDate(this.startDate.getUTCDate() - 7)
       } else if (document.getElementById("task-row").scrollLeft + document.getElementById("task-row").offsetWidth == document.getElementById("task-row").scrollWidth) {
+        var newEndDate
+        newEndDate = this.endDate
+        newEndDate.setDate(newEndDate.getUTCDate() + 7)
+        for (var d = this.endDate; d <= newEndDate; d.setDate(d.getUTCDate() + 1)) {
+          this.columns.push({
+            title: this.weekday[d.getDay()],
+            date: new Date(d),
+          })
+        }
         console.log("Load 7 new days")
       }
-    },
-  },
+    }
+  }
 }
 </script>
