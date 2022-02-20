@@ -30,22 +30,16 @@ export default {
   methods: {
     async login() {
       this.signInProcessing = true
-      console.log(1)
       try {
-        console.log(2)
         await this.$auth.loginWith('local', {
           data: {
             email: this.email,
             password: this.password
           }
         })
-      console.log(3)
         this.$auth.$storage.setUniversal('user', this.$auth.user, true)
-      console.log(4)
         this.$router.push("/dashboard")
-      console.log(5)
       } catch(exception) {
-        console.error(exception)
         this.$swal({
           title: "Woops!",
           html: "Wrong e-mail or password",
@@ -61,9 +55,7 @@ export default {
     async signInWithGoogle() {
       try {
         let googleLogin = await this.$auth.loginWith('google')
-        console.log(googleLogin)
       } catch(exception) {
-        console.error(exception)
         this.$swal({
           title: "Woops!",
           html: "Wrong e-mail or password",

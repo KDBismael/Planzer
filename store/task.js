@@ -1,10 +1,14 @@
 export const state = () => ({
     tasks: [],
+    tags: [],
   })
   
   export const mutations = {
     setTasks(state, tasks) {
       state.tasks = tasks
+    },
+    setTags(state, tags) {
+      state.tags = tags
     },
     updateTask(state, task) {
       state.tasks = [
@@ -25,14 +29,30 @@ export const state = () => ({
         await commit('base/setError', exception, {root: true})
       }
     },
-    async update({commit, dispatch}, taskAndNewDate) {
-        try {
-          var task = JSON.parse(JSON.stringify(taskAndNewDate.task))
-          task.date = taskAndNewDate.newDate
-          await this.$axios.put('task', task).then((res) => commit('updateTask', task))
-        } catch (exception) {
-          console.error(exception)
-          await commit('base/setError', exception, {root: true})
-        }
-      },
+    async update({commit, dispatch}, task) {
+      try {
+        await this.$axios.put('task', task).then((res) => commit('updateTask', task))
+      } catch (exception) {
+        console.error(exception)
+        await commit('base/setError', exception, {root: true})
+      }
+    },
+    async updateDate({commit, dispatch}, taskAndNewDate) {
+      try {
+        var task = JSON.parse(JSON.stringify(taskAndNewDate.task))
+        task.date = taskAndNewDate.newDate
+        await this.$axios.put('task', task).then((res) => commit('updateTask', task))
+      } catch (exception) {
+        console.error(exception)
+        await commit('base/setError', exception, {root: true})
+      }
+    },
+    async getTaskTags({commit, dispatch}) {
+      try {
+        await this.$axios.get('tasks/tags').then((res) => commit('setTags', res.data))
+      } catch (exception) {
+        console.error(exception)
+        await commit('base/setError', exception, {root: true})
+      }
+    },
   }

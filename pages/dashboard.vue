@@ -13,26 +13,24 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-2">
+      <div class="col-2" style="overflow: scroll; height: calc(100vh - 80px);">
         <div class="d-flex flex-column align-items-center">
           <VCalendar is-expanded :attributes="attrs" />
-          <div class="channel pt-4 mt-4">
-            <h4 class="fw-bold fs-5">Categories</h4>
-            <h5 class="fs-6 ms-3 mt-3">
+          <div class="task-categories pt-4 mt-4">
+            <h4 class="fw-bold fs-5">Tags</h4>
+            <a href="#" class="fs-6 ms-3 mt-3">
               <span class="allColor me-2">#</span> All
-            </h5>
-            <DropDown :data="workList" />
-            <DropDown :data="youtube" />
-            <DropDown :data="website" />
-            <div class="d-flex">
-              <button class="plus ms-2 d-flex justify-content-center align-items-center">+</button>
-              <h5 class="fs-6 ms-2">Manage Categories</h5>
+            </a>
+            <TaskTag v-for="(tag, index) in tags" :tag="tag" :key="'tag' +index" />
+            <div class="d-flex mb-4 mt-4">
+              <button class="plus d-flex justify-content-center align-items-center">+</button>
+              <a href="#"><h5 class="fs-6 ms-2">Manage Tags</h5></a>
             </div>
           </div>
         </div>
       </div>
       <div class="col-7 task-row" id="task-row">
-        <div v-for="(column, index) in columns" :key="index" class="task-column">
+        <div v-for="(column, index) in columns" :key="index" class="task-column" :id="'task-column-' +column.date.getFullYear() + '-' +(column.date.getMonth() < 10 ? 0 : '')+(column.date.getMonth()+1) + '-' +column.date.getUTCDate()">
           <div class="day-contain">
             <div class="d-flex justify-content-between">
               <div>
@@ -42,7 +40,7 @@
                   {{ column.date.getUTCDate() }}
                 </h6>
               </div>
-              <div class="progress yellow">
+              <div class="progress">
                 <span class="progress-left">
                   <span class="progress-bar"></span>
                 </span>
@@ -62,10 +60,10 @@
         </div>
       </div>
       <div class="col-3 d-flex">
-        <div class="schedule me-3">
+        <div style="overflow: scroll; height: calc(100vh - 80px);" class="schedule me-3">
           <h5 class="fw-bold py-3 ps-3 border-bottom mb-0">Schedule</h5>
           <div class="d-flex">
-            <div class="p-4 border-end">+</div>
+            <a href="#" class="p-4 border-end">+</a href="#">
             <h4 class="p-4 mb-0">4 jan 2022</h4>
           </div>
           <div class="d-flex align-items-center" v-for="item in schedule" :key="item">
@@ -77,23 +75,29 @@
         </div>
         <div class="right-bar">
           <div class="d-flex blue-gradient flex-column align-items-center justify-content-center">
-            <div class="p-3">
+            <a href="#" class="p-3">
+              <calendar-icon size="1x" class="custom-class"></calendar-icon>
+            </a>
+            <a href="#" class="p-3">
+              <mail-icon size="1x" class="custom-class"></mail-icon>
+            </a>
+            <a href="#" class="p-3">
               <target-icon size="1x" class="custom-class"></target-icon>
-            </div>
-            <div class="p-3">
+            </a>
+            <a href="#" class="p-3">
               <archive-icon size="1x" class="custom-class"></archive-icon>
-            </div>
-            <div class="p-3">
-              <save-icon size="1x" class="custom-class"></save-icon>
-            </div>
-            <div class="p-3">
+            </a>
+            <a href="#" class="p-3">
+              <inbox-icon size="1x" class="custom-class"></inbox-icon>
+            </a>
+            <a href="#" class="p-3">
               <search-icon size="1x" class="custom-class"></search-icon>
-            </div>
+            </a>
           </div>
           <div class="d-flex red-gradient flex-column align-items-center justify-content-center mt-1">
-            <div class="p-3">
+            <a href="#" class="p-3">
               <plus-icon size="1x" class="custom-class"></plus-icon>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -103,37 +107,44 @@
 
 <script>
 import draggable from "vuedraggable"
-import DropDown from "../components/dropdown.vue"
+import TaskTag from "../components/task-tag.vue"
 import Task from "../components/task.vue"
 import { Calendar as VCalendar } from "v-calendar"
 import {
   BellIcon,
   HexagonIcon,
   PlusIcon,
+  MailIcon,
   SearchIcon,
   TargetIcon,
+  CalendarIcon,
   ArchiveIcon,
-  SaveIcon,
+  InboxIcon,
 } from "vue-feather-icons"
 
 export default {
   auth: true,
   components: {
     draggable,
-    DropDown,
+    TaskTag,
     VCalendar,
     Task,
     BellIcon,
     HexagonIcon,
+    MailIcon,
     PlusIcon,
     SearchIcon,
     TargetIcon,
+    CalendarIcon,
     ArchiveIcon,
-    SaveIcon,
+    InboxIcon,
   },
   computed: {
     tasks() {
       return this.$store.state.task.tasks
+    },
+    tags() {
+      return this.$store.state.task.tags
     },
   },
   data() {
@@ -205,30 +216,30 @@ export default {
         ],
       },
       schedule: [
-        "1 AM",
-        "2 AM",
-        "3 AM",
-        "4 AM",
-        "5 AM",
-        "6 AM",
-        "7 AM",
-        "8 AM",
-        "9 AM",
-        "10 AM",
-        "11 AM",
-        "12 AM",
-        "1 PM",
-        "2 PM",
-        "3 PM",
-        "4 PM",
-        "5 PM",
-        "6 PM",
-        "7 PM",
-        "8 PM",
-        "9 PM",
-        "10 PM",
-        "11 PM",
-        "12 PM",
+        "00:00",
+        "01:00",
+        "02:00",
+        "03:00",
+        "04:00",
+        "05:00",
+        "06:00",
+        "07:00",
+        "08:00",
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+        "23:00",
       ],
     }
   },
@@ -249,14 +260,17 @@ export default {
       startDate: this.startDate,
       endDate: this.endDate,
     })
+    await this.$store.dispatch("task/getTaskTags")
   },
   mounted() {
+    var todaysDate = new Date()
+    var taskIdToScroll = 'task-column-' +todaysDate.getFullYear() + '-' +(todaysDate.getMonth() < 10 ? 0 : '')+(todaysDate.getMonth()+1) + '-' +todaysDate.getUTCDate()
     document.getElementById("task-row").addEventListener("scroll", this.checkDates)
-    document.getElementById("task-row").scrollLeft = 1950
+    document.getElementById("task-row").scrollLeft = document.getElementById(taskIdToScroll).offsetLeft-275
   },
   methods: {
     updateTaskDrop(event) {
-      this.$store.dispatch("task/update", {
+      this.$store.dispatch("task/updateDate", {
         task: this.tasks.find((task) => task.id == event.item.id),
         newDate: event.to.id,
       })
@@ -282,6 +296,7 @@ export default {
           })
         }
         this.columns = tempArray.concat(this.columns)
+        document.getElementById("task-row").scrollLeft = 7*250
         this.$store.dispatch("task/getTasks", {
           startDate: this.columns[0].date,
           endDate: this.startDate,

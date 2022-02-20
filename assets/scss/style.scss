@@ -1,6 +1,10 @@
 body {
   font-family: 'Lato', sans-serif;
 }
+a {
+  text-decoration: none;
+  color: #000;
+}
 .task-row {
   overflow: scroll;
   white-space: nowrap;
@@ -16,9 +20,9 @@ body {
   width: 53px;
   height: 32px;
 }
-.channel {
+.task-categories {
   width: 100%;
-  padding-left: 37px;
+  padding-left: 30px;
   background-color: #ff4c58;
   background-image: linear-gradient(to bottom right, #fcf0f4, #f6f7fb);
   border-radius: 15px;
@@ -71,7 +75,7 @@ body {
   background-image: linear-gradient(to bottom right, #fcf0f4, #f6f7fb);
   border: none;
 }
-.main {
+.checkbox-container {
   position: relative;
   cursor: pointer;
   font-size: 20px;
@@ -80,33 +84,37 @@ body {
 input[type="checkbox"] {
   visibility: hidden;
 }
-.geekmark {
+.checkmark {
   position: absolute;
   top: 4px;
-  left: 0;
-  width: 20px;
-  height: 20px;
+  left: -12px;
+  width: 25px;
+  height: 25px;
   background: #dfdfdf;
   border-radius: 6px;
 }
 
-.geekmark:after {
+.checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
+.checkbox-container input:checked ~ .checkmark {
+  background-color: rgba(77, 121, 255, 0.2);
+}
 
-.main input:checked ~ .geekmark:after {
+
+.checkbox-container input:checked ~ .checkmark:after {
   display: block;
 }
 
-.main .geekmark:after {
-  left: 7px;
-  bottom: 5px;
-  width: 7px;
-  height: 12px;
-  border: solid gray;
-  border-width: 0 3px 3px 0;
+.checkbox-container .checkmark:after {
+  left: 9px;
+  bottom: 7px;
+  width: 8px;
+  height: 15px;
+  border: solid #4D79FF;
+  border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -146,7 +154,8 @@ ul {
   white-space: normal;
   padding: 12px 16px;
   background: #f9f9f9;
-  border-radius: 8.8913px;
+  border-radius: 9px;
+  cursor: pointer;
 }
 .description {
   font-size: 14px;
@@ -230,19 +239,20 @@ ul {
   left: 5%;
 }
 
-.progress.yellow .progress-bar {
+.progress .progress-bar {
   border-color: #fca3a9;
 }
 
-.progress.yellow .progress-right .progress-bar {
-  animation: loading-3 1.8s linear forwards;
+.progress .progress-right .progress-bar {
+  animation: loading-right 1.8s linear forwards;
 }
 
-.progress.yellow .progress-left .progress-bar {
-  animation: none;
+.progress .progress-left .progress-bar {
+  animation: loading-left 1.8s linear forwards;
+  animation-delay: 1.8s;
 }
 
-@keyframes loading-1 {
+@keyframes loading-left {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -254,27 +264,15 @@ ul {
   }
 }
 
-@keyframes loading-2 {
+@keyframes loading-right {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(144deg);
-    transform: rotate(144deg);
-  }
-}
-
-@keyframes loading-3 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(115deg);
-    transform: rotate(115deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
   }
 }
 .custom-checkbox {
@@ -308,4 +306,12 @@ ul {
   }
 .youtube {
   color: #fca3a9;
+}
+
+.task-tag-chevron {
+  margin-top: -2px;
+  margin-right: 12px;
+}
+.task-done, .task-done span {
+  color: rgb(0,0,0,0.3) !important;
 }
