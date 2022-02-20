@@ -340,3 +340,17 @@ ul {
 .task-title:focus {
   outline: none;
 }
+.right-bar .icon-container {
+  padding: 0px 15px 15px 15px;
+}
+.right-bar .active {
+  border: 2px solid #4485F1;
+  border-radius: 5px;;
+}
+.icon-container a {
+  padding: 2px 8px 6px 8px;
+  margin-top: 15px;
+}
+.add-integration {
+  padding: 19px 8px 23px 8px;
+}
