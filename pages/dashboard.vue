@@ -18,9 +18,9 @@
           <VCalendar is-expanded :attributes="attrs" />
           <div class="task-categories pt-4 mt-4">
             <h4 class="fw-bold fs-5">Tags</h4>
-            <a href="#" class="fs-6 ms-3 mt-3">
-              <span class="allColor me-2">#</span> All
-            </a>
+            <div @click="resetTaskFilter()" class="task-tag" :class="{active: activeTag == 0}">
+              <span class="allTagColor me-2">#</span> All
+            </div>
             <TaskTag v-for="(tag, index) in tags" :tag="tag" :key="'tag' +index" />
             <div class="d-flex mb-4 mt-4">
               <button class="plus d-flex justify-content-center align-items-center">+</button>
@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="d-flex justify-content-center mt-3">
-              <button class="add-task">Add a Task</button>
+              <button @click="newTask(column.date.getFullYear() + '-' +(column.date.getMonth() < 10 ? 0 : '')+(column.date.getMonth()+1) + '-' +column.date.getUTCDate())" class="add-task">Add a Task</button>
             </div>
             <draggable :id="column.date.getFullYear() + '-' +(column.date.getMonth() < 10 ? 0 : '')+(column.date.getMonth()+1) + '-' +column.date.getUTCDate()" @end="updateTaskDrop" :list="tasks.filter(filterDateTasks.bind(this, column.date.getFullYear() + '-' +column.date.getMonth() + '-' +column.date.getUTCDate()))" :animation="200" ghost-class="ghost-card" group="tasks.filter(filterDateTasks.bind(this, column.date.getFullYear() + '-' +column.date.getMonth() + '-' +column.date.getUTCDate()))">
               <Task v-for="task in tasks.filter(filterDateTasks.bind(this, column.date.getFullYear() + '-' + column.date.getMonth() + '-' + column.date.getUTCDate()))" :key="task.id" :task="task" :id="task.id" />
@@ -140,8 +140,14 @@ export default {
     InboxIcon,
   },
   computed: {
+    activeTag() {
+      return this.$store.state.task.activeTag
+    },
     tasks() {
-      return this.$store.state.task.tasks
+      if(this.activeTag !== 0)
+        return this.$store.state.task.tasks.filter(task => task.tag == this.activeTag)
+      else
+        return this.$store.state.task.tasks
     },
     tags() {
       return this.$store.state.task.tags
@@ -164,57 +170,6 @@ export default {
       startDate: new Date(),
       endDate: new Date(),
       columns: [],
-      workList: {
-        title: "WORK",
-        lists: [
-          {
-            color: "red",
-            text: "clubhouse",
-          },
-          {
-            color: "#39cb5c",
-            text: "dkr-webinar",
-          },
-          {
-            color: "#f6ac6d",
-            text: "english",
-          },
-          {
-            color: "blue",
-            text: "job-posting",
-          },
-          {
-            color: "#a3a832",
-            text: "talks",
-          },
-          {
-            color: "blue",
-            text: "uxui_design",
-          },
-        ],
-      },
-      youtube: {
-        title: "YOUTUBE",
-        lists: [
-          {
-            color: "#39cb5c",
-            text: "All",
-          },
-        ],
-      },
-      website: {
-        title: "WEBSITE",
-        lists: [
-          {
-            color: "#a3a832",
-            text: "clubhouse",
-          },
-          {
-            color: "#f6ac6d",
-            text: "dkr-webinar",
-          },
-        ],
-      },
       schedule: [
         "00:00",
         "01:00",
@@ -269,6 +224,14 @@ export default {
     document.getElementById("task-row").scrollLeft = document.getElementById(taskIdToScroll).offsetLeft-275
   },
   methods: {
+    async newTask(date) {
+      this.$store.commit("task/newTask", {date, newTask: true})
+      await new Promise(r => setTimeout(r, 100))
+      document.getElementById('new-task').focus()
+    },
+    resetTaskFilter() {
+      this.$store.commit("task/setActiveTag", 0)
+    },
     updateTaskDrop(event) {
       this.$store.dispatch("task/updateDate", {
         task: this.tasks.find((task) => task.id == event.item.id),

@@ -35,7 +35,7 @@ a {
   background-image: linear-gradient(to bottom, #f5f7ff, #ffeff0);
   border-radius: 15px;
 }
-.allColor {
+.allTagColor {
   color: #5979df;
 }
 .plus {
@@ -157,7 +157,7 @@ ul {
   border-radius: 9px;
   cursor: pointer;
 }
-.description {
+.task-title {
   font-size: 14px;
 }
 .progress {
@@ -314,4 +314,29 @@ ul {
 }
 .task-done, .task-done span {
   color: rgb(0,0,0,0.3) !important;
+}
+.task-tag {
+  padding: 11px 0px 11px 10px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+.task-tag.active .allTagColor {
+  color: #FFF;
+}
+.task-tag.active {
+  background-color: #4D79FF;
+  color: #fff;
+  border-radius: 5px;
+}
+.task-category {
+  font-size: 15px;
+  margin-bottom: 11px;
+  margin-top: 20px;
+}
+.task-title {
+  border: 0;
+  background: transparent;
+}
+.task-title:focus {
+  outline: none;
 }

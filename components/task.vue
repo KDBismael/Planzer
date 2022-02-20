@@ -1,6 +1,7 @@
 <template>
   <div class="mt-2 rounded-3 task-box" :class="task.status == 1 ? 'task-done' : ''">
-    <h6 @click="openTask()" class="description">{{ task.title }}</h6>
+    <h6 v-if="task.title" @click="openTask()" class="task-title">{{ task.title }}</h6>
+    <input v-else @blur="createTask()" v-model="newTaskTitle" type="text" class="task-title task-title" id="new-task" />
     <div class="d-flex justify-content-between mt-3 align-items-center">
       <p @click="openTask()" class="mb-0" style="font-size: 15px;"><span v-bind:style="{ color: '#' +(task.tagColor ? task.tagColor : task.categoryColor ? task.categoryColor : '000') }">#</span> {{ task.tagName ? task.tagName : task.categoryName ? task.categoryName : '' }}</p>
       <div>
@@ -14,6 +15,11 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      newTaskTitle: ''
+    }
+  },
   props: {
     task: {
       default: () => ({})
@@ -22,6 +28,18 @@ export default {
   methods: {
     openTask() {
       console.log("Jeps")
+    },
+    createTask() {
+      if(this.newTaskTitle == "")
+        this.$store.commit("task/deleteNewTask")
+      else {
+        var task = {
+          title: this.newTaskTitle,
+          date: this.task.date
+        }
+        this.$store.dispatch("task/create", task)
+        this.newTaskTitle = ''
+      }
     },
     finishTask(event) {
       var task = JSON.parse(JSON.stringify(this.task))
