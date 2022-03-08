@@ -1,9 +1,9 @@
 <template>
   <div class="mt-2 rounded-3 task-box" :class="task.status == 1 ? 'task-done' : ''">
-    <h6 v-if="task.title" @click="openTask()" class="task-title">{{ task.title }}</h6>
+    <h6 v-if="task.title" @click="openTask()" data-bs-toggle="modal" data-bs-target="#taskModal" class="task-title">{{ task.title }}</h6>
     <input v-else @blur="createTask()" v-model="newTaskTitle" type="text" class="task-title task-title" id="new-task" />
     <div class="d-flex justify-content-between mt-3 align-items-center">
-      <p @click="openTask()" class="mb-0" style="font-size: 15px;"><span v-bind:style="{ color: '#' +(task.tagColor ? task.tagColor : task.categoryColor ? task.categoryColor : '000') }">#</span> {{ task.tagName ? task.tagName : task.categoryName ? task.categoryName : '' }}</p>
+      <p @click="openTask()" data-bs-toggle="modal" data-bs-target="#taskModal" class="mb-0" style="font-size: 15px;"><span v-if="task.tagName || task.categoryName" v-bind:style="{ color: '#' +(task.tagColor ? task.tagColor : task.categoryColor ? task.categoryColor : '000') }">#</span> {{ task.tagName ? task.tagName : task.categoryName ? task.categoryName : '' }}</p>
       <div>
         <label class="checkbox-container">
           <input type="checkbox" :checked="task.status == 1" @change="finishTask($event)" />
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     openTask() {
-      console.log("Jeps")
+      this.$store.commit("task/setActiveTask", this.task)
     },
     createTask() {
       if(this.newTaskTitle == "")

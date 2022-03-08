@@ -14,7 +14,7 @@
         "@nuxtjs/axios": "^5.13.6",
         "feather-icons": "^4.28.0",
         "nuxt": "^2.15.8",
-        "sass": "^1.49.8",
+        "sass": "^1.49.9",
         "sass-loader": "^10.2.1",
         "v-calendar": "^2.4.1",
         "vue-feather-icons": "^5.1.0",

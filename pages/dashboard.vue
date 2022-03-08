@@ -1,22 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-2" style="overflow: scroll; height: calc(100vh - 80px);">
-      <div class="d-flex flex-column align-items-center">
-        <VCalendar is-expanded :attributes="attrs" />
-        <div class="task-categories pt-4 mt-4">
-          <h4 class="fw-bold fs-5">Tags</h4>
-          <div @click="resetTaskFilter()" class="task-tag" :class="{active: activeTag == 0}">
-            <span class="allTagColor me-2">#</span> All
-          </div>
-          <TaskTag v-for="(tag, index) in tags" :tag="tag" :key="'tag' +index" />
-          <div class="d-flex mb-4 mt-4">
-            <button class="plus d-flex justify-content-center align-items-center">+</button>
-            <a href="#"><h5 class="fs-6 ms-2">Manage Tags</h5></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-7 task-row" id="task-row">
+    <div class="col-9 task-row" id="task-row">
       <div v-for="(column, index) in columns" :key="index" class="task-column" :id="'task-column-' +column.date.getFullYear() + '-' +(column.date.getMonth() < 10 ? 0 : '')+(column.date.getMonth()+1) + '-' +column.date.getUTCDate()">
         <div class="day-contain">
           <div class="d-flex justify-content-between">
@@ -49,25 +33,27 @@
     <div class="col-3 d-flex">
       <div style="overflow: scroll; height: calc(100vh - 80px);" class="schedule me-3">
         <DailySchedule v-if="activeRightBar == 'calendar'" />
+        <Tags v-if="activeRightBar == 'tags'" />
         <MailInbox v-if="activeRightBar == 'mail'" />
         <Goals v-if="activeRightBar == 'goals'" />
         <Archive v-if="activeRightBar == 'archive'" />
         <Backlog v-if="activeRightBar == 'backlog'" />
         <Search v-if="activeRightBar == 'search'" />
+        <AddIntegration v-if="activeRightBar == 'addIntegration'" />
       </div>
       <div class="right-bar">
         <div class="icon-container d-flex blue-gradient flex-column align-items-center justify-content-center">
           <a href="#" @click="activeRightBar = 'calendar'" :class="{active: activeRightBar == 'calendar'}">
             <calendar-icon size="1x"></calendar-icon>
           </a>
+          <a href="#" @click="activeRightBar = 'tags'" :class="{active: activeRightBar == 'tags'}">
+            <hash-icon size="1x"></hash-icon>
+          </a>
           <a href="#" @click="activeRightBar = 'mail'" :class="{active: activeRightBar == 'mail'}">
             <mail-icon size="1x"></mail-icon>
           </a>
           <a href="#" @click="activeRightBar = 'goals'" :class="{active: activeRightBar == 'goals'}">
             <target-icon size="1x"></target-icon>
-          </a>
-          <a href="#" @click="activeRightBar = 'archive'" :class="{active: activeRightBar == 'archive'}">
-            <archive-icon size="1x"></archive-icon>
           </a>
           <a href="#" @click="activeRightBar = 'backlog'" :class="{active: activeRightBar == 'backlog'}">
             <inbox-icon size="1x"></inbox-icon>
@@ -77,9 +63,20 @@
           </a>
         </div>
         <div class="d-flex red-gradient flex-column align-items-center justify-content-center mt-1">
-          <a href="#" class="add-integration">
+          <a href="#" class="add-integration" @click="activeRightBar = 'addIntegration'">
             <plus-icon size="1x"></plus-icon>
           </a>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="taskModalLabel">{{ activeTask.title }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">{{ activeTask.description }}</div>
         </div>
       </div>
     </div>
@@ -88,22 +85,21 @@
 
 <script>
 import draggable from "vuedraggable"
-import TaskTag from "../components/task-tag.vue"
 import DailySchedule from "../components/daily-schedule.vue"
+import Tags from "../components/tags.vue"
 import MailInbox from "../components/mail-inbox.vue"
 import Goals from "../components/goals.vue"
-import Archive from "../components/archive.vue"
 import Backlog from "../components/backlog.vue"
 import Search from "../components/search.vue"
+import AddIntegration from "../components/add-integration.vue"
 import Task from "../components/task.vue"
-import { Calendar as VCalendar } from "v-calendar"
 import {
   PlusIcon,
   MailIcon,
   SearchIcon,
   TargetIcon,
   CalendarIcon,
-  ArchiveIcon,
+  HashIcon,
   InboxIcon,
 } from "vue-feather-icons"
 
@@ -111,35 +107,31 @@ export default {
   auth: true,
   components: {
     draggable,
-    TaskTag,
-    VCalendar,
     Task,
     MailIcon,
     PlusIcon,
     SearchIcon,
     TargetIcon,
     CalendarIcon,
-    ArchiveIcon,
     InboxIcon,
+    HashIcon,
     DailySchedule,
     MailInbox,
     Goals,
-    Archive,
     Backlog,
+    Tags,
     Search,
+    AddIntegration,
   },
   computed: {
-    activeTag() {
-      return this.$store.state.task.activeTag
-    },
     tasks() {
       if(this.activeTag !== 0)
         return this.$store.state.task.tasks.filter(task => task.tag == this.activeTag)
       else
         return this.$store.state.task.tasks
     },
-    tags() {
-      return this.$store.state.task.tags
+    activeTask() {
+        return this.$store.state.task.activeTask
     },
   },
   data() {
@@ -185,16 +177,13 @@ export default {
     var todaysDate = new Date()
     var taskIdToScroll = 'task-column-' +todaysDate.getFullYear() + '-' +(todaysDate.getMonth() < 10 ? 0 : '')+(todaysDate.getMonth()+1) + '-' +todaysDate.getUTCDate()
     document.getElementById("task-row").addEventListener("scroll", this.checkDates)
-    document.getElementById("task-row").scrollLeft = document.getElementById(taskIdToScroll).offsetLeft-275
+    document.getElementById("task-row").scrollLeft = document.getElementById(taskIdToScroll).offsetLeft
   },
   methods: {
     async newTask(date) {
       this.$store.commit("task/newTask", {date, newTask: true})
-      await new Promise(r => setTimeout(r, 100))
+      await new Promise(r => setTimeout(r, 200))
       document.getElementById('new-task').focus()
-    },
-    resetTaskFilter() {
-      this.$store.commit("task/setActiveTag", 0)
     },
     updateTaskDrop(event) {
       this.$store.dispatch("task/updateDate", {
@@ -207,9 +196,6 @@ export default {
       var newColumnDate = splitColumnDate[0] + "-" + (parseInt(splitColumnDate[1]) + 1 < 10 ? "0" : "") + (parseInt(splitColumnDate[1]) + 1) + "-" + (splitColumnDate[2] < 10 ? "0" : "") + splitColumnDate[2]
 
       return task.date.substr(0, 10) == newColumnDate
-    },
-    async signOut() {
-      await this.$auth.logout()
     },
     checkDates(event) {
       if (document.getElementById("task-row").scrollLeft == 0) {

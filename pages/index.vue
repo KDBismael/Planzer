@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-7">
         <input type="email" v-model="email" placeholder="Enter your e-mail" />
         <input type="password" v-model="password" placeholder="Enter your password" />
         <input type="button" value="Sign in" @click="login()" />
       </div>
-      <div class="col-8">
+      <div class="col-5">
         Right sidebar
       </div>
     </div>

@@ -3,7 +3,7 @@
     <h5 class="fw-bold py-3 ps-3 border-bottom mb-0">Schedule</h5>
     <div class="d-flex">
       <a href="#" class="p-4 border-end">+</a>
-      <h4 class="p-4 mb-0">4 jan 2022</h4>
+      <h4 class="p-4 mb-0">{{ today.getUTCDate() }} {{ monthShort[today.getMonth()] }} {{ today.getFullYear() }}</h4>
     </div>
     <div class="d-flex align-items-center" v-for="item in schedule" :key="item">
       <div class="schedule-item text-center border-end py-3">
@@ -17,6 +17,8 @@
 export default {
   data() {
     return {
+      today: new Date(),
+      monthShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       schedule: [
         "00:00",
         "01:00",

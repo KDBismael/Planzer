@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h5 class="fw-bold py-3 ps-3 border-bottom mb-0">Archive</h5>
+    <h5 class="fw-bold py-3 ps-3 border-bottom mb-0">Add Integration</h5>
   </div>
 </template>
 <script>
