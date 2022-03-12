@@ -400,3 +400,31 @@ ul {
 .add-integration {
     padding: 19px 8px 23px 8px;
 }
+
+// Login screen
+.sign-in-box {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 170px;
+    padding: 60px;
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom right, #fcf0f4, #f6f7fb);
+}
+.login-right-bar {
+    background-color: #FFEDE1;
+    padding-top: 60px;
+    img {
+        margin-left: -200px;
+    }
+}
+.or-hr {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+ }
+.or-hr span {
+     background:#fff;
+     padding:0 10px;
+ }

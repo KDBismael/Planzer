@@ -1,13 +1,25 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-7">
-        <input type="email" v-model="email" placeholder="Enter your e-mail" />
-        <input type="password" v-model="password" placeholder="Enter your password" />
-        <input type="button" value="Sign in" @click="login()" />
+        <div class="sign-in-box">
+          <p>Logo</p>
+          <h1>Sign in</h1>
+
+          <span>Email</span>
+          <input type="email" v-model="email" placeholder="Enter your e-mail" />
+
+          <span>Password</span>
+          <input type="password" v-model="password" placeholder="Enter your password" />
+
+          <input type="button" value="Sign in" @click="login()" />
+
+          <p><a href="#">Sign up</a> if you don't have an account</p>
+          <p class="or-hr"><span>OR</span></p>
+        </div>
       </div>
-      <div class="col-5">
-        Right sidebar
+      <div class="col-5 login-right-bar">
+        <img src="/images/login-dashboard.svg" />
       </div>
     </div>
   </div>
