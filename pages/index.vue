@@ -6,16 +6,27 @@
           <p>Logo</p>
           <h1>Sign in</h1>
 
-          <span>Email</span>
-          <input type="email" v-model="email" placeholder="Enter your e-mail" />
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" v-model="email">
+          </div>
 
-          <span>Password</span>
-          <input type="password" v-model="password" placeholder="Enter your password" />
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" v-model="password">
+          </div>
 
-          <input type="button" value="Sign in" @click="login()" />
+          <div class="sign-in-button">
+            <button class="button login" @click="login()">SIGN IN <img style="margin-left: 20px;" src="/images/login-right.svg" /></button>
+          </div>
 
-          <p><a href="#">Sign up</a> if you don't have an account</p>
+          <p class="register-text"><a href="#">Sign up</a> if you don't have an account</p>
           <p class="or-hr"><span>OR</span></p>
+
+          <div class="sign-in-other-options">
+            <button class="social-sign-in"><img src="/images/google.png" /></button>
+            <button class="social-sign-in"><img src="/images/outlook.png" /></button>
+          </div>
         </div>
       </div>
       <div class="col-5 login-right-bar">
