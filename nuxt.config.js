@@ -1,8 +1,6 @@
 export default {
-    // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
     ssr: false,
 
-    // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: "Todo",
         htmlAttrs: {
@@ -22,28 +20,24 @@ export default {
             { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', integrity: 'sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3', crossorigin: 'anonymous' },
         ],
         script: [
-            { src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', integrity: 'sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p', crossorigin: 'anonymous' }
+            { src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', integrity: 'sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p', crossorigin: 'anonymous' },
+            { src: 'https://accounts.google.com/gsi/client', defer: true, async: true }
         ]
     },
 
-    // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         { src: 'assets/scss/style.scss', lang: 'scss' },
     ],
 
-    // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
         { src: '~plugins/vuedraggable.js', ssr: false },
         { src: '~plugins/v-calendar.js', ssr: false }
     ],
 
-    // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
 
-    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [],
 
-    // Modules: https://go.nuxtjs.dev/config-modules
     modules: ["@nuxtjs/axios", "@nuxtjs/auth-next", "vue-sweetalert2/nuxt"],
     auth: {
         strategies: {
@@ -95,6 +89,5 @@ export default {
         middleware: ['auth', 'check-access']
     },
 
-    // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
-};
+}

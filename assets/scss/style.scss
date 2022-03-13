@@ -415,6 +415,12 @@ ul {
     button {
         margin-top: 15px;
     }
+    input {
+        border: 1px solid #F3F3F3
+    }
+    h1 {
+        margin-bottom: 30px;
+    }
 }
 .login-right-bar {
     background-color: #FFEDE1;
@@ -448,7 +454,16 @@ ul {
     background-color: transparent;
     color: #4C79FF;
 }
- .register-text {
+.button.login:hover {
+    background-image: url('/images/login-right-blue.svg');
+}
+.button.login {
+    background-image: url('/images/login-right.svg');
+    background-repeat: no-repeat;
+    background-position: 86% 50%;
+    padding-right: 40px;
+}
+.register-text {
     color: rgba(0, 0, 0, 0.2);
     text-align: center;
     padding: 25px 0;
@@ -458,4 +473,21 @@ ul {
  }
  .sign-in-button {
     text-align: center;
+ }
+ .sign-in-other-options {
+     text-align: center;
+ }
+ .sign-in-other-options .social-sign-in:first-child {
+     margin-right: 20px;
+ }
+ .social-sign-in:hover {
+     background-color: #f9f9f9;
+ }
+ .social-sign-in {
+    border-radius: 10px;
+    background-color: #fff;
+    border: 0px;
+    padding: 8px 30px;
+    transition-duration: 200ms;
+    cursor: pointer;
  }

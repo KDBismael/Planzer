@@ -17,15 +17,15 @@
           </div>
 
           <div class="sign-in-button">
-            <button class="button login" @click="login()">SIGN IN <img style="margin-left: 20px;" src="/images/login-right.svg" /></button>
+            <button class="button login" @click="login()">SIGN IN</button>
           </div>
 
           <p class="register-text"><a href="#">Sign up</a> if you don't have an account</p>
           <p class="or-hr"><span>OR</span></p>
 
           <div class="sign-in-other-options">
-            <button class="social-sign-in"><img src="/images/google.png" /></button>
-            <button class="social-sign-in"><img src="/images/outlook.png" /></button>
+            <img id="signInWithGoogle" class="social-sign-in" src="/images/google.png" />
+            <img class="social-sign-in" src="/images/outlook.png" />
           </div>
         </div>
       </div>
@@ -50,6 +50,19 @@ export default {
     // Button
   },
   layout: "not-signed-in",
+  beforeMount() {
+    google.accounts.id.initialize({
+      client_id: "936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com",
+      callback: (response) => {
+        console.log(response)
+      }
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("signInWithGoogle"),
+      { theme: "outline", size: "large" }
+    );
+    google.accounts.id.prompt();
+  },
   methods: {
     async login() {
       this.signInProcessing = true
@@ -74,21 +87,6 @@ export default {
         })
       }
       this.signInProcessing = false
-    },
-    async signInWithGoogle() {
-      try {
-        let googleLogin = await this.$auth.loginWith('google')
-      } catch(exception) {
-        this.$swal({
-          title: "Woops!",
-          html: "Wrong e-mail or password",
-          icon: "error",
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 5000
-        })
-      }
     }
   }
 }
