@@ -24,8 +24,8 @@
           <p class="or-hr"><span>OR</span></p>
 
           <div class="sign-in-other-options">
-            <img id="signInWithGoogle" class="social-sign-in" src="/images/google.png" />
-            <img class="social-sign-in" src="/images/outlook.png" />
+            <img @click="signInWithGoogle()" id="signInWithGoogle" class="social-sign-in" src="/images/google.png" />
+            <img @click="signInWithOutlook()" class="social-sign-in" src="/images/outlook.png" />
           </div>
         </div>
       </div>
@@ -51,6 +51,8 @@ export default {
   },
   layout: "not-signed-in",
   beforeMount() {
+
+    // Show Google One tab
     google.accounts.id.initialize({
       client_id: "936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com",
       callback: (response) => {
@@ -87,6 +89,12 @@ export default {
         })
       }
       this.signInProcessing = false
+    },
+    signInWithGoogle() {
+      this.$auth.loginWith('google')
+    },
+    signInWithOutlook() {
+      this.$auth.loginWith('outlook')
     }
   }
 }

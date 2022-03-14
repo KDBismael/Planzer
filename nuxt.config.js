@@ -56,6 +56,42 @@ export default {
                     maxAge: 86400 * 30, // One month
                 },
             },
+            google: {
+                clientId: '936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com',
+                codeChallengeMethod: '',
+                responseType: 'code',
+                redirectUri: 'http://localhost:3000',
+                endpoints: {
+                    logout: false,
+                    user: { url: "/user/google", method: "get" },
+                },
+                scope: ['profile', 'email'],
+            },
+            outlook: {
+                scheme: 'oauth2',
+                endpoints: {
+                    authorization: 'https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize',
+                    token: 'https://login.microsoftonline.com/organizations/oauth2/v2.0/token',
+                    user: '/user/outlook',
+                    logout: false
+                },
+                token: {
+                    property: 'access_token',
+                    type: 'Bearer',
+                    maxAge: 1800
+                },
+                refreshToken: {
+                    property: 'refresh_token',
+                    maxAge: 60 * 60 * 24 * 30
+                },
+                responseType: 'code',
+                grantType: 'authorization_code',
+                accessType: 'offline',
+                clientId: '6b8c10f5-5025-4ee4-82e7-753d7d3b9f7c',
+                codeChallengeMethod: 'S256',
+                scope: ['openid', 'profile'],
+                autoLogout: true
+            }
         },
         redirect: {
             login: "/",
