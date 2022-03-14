@@ -39,6 +39,8 @@ export default {
     buildModules: [],
 
     modules: ["@nuxtjs/axios", "@nuxtjs/auth-next", "vue-sweetalert2/nuxt"],
+    // Outlook: https://github.com/stuartpreston/nuxt-auth-azuread-example/blob/master/nuxt.config.js
+    // Google: https://auth.nuxtjs.org/providers/google/
     auth: {
         strategies: {
             local: {
@@ -67,8 +69,8 @@ export default {
      ** Environment variables
      */
     env: {
-        stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY ||
-            "pk_test_rHexF1dsPqOyjRf3EYA1YmXh003fzbVUZM",
+        stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY || "pk_test_rHexF1dsPqOyjRf3EYA1YmXh003fzbVUZM",
+        API_URL: process.env.API_URL || 'https://todophil.herokuapp.com'
     },
 
     /*
