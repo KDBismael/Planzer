@@ -62,10 +62,11 @@ export default {
                 responseType: 'code',
                 redirectUri: 'http://localhost:3000',
                 endpoints: {
+                    token: 'http://localhost:5000/google/token',
                     logout: false,
                     user: { url: "/user/google", method: "get" },
                 },
-                scope: ['profile', 'email'],
+                scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar.events.readonly', 'https://www.googleapis.com/auth/gmail.readonly'],
             },
             outlook: {
                 scheme: 'oauth2',
@@ -89,7 +90,7 @@ export default {
                 accessType: 'offline',
                 clientId: '6b8c10f5-5025-4ee4-82e7-753d7d3b9f7c',
                 codeChallengeMethod: 'S256',
-                scope: ['openid', 'profile'],
+                scope: ['openid', 'email', 'profile', 'https://graph.microsoft.com/calendar.read', 'https://graph.microsoft.com/mail.read'],
                 autoLogout: true
             }
         },

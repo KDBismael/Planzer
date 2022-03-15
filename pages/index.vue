@@ -51,19 +51,6 @@ export default {
   },
   layout: "not-signed-in",
   beforeMount() {
-
-    // Show Google One tab
-    google.accounts.id.initialize({
-      client_id: "936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com",
-      callback: (response) => {
-        console.log(response)
-      }
-    });
-    google.accounts.id.renderButton(
-      document.getElementById("signInWithGoogle"),
-      { theme: "outline", size: "large" }
-    );
-    google.accounts.id.prompt();
   },
   methods: {
     async login() {
