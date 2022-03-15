@@ -14,15 +14,12 @@
           </a>
 
           <ul class="dropdown-menu union" aria-labelledby="dropdownMenuLink">
-            <!-- <div class="union-item">
-            </div> -->
-              <li><a class="dropdown-item" href="#"><span class="me-2"><img src="~/assets/user.svg" alt=""></span> Account settings</a></li>
-              <li><a class="dropdown-item" href="#"><span class="me-2"><img src="~/assets/home.svg" alt=""></span>Workspace settings</a></li>
-              <li><a class="dropdown-item" href="#"><span class="me-2"><img src="~/assets/credit-card.svg" alt=""></span>Billing</a></li>
-              <li><a class="dropdown-item" href="#"><span class="me-2"><img src="~/assets/user-plus.svg" alt=""></span>Invite team member</a></li>
-              <li class="divider"><a class="dropdown-item" href="#"><span class="me-2"><img src="~/assets/calendar.svg" alt=""></span>Calendar settings</a></li>
-              <!-- <li><hr class="dropdown-divider"></li> -->
-            <li><a @click="signOut()" class="dropdown-item" style="color:#FF5A5A" href="#"><span class="me-2"><img src="~/assets/log-out.svg" alt=""></span>Sign out</a></li>
+              <li><a class="dropdown-item" href="#"><UserIcon stroke="#4C79FF" class="me-2"/> Account settings</a></li>
+              <li><a class="dropdown-item" href="#"><HomeIcon stroke="#4C79FF" class="me-2"/>Workspace settings</a></li>
+              <li><a class="dropdown-item" href="#"><CreditCardIcon stroke="#4C79FF" class="me-2"/>Billing</a></li>
+              <li><a class="dropdown-item" href="#"><UserPlusIcon stroke="#4C79FF" class="me-2"/>Invite team member</a></li>
+              <li class="divider"><a class="dropdown-item" href="#"><CalendarIcon stroke="#4C79FF" class="me-2"/>Calendar settings</a></li>
+            <li><a @click="signOut()" class="dropdown-item" style="color:#FF5A5A" href="#"><LogOutIcon class="me-2"/>Sign out</a></li>
           </ul>
         </div>
         <bell-icon size="1x" class="ms-3"></bell-icon>
@@ -37,13 +34,25 @@
   import {
     BellIcon,
     HexagonIcon,
+    UserIcon,
+    HomeIcon,
+    CreditCardIcon,
+    UserPlusIcon,
+    CalendarIcon,
+    LogOutIcon
   } from "vue-feather-icons"
 
   export default {
     auth: true,
     components: {
       BellIcon,
-      HexagonIcon
+      HexagonIcon,
+      UserIcon,
+      HomeIcon,
+      CreditCardIcon,
+      UserPlusIcon,
+      CalendarIcon,
+      LogOutIcon,
     },
     data(){
       return{
