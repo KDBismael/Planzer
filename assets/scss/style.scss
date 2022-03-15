@@ -491,3 +491,43 @@ ul {
     transition-duration: 200ms;
     cursor: pointer;
  }
+ .user-active{
+    box-shadow: 0px 0px 0px 3px #4C79FF ;
+    border-radius:50%;
+ }
+ .union{
+    width: 215px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+    border: none !important;
+    border-radius: 20px !important;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+    font-weight: 500 !important;
+    transform: translate3d(-108px, 43px, 0px) !important;
+    li:last-child{
+        padding-bottom: 17px;
+    }
+    .union-item{
+        background: #FFFFFF;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+        border-radius: 20px;
+        position: relative;
+        padding-top: 20px;
+        margin-bottom: 15px;
+        li{
+            padding-bottom: 28px;
+        }
+        &::before{
+            content: '';
+            z-index: -1;
+            background-color:#FFFFFF;
+            height: 10px;
+            width: 10px;
+            position: absolute;
+            top: -5px;
+            right: 56px;
+            transform: rotate(45deg);
+        }
+    }
+ }

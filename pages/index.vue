@@ -66,6 +66,7 @@ export default {
   methods: {
     async login() {
       this.signInProcessing = true
+      console.log('NODE_ENV:', process.env.API_URL);
       try {
         await this.$auth.loginWith('local', {
           data: {
