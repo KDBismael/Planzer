@@ -70,13 +70,76 @@
       </div>
     </div>
     <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="taskModalLabel">{{ activeTask.title }}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-header pt-4">
+            <div class="item row w-100 container-fluid">
+              <div class="col-3">
+                <h5 class="modal-title col" id="taskModalLabel">{{ activeTask.title }}</h5>
+              </div>
+              <div class="col-6">
+                <div class="subItem1 row">
+                  <button type="button" class=" me-3 col btn btn-primary">Start: Mar 9</button>
+                  <button type="button" class=" col-3 btn btn-outline-primary">Due</button>
+                  <button type="button" class=" ms-3 col btn btn-outline-primary">Add subtaks</button>
+                </div>
+              </div>
+              <div class="col">
+                <div class="subItem2 ps-3 row h-100 align-items-center">
+                  <div class="col-4">
+                    <div style="background-color:rgba(255, 158, 44,0.07)" class="circle rounded-circle row jusify-content-center"><ListIcon class="align-self-center" stroke="#FF9E2C"/></div>
+                  </div>
+                  <div class="col-4">
+                    <div style="background-color:rgba(96, 91, 255,0.05)" class="circle rounded-circle row jusify-content-center"><img class="align-self-center" src="~/assets/opt.png" alt=""> </div>
+                  </div>
+                  <div class="col-4">
+                    <div style="background-color:rgba(231, 29, 54,0.05)" class="circle rounded-circle row jusify-content-center"><button type="button" class="btn-close align-self-center close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="modal-body">{{ activeTask.description }}</div>
+          <div class="modal-body">{{ activeTask.description }}
+            <div class="item1 container-fluid pb-4">
+              <div class="row">
+                <div class="form-check col align-self-center">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                  <label class="form-check-label" for="flexCheckDefault">Prepare TuCalendi</label>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-3">
+                      <div style="background-color:rgba(16, 218, 70, 0.07)" class="circle rounded-circle row jusify-content-center"><PlayIcon class="m-auto" fill="#10DA46" stroke="#10DA46"/></div>
+                    </div>
+                    <div class="time col me-3"><p class=""><span class="row justify-content-center h6">Actual</span><span class="row justify-content-center">--:--</span></p></div>
+                    <div class="time col"><p class=""><span class="row justify-content-center h6">Planned</span><span class="row justify-content-center">--:--</span></p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item2">
+              <div class="pb-3 container-fluid">
+                <textarea class="form-control note pt-3" id="FormControlTextarea1" rows="3" placeholder=" + Notes"></textarea>
+              </div>
+            </div>
+            <div class="item3 pb-2 container-fluid">
+              <div class="row w-100 ms-0">
+                <div class="col-1 ms-0 ps-0">
+                  <div class="user ms-0 me-0 h-100 row justify-content-center"><img class="align-self-center" src="~assets/user2.png" alt=""></div>
+                </div>
+                <div class="col ps-0 pe-0">
+                  <input type="text" class="form-control comment" id="exampleFormControlInput1" placeholder="Comment...">
+                </div>
+                <div class="col-1 me-0 pe-0">
+                  <div class="save ms-2 row h-100 justify-content-center"><SendIcon class="align-self-center" size="2x"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="item4 container-fluid pt-2">
+              <p class="mb-0"><AnchorIcon stroke=" #605BFF" class="me-2" size="1x"/><span class="h6 me-2">Phillip Stemann created this</span><span>Mar 8, 7:41 AM</span></p>
+              <p><span class="me-4"></span><span class="h6 me-2">Phillip Stemann moved this youtube</span><span>Mar 8, 7:41 AM</span></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,6 +164,10 @@ import {
   CalendarIcon,
   HashIcon,
   InboxIcon,
+  ListIcon,
+  PlayIcon,
+  SendIcon,
+  AnchorIcon,
 } from "vue-feather-icons"
 
 export default {
@@ -115,6 +182,10 @@ export default {
     CalendarIcon,
     InboxIcon,
     HashIcon,
+    ListIcon,
+    PlayIcon,
+    SendIcon,
+    AnchorIcon,
     DailySchedule,
     MailInbox,
     Goals,

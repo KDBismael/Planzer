@@ -77,7 +77,8 @@ export default {
      ** Nuxt.js axios module
      */
     axios: {
-        baseURL: process.env.API_URL,
+        // baseURL: process.env.API_URL,
+        baseURL:'http://todophil.herokuapp.com',
         headers: {
             "Content-Type": "application/json",
         },

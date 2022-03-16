@@ -1,5 +1,5 @@
 <template>
-  <div @click="outside()"  class="container-fluid">
+  <div  class="container-fluid">
     <div class="d-flex justify-content-between header">
       <div class="d-flex align-items-center">
         <img src="../assets/logo.png" class="logo" alt="Logo" />
@@ -9,7 +9,7 @@
         <img ref="user" src="../assets/user.png" alt="" />
         <h6 class="ms-2 mb-0">Phillip Stemann</h6>
         <div class="dropdown ms-3">
-          <a ref="dropdown" @click="handleProfil()" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <a ref="dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             <hexagon-icon size="1x"></hexagon-icon>
           </a>
 
@@ -64,22 +64,6 @@
       async signOut() {
         await this.$auth.logout()
       },
-      handleProfil(){
-        this.click=true
-      },
-      outside(){
-        console.log(this.click)
-        if(!this.Open && this.click){
-          this.$refs.user.classList.add('user-active')
-          this.Open=true
-          this.click=false
-        }else{
-          this.$refs.user.classList.remove('user-active')
-          this.Open=false
-          this.click=false
-        }
-        // console.log(this.$refs.dropdown.ariaExpanded)
-      }
     }
   }
 </script>
