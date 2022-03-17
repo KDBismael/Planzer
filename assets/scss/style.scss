@@ -426,7 +426,8 @@ ul {
     background-color: #FFEDE1;
     padding-top: 60px;
     img {
-        margin-left: -200px;
+        margin-left: -170px;
+        width: 120%
     }
 }
 .or-hr {
@@ -506,6 +507,10 @@ ul {
             &:hover {
                 background-color: transparent;
             }
+        }
+        &:last-child {
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
     }
     .divider {

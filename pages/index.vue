@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid" id="signInDisplay">
     <div class="row">
       <div class="col-7">
         <div class="sign-in-box">
@@ -51,6 +51,29 @@ export default {
   },
   layout: "not-signed-in",
   beforeMount() {
+    // Check if Google code is in URL
+    const urlParams = new URLSearchParams(window.location.search)
+    const code = urlParams.get('code')
+    // Send the code to the back-end, where the back-end checks if it's correct
+    if(code) {
+      this.signInProcessing = true
+    }
+    
+
+
+    google.accounts.id.initialize({
+      client_id: "936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com",
+      callback: (response) => {
+        console.log(response)
+        // Send the code to the back-end, where the back-end checks if it's correct
+        this.signInProcessing = true
+      }
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("signInWithGoogle"),
+      { theme: "outline", size: "large" }
+    );
+    google.accounts.id.prompt();
   },
   methods: {
     async login() {
@@ -78,7 +101,10 @@ export default {
       this.signInProcessing = false
     },
     signInWithGoogle() {
-      this.$auth.loginWith('google')
+      this.$auth.loginWith('google', { params: {
+        scope: 'profile email'
+      }
+      })
     },
     signInWithOutlook() {
       this.$auth.loginWith('outlook')
