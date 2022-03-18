@@ -523,19 +523,33 @@ ul {
         transform: rotate(45deg);
     }
  }
-.modal{
+.task-modal{
     .modal-content{
         border-radius: 10px !important;
     }
     .modal-header{
         border-bottom: none;
     }
+    .add-comment,.subtask-enter{
+        border: none;
+        background: #F7F7F8;
+        border-radius: 10px;
+        height: 42px;
+        color: #030229;
+        opacity: 0.6;
+    }
     .circle{
         width: 40px;
         height: 40px;
         cursor: pointer;
     }
-    .top-btn{
+    .task-options{
+        .close{
+            padding:0 !important;
+            margin:auto !important;
+        }
+    }
+    .task-top-btn{
         transition: background-color 800ms ease;
         &:first-child{
             background-color: #605BFF;
@@ -554,39 +568,10 @@ ul {
         border-radius: 10px;
         border-color: #0d6dfd48;
     }
-    .close{
-        padding:0 !important;
-        margin:auto !important;
-    }
-    .item1{
+    .task-plan{
         p{
             margin-bottom: 0;
         }
-    }
-    .note{
-        border: none;
-        height: 149px;
-        background: #F7F7F8;
-        border-radius: 10px;
-        resize: none;
-        color: #030229;
-        opacity: 0.6;
-    }
-    .add-comment,.subtask-enter{
-        border: none;
-        background: #F7F7F8;
-        border-radius: 10px;
-        height: 42px;
-        color: #030229;
-        opacity: 0.6;
-    }
-    .save,.user{
-        cursor: pointer;
-        background: #F7F7F8;
-        border-radius: 10px;
-        width: 42px;
-    }
-    .item1{
         .time{
             .h6{
                 margin-bottom: 0;
@@ -604,6 +589,12 @@ ul {
                     left: -8px;
                     width: 17px;
                     height: 17px;
+                    &:after {
+                        left: 7px;
+                        bottom: 5px;
+                        width: 4.5px;
+                        height: 10px;
+                    }
                 }
                 .check-label{
                     font-weight: 600;
@@ -614,7 +605,24 @@ ul {
             }
         }
     }
-    .item3{
+    .task-description{
+        .description{
+            border: none;
+            height: 149px;
+            background: #F7F7F8;
+            border-radius: 10px;
+            resize: none;
+            color: #030229;
+            opacity: 0.6;
+        }
+    }
+    .task-comment{
+        .save,.user{
+            cursor: pointer;
+            background: #F7F7F8;
+            border-radius: 10px;
+            width: 42px;
+        }
         .view-comment{
             .comment{
                 background: #FFFFFF;
@@ -647,7 +655,7 @@ ul {
             }
         }
     }
-    .item4{
+    .task-info{
         p{
             .h6{
                 font-weight: 600;

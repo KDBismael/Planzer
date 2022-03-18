@@ -69,23 +69,23 @@
         </div>
       </div>
     </div>
-    <div @click="outsideOfSubtask" class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div @click="outsideOfSubtask" class="modal task-modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header pt-4 row">
-            <div class="item row container-fluid pe-0">
+            <div class="task-head row container-fluid pe-0">
               <div style="width:30%;" class="col-4">
                 <h5 class="modal-title col" id="taskModalLabel">{{ activeTask.title }}</h5>
               </div>
               <div style="width:45%;" class="col-6">
-                <div class="subItem1 row">
-                  <button type="button" class="top-btn me-3 col btn btn-primary">Start: <span>Mar 9</span></button>
-                  <button type="button" style="width:53px;padding: 10px 11px;" class="top-btn col-3 btn btn-outline-primary">Due</button>
-                  <button type="button" @click="addSubtask" class="top-btn ms-3 col btn btn-outline-primary">Add subtaks</button>
+                <div class="row">
+                  <button type="button" class="task-top-btn me-3 col btn btn-primary">Start: <span>Mar 9</span></button>
+                  <button type="button" style="width:53px;padding: 10px 11px;" class="task-top-btn col-3 btn btn-outline-primary">Due</button>
+                  <button type="button" @click="addSubtask" class="task-top-btn ms-3 col btn btn-outline-primary">Add subtaks</button>
                 </div>
               </div>
               <div class="col-3">
-                <div class="subItem2 ps-3 row h-100 align-items-center">
+                <div class="task-options ps-3 row h-100 align-items-center">
                   <div class="col-4">
                     <div style="background-color:rgba(255, 158, 44,0.07)" class="circle rounded-circle row jusify-content-center"><ListIcon class="align-self-center" stroke="#FF9E2C"/></div>
                   </div>
@@ -103,7 +103,7 @@
             </div>
           </div>
           <div class="modal-body">{{ activeTask.description }}
-            <div class="item1 container-fluid pb-4">
+            <div class="task-plan container-fluid pb-4">
               <div class="row">
                 <div class="form-check col align-self-center">
                   <label class="checkbox-container">
@@ -138,21 +138,21 @@
                 </div>
               </div>
             </div>
-            <div class="item2">
+            <div class="task-description">
               <div class="pb-3 container-fluid">
-                <textarea class="form-control note pt-3" id="FormControlTextarea1" rows="3" placeholder=" Description"></textarea>
+                <textarea class="form-control description pt-3" id="FormControlTextarea1" rows="3" placeholder=" Description"></textarea>
               </div>
             </div>
-            <div class="item3 pb-2 container-fluid">
+            <div class="task-comment pb-2 container-fluid">
               <div class="row w-100 ms-0">
                 <div class="col-1 ms-0 ps-0">
                   <div class="user ms-0 me-0 h-100 row justify-content-center"><img class="g-0 align-self-center" style="width:34px;" src="~assets/user2.png" alt=""></div>
                 </div>
                 <div class="col ps-0 pe-0">
-                  <input v-model="comment" v-on:keyup.enter="Submit" type="text" class="form-control add-comment" id="FormControlInput" placeholder="Comment...">
+                  <input v-model="comment" v-on:keyup.enter="sendComment" type="text" class="form-control add-comment" id="FormControlInput" placeholder="Comment...">
                 </div>
                 <div class="col-1 me-0 pe-0">
-                  <div @click="Submit" style="cursor:pointer;" class="save ms-2 row h-100 justify-content-center"><SendIcon class="align-self-center" size="2x"/></div>
+                  <div @click="sendComment" style="cursor:pointer;" class="save ms-2 row h-100 justify-content-center"><SendIcon class="align-self-center" size="2x"/></div>
                 </div>
               </div>
               <div class="view-comment row ms-0">
@@ -189,7 +189,7 @@
                 </div>
               </div>
             </div>
-            <div class="item4 container-fluid pt-2">
+            <div class="task-info container-fluid pt-2">
               <p class="mb-0"><AnchorIcon stroke=" #605BFF" class="me-2" size="1x"/><span class="h6 me-2">Phillip Stemann created this</span><span>Mar 8, 7:41 AM</span></p>
               <p><span class="me-4"></span><span class="h6 me-2">Phillip Stemann moved this youtube</span><span>Mar 8, 7:41 AM</span></p>
             </div>
@@ -344,7 +344,7 @@ export default {
         this.$refs.subtaskInput.focus()
       })
     },
-    async Submit(){
+    sendComment(){
       let _data={
         comment:this.comment,
         taskId:this.activeTask.id
