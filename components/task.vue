@@ -26,9 +26,12 @@ export default {
     }
   },
   methods: {
-    openTask() {
+    async openTask() {
       this.$store.commit("task/setActiveTask", this.task)
+      await this.$store.dispatch("task/getComments",this.task.id)
+      await this.$store.dispatch('task/getSubtasks',this.task.id)
     },
+
     createTask() {
       if(this.newTaskTitle == "")
         this.$store.commit("task/deleteNewTask")

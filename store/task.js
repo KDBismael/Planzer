@@ -2,7 +2,9 @@ export const state = () => ({
     tasks: [],
     tags: [],
     activeTag: 0,
-    activeTask: {}
+    activeTask: {},
+    comments:[],
+    subtasks:[]
 })
 
 export const mutations = {
@@ -37,6 +39,22 @@ export const mutations = {
     },
     setActiveTask(state, task) {
         state.activeTask = task
+    },
+    setComments(state,comment){
+        state.comments=comment
+    },
+    updateNewComment(state,comment){
+        state.comments=[
+            ...state.comments.unshift(comment)
+        ]
+    },
+    setSubtasks(state,subtask){
+        state.subtasks=subtask
+    },
+    updateNewSubtask(state,subtask){
+        state.subtasks=[
+            ...state.subtasks,subtask
+        ]
     },
 }
 
@@ -85,4 +103,36 @@ export const actions = {
             await commit('base/setError', exception, { root: true })
         }
     },
+    async getComments({ commit, dispatch },id){
+        try {
+            await this.$axios.get(`/task/comments?taskId=${id}`).then((res) => commit('setComments', res.data))
+        } catch (exception) {
+            console.error(exception)
+            await commit('base/setError', exception, { root: true })
+        }
+    },
+    async createComment({ commit, dispatch },data){
+        try {
+            await this.$axios.post('/task/comment',data).then((res) => commit('updateNewComment', res.data))
+        } catch (exception) {
+            console.error(exception)
+            await commit('base/setError', exception, { root: true })
+        }
+    },
+    async getSubtasks({commit,dispatch},id){
+        try {
+            await this.$axios.get(`/task/subtasks?taskId=${id}`).then((res) => commit('setSubtasks', res.data))
+        } catch (exception) {
+            console.error(exception)
+            await commit('base/setError', exception, { root: true })
+        }
+    },
+    async createSubtask({ commit, dispatch },data){
+        try {
+            await this.$axios.post('/task/subtask',data).then((res) => commit('updateNewSubtask', res.data))
+        } catch (exception) {
+            console.error(exception)
+            await commit('base/setError', exception, { root: true })
+        }
+    }
 }

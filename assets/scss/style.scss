@@ -491,11 +491,7 @@ ul {
     transition-duration: 200ms;
     cursor: pointer;
  }
- .user-active{
-    box-shadow: 0px 0px 0px 3px #4C79FF ;
-    border-radius:50%;
- }
- .union{
+ .user-settings-dropdown{
     width: 215px;
     background: #FFFFFF;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
@@ -537,6 +533,26 @@ ul {
     .circle{
         width: 40px;
         height: 40px;
+        cursor: pointer;
+    }
+    .top-btn{
+        transition: background-color 800ms ease;
+        &:first-child{
+            background-color: #605BFF;
+            &:hover{
+                background-color: #5852ff; 
+            }
+        }
+        &:nth-child(2),&:nth-child(3){
+            color:#605BFF;
+            &:hover{
+                background-color: #605BFF; 
+                color: white;
+            }
+        }
+        padding: 10px 15px;
+        border-radius: 10px;
+        border-color: #0d6dfd48;
     }
     .close{
         padding:0 !important;
@@ -556,7 +572,7 @@ ul {
         color: #030229;
         opacity: 0.6;
     }
-    .comment{
+    .add-comment,.subtask-enter{
         border: none;
         background: #F7F7F8;
         border-radius: 10px;
@@ -565,6 +581,7 @@ ul {
         opacity: 0.6;
     }
     .save,.user{
+        cursor: pointer;
         background: #F7F7F8;
         border-radius: 10px;
         width: 42px;
@@ -572,6 +589,7 @@ ul {
     .item1{
         .time{
             .h6{
+                margin-bottom: 0;
                 font-weight: 600;
                 font-size: 14px;
                 line-height: 19px;
@@ -579,17 +597,66 @@ ul {
                 color: #030229;
             }
         }
+        .subtask-content{
+            .subtask-check-mark{
+                .checkmark{
+                    top:8px;
+                    left: -8px;
+                    width: 17px;
+                    height: 17px;
+                }
+                .check-label{
+                    font-weight: 600;
+                    font-size: 15px;
+                    line-height: 20px;
+                    color: rgba(3, 2, 41,0.5);
+                }
+            }
+        }
+    }
+    .item3{
+        .view-comment{
+            .comment{
+                background: #FFFFFF;
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+                border-radius: 10px;
+                .name{
+                    font-weight: 600;
+                    font-size: 15px;
+                    line-height: 21px;
+                    letter-spacing: 0.106696px;
+                }
+                .circle-ms{
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 50%;
+                    background:rgba(96, 91, 255, 0.07);
+                    svg{
+                        width: 9px;
+                        height: auto;
+                        margin-top:-7px;
+                    }
+                }
+                .create-time{
+                    font-weight: 400;
+                    font-size: 11px;
+                    line-height: 21px;
+                    width: auto;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
     }
     .item4{
         p{
             .h6{
                 font-weight: 600;
-                font-size: 10px;
+                font-size: 12px;
                 line-height: 20px;
             }
             span:last-child{
                 font-weight: 400;
-                font-size: 10px;
+                font-size: 12px;
                 line-height: 20px;
                 color: #010D1C;
             }

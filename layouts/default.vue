@@ -13,7 +13,7 @@
             <hexagon-icon size="1x"></hexagon-icon>
           </a>
 
-          <ul class="dropdown-menu union" aria-labelledby="dropdownMenuLink">
+          <ul class="dropdown-menu user-settings-dropdown" aria-labelledby="dropdownMenuLink">
               <li><a class="dropdown-item" href="#"><UserIcon stroke="#4C79FF" class="me-2"/> Account settings</a></li>
               <li><a class="dropdown-item" href="#"><HomeIcon stroke="#4C79FF" class="me-2"/>Workspace settings</a></li>
               <li><a class="dropdown-item" href="#"><CreditCardIcon stroke="#4C79FF" class="me-2"/>Billing</a></li>
@@ -53,12 +53,6 @@
       UserPlusIcon,
       CalendarIcon,
       LogOutIcon,
-    },
-    data(){
-      return{
-        Open:false,
-        click:false,
-      }
     },
     methods: {
       async signOut() {
