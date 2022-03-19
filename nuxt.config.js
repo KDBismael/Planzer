@@ -60,6 +60,7 @@ export default {
                 clientId: '936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com',
                 codeChallengeMethod: '',
                 responseType: 'code',
+                accessType: 'offline',
                 redirectUri: 'http://localhost:3000',
                 endpoints: {
                     token: 'http://localhost:5000/google/token',

@@ -20,7 +20,7 @@
             <button class="button login" @click="login()">SIGN IN</button>
           </div>
 
-          <p class="register-text"><a href="#">Sign up</a> if you don't have an account</p>
+          <p class="register-text"><NuxtLink to="/register">Sign up</NuxtLink> if you don't have an account</p>
           <p class="or-hr"><span>OR</span></p>
 
           <div class="sign-in-other-options">
@@ -57,23 +57,21 @@ export default {
     // Send the code to the back-end, where the back-end checks if it's correct
     if(code) {
       this.signInProcessing = true
+      console.log(code)
+      this.$store.dispatch("user/signInWithGoogle", {
+        googleCode: code
+      })
     }
-    
 
-
-    google.accounts.id.initialize({
-      client_id: "936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com",
-      callback: (response) => {
-        console.log(response)
-        // Send the code to the back-end, where the back-end checks if it's correct
-        this.signInProcessing = true
-      }
-    });
-    google.accounts.id.renderButton(
-      document.getElementById("signInWithGoogle"),
-      { theme: "outline", size: "large" }
-    );
-    google.accounts.id.prompt();
+    // google.accounts.id.initialize({
+    //   client_id: "936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com",
+    //   callback: (response) => {
+    //     console.log(response)
+    //     // Send the code to the back-end, where the back-end checks if it's correct
+    //     this.signInProcessing = true
+    //   }
+    // });
+    // google.accounts.id.prompt();
   },
   methods: {
     async login() {
