@@ -1,5 +1,5 @@
 <template>
-  <div class="row" @active="console.log(12)">
+  <div class="row">
     <div class="col-9 task-row" id="task-row">
       <div v-for="(column, index) in columns" :key="index" class="task-column" :id="'task-column-' +column.date.getFullYear() + '-' +(column.date.getMonth() < 10 ? 0 : '')+(column.date.getMonth()+1) + '-' +column.date.getUTCDate()">
         <div class="day-contain">
@@ -119,9 +119,6 @@
                   </div>
                 </div>
               </div>
-              <div v-if="viewsubtaskInput" class="subtaskenter ms-2 row">
-                <input type="text" v-on:keyup.enter="createSubtask" v-model="subtasktitle" ref="subtaskInput" class="form-control w-50 subtask-enter" id="FormControlInput1" placeholder="">
-              </div>
               <div v-for="subtask in subtasks" :key="subtask.id" class="row mt-2 mb-2 subtask-content">
                 <div class="form-check col align-self-center">
                   <label class="ms-2 checkbox-container subtask-check-mark">
@@ -136,6 +133,9 @@
                     <div class="time col"><span class="row justify-content-end"><span style="margin-right: 17px;" class="w-100 row justify-content-end">--:--</span></span></div>
                   </div>
                 </div>
+              </div>
+              <div v-if="viewsubtaskInput" class="subtaskenter ms-2 row">
+                <input type="text" v-on:keyup.enter="createSubtask" v-model="subtasktitle" ref="subtaskInput" class="form-control w-50 subtask-enter" id="FormControlInput1" placeholder="">
               </div>
             </div>
             <div class="task-description">
