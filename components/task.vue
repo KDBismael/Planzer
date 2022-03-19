@@ -26,12 +26,13 @@ export default {
     }
   },
   methods: {
-    async openTask() {
+    openTask() {
       this.$store.commit("task/setActiveTask", this.task)
-      await this.$store.dispatch("task/getComments",this.task.id)
-      await this.$store.dispatch('task/getSubtasks',this.task.id)
+      this.$store.dispatch("task/getComments",this.task.id)
+      this.$store.dispatch('task/getSubtasks',this.task.id)
+      this.$store.dispatch('task/getActivity',this.task.id)
+      $nuxt.$emit('active')
     },
-
     createTask() {
       if(this.newTaskTitle == "")
         this.$store.commit("task/deleteNewTask")

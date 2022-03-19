@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row" @active="console.log(12)">
     <div class="col-9 task-row" id="task-row">
       <div v-for="(column, index) in columns" :key="index" class="task-column" :id="'task-column-' +column.date.getFullYear() + '-' +(column.date.getMonth() < 10 ? 0 : '')+(column.date.getMonth()+1) + '-' +column.date.getUTCDate()">
         <div class="day-contain">
@@ -98,17 +98,14 @@
                 </div>
               </div>
             </div>
-            <div v-if="viewsubtaskInput" class="subtaskenter ms-2 row">
-              <input type="text" v-on:keyup.enter="handleSubtask" v-model="subtasktitle" ref="subtaskInput" class="form-control mt-3 mb-3 w-50 subtask-enter" id="FormControlInput1" placeholder="subtask title">
-            </div>
           </div>
-          <div class="modal-body">{{ activeTask.description }}
+          <div @click="createDecription" class="modal-body">
             <div class="task-plan container-fluid pb-4">
               <div class="row">
                 <div class="form-check col align-self-center">
                   <label class="checkbox-container">
                     <span class="ps-4 check-label">{{ activeTask.title }}</span>
-                    <input type="checkbox" :checked="activeTask.status == 1" @change="upToDateTask($event)" />
+                    <input type="checkbox" :checked="activeTask.status == 1" @change="updateTask($event)" />
                     <span class="checkmark col"></span>
                   </label>
                 </div>
@@ -122,11 +119,14 @@
                   </div>
                 </div>
               </div>
+              <div v-if="viewsubtaskInput" class="subtaskenter ms-2 row">
+                <input type="text" v-on:keyup.enter="createSubtask" v-model="subtasktitle" ref="subtaskInput" class="form-control w-50 subtask-enter" id="FormControlInput1" placeholder="">
+              </div>
               <div v-for="subtask in subtasks" :key="subtask.id" class="row mt-2 mb-2 subtask-content">
                 <div class="form-check col align-self-center">
                   <label class="ms-2 checkbox-container subtask-check-mark">
                     <span class="ps-4 check-label">{{subtask.title}}</span>
-                    <input type="checkbox"/>
+                    <input type="checkbox" :checked="subtask.status== 1" @change="updateSubtask($event,subtask.id)" />
                     <span class="checkmark col"></span>
                   </label>
                 </div>
@@ -140,7 +140,7 @@
             </div>
             <div class="task-description">
               <div class="pb-3 container-fluid">
-                <textarea class="form-control description pt-3" id="FormControlTextarea1" rows="3" placeholder=" Description"></textarea>
+                <textarea ref="descriptionField" v-model="description" class="form-control description pt-3" id="FormControlTextarea1" rows="3" placeholder=" Description"></textarea>
               </div>
             </div>
             <div class="task-comment pb-2 container-fluid">
@@ -156,7 +156,7 @@
                 </div>
               </div>
               <div class="view-comment row ms-0">
-                <div v-for="comment in this.comments" :key="comment.id" class="comment mt-4 mb-4">
+                <div v-for="comment in this.comments" :key="comment.id" class="comment mt-2 mb-2">
                   <div class="row">
                     <div class="col pt-2">
                       <div class="row ms-3">
@@ -168,16 +168,16 @@
                       <div class="row">
                         <div class="col pe-0">
                           <div class="row justify-content-end">
-                            <div class="w-auto mt-2 pe-0">
+                            <div class="w-auto mt-2 pe-0 me-2">
                               <div class="circle-ms text-center">
                                 <Edit2Icon stroke="#605BFF"/>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 w-auto">
                           <div class="row justify-content-end">
-                            <p class="create-time"><span>6:04 PM</span>,<span>Mar 16th</span></p>
+                            <p class="create-time"><span>{{ formatHourAmPm(new Date(comment.timestamp))}}</span>,<span>{{weekday[new Date(comment.timestamp).getDay()]}} {{new Date(comment.timestamp).getDate()}}{{dateToth(new Date(comment.timestamp).getDate())}}</span></p>
                           </div>
                         </div>
                       </div>
@@ -190,8 +190,7 @@
               </div>
             </div>
             <div class="task-info container-fluid pt-2">
-              <p class="mb-0"><AnchorIcon stroke=" #605BFF" class="me-2" size="1x"/><span class="h6 me-2">Phillip Stemann created this</span><span>Mar 8, 7:41 AM</span></p>
-              <p><span class="me-4"></span><span class="h6 me-2">Phillip Stemann moved this youtube</span><span>Mar 8, 7:41 AM</span></p>
+              <p v-for="activity in activities" :key="activity.id"><span v-if="activities[0].id!==activity.id" class="me-4"></span><AnchorIcon v-if="activities[0].id===activity.id" stroke=" #605BFF" class="me-2" size="1x"/><span class="h6 me-2">{{activity.activity}}</span> <span>{{weekday[new Date(activity.timestamp).getDay()]}} {{new Date(activity.timestamp).getDate()}}{{dateToth(new Date(activity.timestamp).getDate())}}, {{ formatHourAmPm(new Date(activity.timestamp))}}</span></p>
             </div>
           </div>
         </div>
@@ -267,10 +266,20 @@ export default {
     },
     subtasks(){
       return this.$store.state.task.subtasks
-    }
+    },
+    activities(){
+      return this.$store.state.task.activities
+    },
+  },
+  watch:{
+    activeTask(){
+      this.setDescription()
+    },
   },
   data() {
     return {
+      descriptionIsfocus:false,
+      description:'',
       subtasktitle:'',
       viewsubtaskInput:false,
       comment:'',
@@ -316,8 +325,30 @@ export default {
     var taskIdToScroll = 'task-column-' +todaysDate.getFullYear() + '-' +(todaysDate.getMonth() < 10 ? 0 : '')+(todaysDate.getMonth()+1) + '-' +todaysDate.getUTCDate()
     document.getElementById("task-row").addEventListener("scroll", this.checkDates)
     document.getElementById("task-row").scrollLeft = document.getElementById(taskIdToScroll).offsetLeft
+    this.$nuxt.$on('active', () => {
+      this.description=this.activeTask.description
+    })
   },
   methods: {
+    dateToth(date){
+      if (date > 3 && date < 21) return 'th';
+      switch (date % 10) {
+        case 1:  return "st";
+        case 2:  return "nd";
+        case 3:  return "rd";
+        default: return "th";
+      }
+    },
+    formatHourAmPm(date) {
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      minutes = minutes < 10 ? '0'+minutes : minutes;
+      var time = hours + ':' + minutes + ' ' + ampm;
+      return time;
+    },
     outsideOfSubtask(){
       this.$nextTick(function(){
         if (this.$refs.subtaskInput!== document.activeElement) {
@@ -325,7 +356,23 @@ export default {
         }
       })
     },
-    async handleSubtask(){
+    createDecription(){
+     this.$nextTick(async function(){
+        if (this.$refs.descriptionField===document.activeElement) {
+          this.descriptionIsfocus=true
+        }
+        if(this.descriptionIsfocus && this.$refs.descriptionField!==document.activeElement){
+          var task = JSON.parse(JSON.stringify(this.activeTask))
+          task.description=this.description
+          await this.$store.dispatch("task/update",task)
+          this.$store.commit('task/updateActiveTask',task)
+        }
+      })
+    },
+    setDescription(){
+      this.description=this.activeTask.description
+    },
+    async createSubtask(){
       let _data={
         title: this.subtasktitle,
         taskId:this.activeTask.id
@@ -410,7 +457,7 @@ export default {
         })
       }
     },
-    upToDateTask(event) {
+    updateTask(event) {
       var task = JSON.parse(JSON.stringify(this.activeTask))
       if (event.target.checked){
         task.status=1
@@ -419,6 +466,16 @@ export default {
       }
       this.$store.dispatch("task/update",task)
     },
+    updateSubtask(event,id){
+      let _subtask=this.subtasks.filter((osubtask)=>osubtask.id===id)
+      let _data=JSON.parse(JSON.stringify(_subtask[0]))
+      if (event.target.checked){
+        _data.status=1
+      }else{
+        _data.status = 0
+      }
+      this.$store.dispatch('task/updateSubtask',_data)
+    }
   }
 }
 </script>

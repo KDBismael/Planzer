@@ -4,7 +4,8 @@ export const state = () => ({
     activeTag: 0,
     activeTask: {},
     comments:[],
-    subtasks:[]
+    subtasks:[],
+    activities:[],
 })
 
 export const mutations = {
@@ -56,6 +57,18 @@ export const mutations = {
             ...state.subtasks,subtask
         ]
     },
+    updateSubtask(state, subtask) {
+        state.subtasks = [
+            ...state.subtasks.filter(osubTask => osubTask.id !== subtask.id),
+            subtask
+        ]
+    },
+    setActivity(state,activity){
+        state.activities=activity
+    },
+    updateActiveTask(state,data){
+        state.activeTask=data
+    }
 }
 
 export const actions = {
@@ -134,5 +147,21 @@ export const actions = {
             console.error(exception)
             await commit('base/setError', exception, { root: true })
         }
-    }
+    },
+    async updateSubtask({commit,dispatch},subtask){
+        try {
+            await this.$axios.put('/task/subtask', subtask).then((res) => commit('updateSubtask', subtask))
+        } catch (exception) {
+            console.error(exception)
+            await commit('base/setError', exception, { root: true })
+        }
+    },
+    async getActivity({commit,dispatch},id){
+        try {
+            await this.$axios.get(`/task/activity?taskId=${id}`).then((res) => commit('setActivity', res.data))
+        } catch (exception) {
+            console.error(exception)
+            await commit('base/setError', exception, { root: true })
+        }
+    },
 }
