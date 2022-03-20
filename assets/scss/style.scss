@@ -574,12 +574,30 @@ ul {
                 color: #030229;
             }
         }
-        .subtask-enter{
-            border: none;
-            padding: 0.075rem 0.75rem;
-            &:focus{
-                outline: none;
-                box-shadow: none;
+        .subtaskenter{
+            .checkmark{
+                top:8px;
+                left: -8px;
+                width: 17px;
+                height: 17px;
+                &:after {
+                    left: 7px;
+                    bottom: 5px;
+                    width: 4.5px;
+                    height: 10px;
+                }
+            }
+            .subtask-input{
+                font-weight: 600;
+                font-size: 15px;
+                line-height: 20px;
+                color: rgba(3, 2, 41,0.5);
+                border: none;
+                padding: 0.075rem 0.75rem;
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
             }
         }
         .subtask-content{
