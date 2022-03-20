@@ -28,6 +28,10 @@ export default {
   methods: {
     openTask() {
       this.$store.commit("task/setActiveTask", this.task)
+      this.$store.dispatch("task/getComments",this.task.id)
+      this.$store.dispatch('task/getSubtasks',this.task.id)
+      this.$store.dispatch('task/getActivity',this.task.id)
+      $nuxt.$emit('active')
     },
     createTask() {
       if(this.newTaskTitle == "")

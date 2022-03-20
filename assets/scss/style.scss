@@ -519,3 +519,162 @@ ul {
         border-radius: 0px 0px 20px 20px;
     }
  }
+.task-modal{
+    .modal-content{
+        border-radius: 10px !important;
+    }
+    .modal-header{
+        border-bottom: none;
+    }
+    .circle{
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+    .task-options{
+        .close{
+            padding:0 !important;
+            margin:auto !important;
+        }
+    }
+    .task-top-btn{
+        transition: background-color 800ms ease;
+        &:first-child{
+            background-color: #605BFF;
+            &:hover{
+                background-color: #5852ff; 
+            }
+        }
+        &:nth-child(2),&:nth-child(3){
+            color:#605BFF;
+            &:hover{
+                background-color: #605BFF; 
+                color: white;
+            }
+        }
+        padding: 10px 15px;
+        border-radius: 10px;
+        border-color: #0d6dfd48;
+    }
+    .task-plan{
+        p{
+            margin-bottom: 0;
+        }
+        .time{
+            .h6{
+                margin-bottom: 0;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 19px;
+                text-transform: uppercase;
+                color: #030229;
+            }
+        }
+        .subtask-enter{
+            border: none;
+            padding: 0.075rem 0.75rem;
+            &:focus{
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        .subtask-content{
+            .subtask-check-mark{
+                .checkmark{
+                    top:8px;
+                    left: -8px;
+                    width: 17px;
+                    height: 17px;
+                    &:after {
+                        left: 7px;
+                        bottom: 5px;
+                        width: 4.5px;
+                        height: 10px;
+                    }
+                }
+                .check-label{
+                    font-weight: 600;
+                    font-size: 15px;
+                    line-height: 20px;
+                    color: rgba(3, 2, 41,0.5);
+                }
+            }
+        }
+    }
+    .task-description{
+        .description{
+            border: none;
+            height: 149px;
+            background: #F7F7F8;
+            border-radius: 10px;
+            resize: none;
+            color: #030229;
+            opacity: 0.6;
+        }
+    }
+    .task-comment{
+        .save,.user{
+            cursor: pointer;
+            background: #F7F7F8;
+            border-radius: 10px;
+            width: 42px;
+        }
+        .add-comment{
+            border: none;
+            background: #F7F7F8;
+            border-radius: 10px;
+            height: 42px;
+            color: #030229;
+            opacity: 0.6;
+        }
+        .view-comment{
+            .comment{
+                &:first-child{
+                    margin-top: 2rem !important;
+                }
+                background: #FFFFFF;
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+                border-radius: 10px;
+                .name{
+                    font-weight: 600;
+                    font-size: 15px;
+                    line-height: 21px;
+                    letter-spacing: 0.106696px;
+                }
+                .circle-ms{
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 50%;
+                    background:rgba(96, 91, 255, 0.07);
+                    svg{
+                        width: 9px;
+                        height: auto;
+                        margin-top:-7px;
+                    }
+                }
+                .create-time{
+                    font-weight: 400;
+                    font-size: 11px;
+                    line-height: 21px;
+                    width: auto;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+    }
+    .task-info{
+        p{
+            .h6{
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 20px;
+            }
+            span:last-child{
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 20px;
+                color: #010D1C;
+            }
+        }
+    }
+}
