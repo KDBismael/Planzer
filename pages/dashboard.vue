@@ -134,8 +134,12 @@
                   </div>
                 </div>
               </div>
-              <div v-if="viewsubtaskInput" class="subtaskenter ms-2 row">
-                <input type="text" v-on:keyup.enter="createSubtask" v-model="subtasktitle" ref="subtaskInput" class="form-control w-50 subtask-enter" id="FormControlInput1" placeholder="">
+              <div v-if="viewsubtaskInput" class="subtaskenter ms-2 ps-1 row">
+                <label class="ms-2 checkbox-container subtask-check-mark col-1 w-auto pe-0">
+                  <input type="checkbox" />
+                  <span class="checkmark col"></span>
+                </label>
+                <input type="text" v-on:keyup.enter="createSubtask" v-model="subtasktitle" ref="subtaskInput" class="form-control w-50 subtask-input ps-0" id="FormControlInput1" placeholder="">
               </div>
             </div>
             <div class="task-description">
