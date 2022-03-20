@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid" id="signInDisplay">
     <div class="row">
       <div class="col-7">
         <div class="sign-in-box">
@@ -20,12 +20,12 @@
             <button class="button login" @click="login()">SIGN IN</button>
           </div>
 
-          <p class="register-text"><a href="#">Sign up</a> if you don't have an account</p>
+          <p class="register-text"><NuxtLink to="/register">Sign up</NuxtLink> if you don't have an account</p>
           <p class="or-hr"><span>OR</span></p>
 
           <div class="sign-in-other-options">
-            <img id="signInWithGoogle" class="social-sign-in" src="/images/google.png" />
-            <img class="social-sign-in" src="/images/outlook.png" />
+            <img @click="signInWithGoogle()" id="signInWithGoogle" class="social-sign-in" src="/images/google.png" />
+            <img @click="signInWithOutlook()" class="social-sign-in" src="/images/outlook.png" />
           </div>
         </div>
       </div>
@@ -51,17 +51,27 @@ export default {
   },
   layout: "not-signed-in",
   beforeMount() {
-    google.accounts.id.initialize({
-      client_id: "936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com",
-      callback: (response) => {
-        console.log(response)
-      }
-    });
-    google.accounts.id.renderButton(
-      document.getElementById("signInWithGoogle"),
-      { theme: "outline", size: "large" }
-    );
-    google.accounts.id.prompt();
+    // Check if Google code is in URL
+    const urlParams = new URLSearchParams(window.location.search)
+    const code = urlParams.get('code')
+    // Send the code to the back-end, where the back-end checks if it's correct
+    if(code) {
+      this.signInProcessing = true
+      console.log(code)
+      this.$store.dispatch("user/signInWithGoogle", {
+        googleCode: code
+      })
+    }
+
+    // google.accounts.id.initialize({
+    //   client_id: "936507046323-m9i9j561cfrrit8to7vus5ljilfbc518.apps.googleusercontent.com",
+    //   callback: (response) => {
+    //     console.log(response)
+    //     // Send the code to the back-end, where the back-end checks if it's correct
+    //     this.signInProcessing = true
+    //   }
+    // });
+    // google.accounts.id.prompt();
   },
   methods: {
     async login() {
@@ -87,6 +97,15 @@ export default {
         })
       }
       this.signInProcessing = false
+    },
+    signInWithGoogle() {
+      this.$auth.loginWith('google', { params: {
+        scope: 'profile email'
+      }
+      })
+    },
+    signInWithOutlook() {
+      this.$auth.loginWith('outlook')
     }
   }
 }
