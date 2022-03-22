@@ -309,6 +309,8 @@ export default {
     document.getElementById("task-row").removeEventListener("scroll", this.checkDates)
   },
   async beforeMount() {
+    console.log(this.$auth.strategy.token.get())
+    console.log(this.$auth.user)
     this.startDate.setDate(this.startDate.getUTCDate() - 7)
     this.endDate.setDate(this.endDate.getUTCDate() + 7)
     for (var d = this.startDate; d <= this.endDate; d.setDate(d.getUTCDate() + 1)) {
