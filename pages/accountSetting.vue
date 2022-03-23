@@ -352,11 +352,6 @@
                     </div>
                 </div>
                 <div class="profil setting-card mt-4 p-3">
-                    <!-- <div class="blur">
-                        <div class="color1"></div>
-                        <div class="color2"></div>
-                        <div class="color3"></div>
-                    </div> -->
                     <div class="title">
                         <h1>Profile</h1>
                     </div>
