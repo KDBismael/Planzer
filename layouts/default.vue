@@ -14,7 +14,7 @@
           </a>
 
           <ul class="dropdown-menu user-settings-dropdown" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="#"><UserIcon size="1.5x" stroke="#4C79FF" class="me-2"/> Account settings</a></li>
+              <li><nuxt-link to="/accountSetting" class="dropdown-item" href="#"><UserIcon size="1.5x" stroke="#4C79FF" class="me-2"/> Account settings</nuxt-link></li>
               <li><a class="dropdown-item" href="#"><HomeIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Workspace settings</a></li>
               <li><a class="dropdown-item" href="#"><CreditCardIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Billing</a></li>
               <li><a class="dropdown-item" href="#"><UserPlusIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Invite team member</a></li>

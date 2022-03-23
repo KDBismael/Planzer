@@ -28,4 +28,12 @@ export const state = () => ({
         await commit('base/setError', exception, {root: true})
       }
     },
+    async updateAccountSetting({commit,dispatch},data){
+      try {
+        await this.$axios.put('/user',data).then((res) => commit('setGoogleResponse',data))
+      } catch (exception) {
+        console.error(exception)
+        await commit('base/setError', exception, {root: true})
+      }
+    }
   }
