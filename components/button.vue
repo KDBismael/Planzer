@@ -12,6 +12,51 @@
 
 <script>
 export default {
+  name:'Button',
   props: ["loading", "text", "buttonClass", "icon"]
 };
 </script>
+<style lang="scss" scoped>
+  .Overview{
+    border: none;
+    outline: none;
+    width: 73px;
+    height: 28px;
+    background-color: rgba(96, 91, 255, 0.1);
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #605BFF;
+  }
+  .Add,.Manage{
+    border: none;
+    outline: none;
+    width: auto;
+    padding: 0 0.8rem;
+    height: 28px;
+    background: #5078FC;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: right;
+    color: #FFFFFF;
+  }
+  .Delete{
+    border: none;
+    outline: none;
+    width: 56px;
+    height: 28px;
+    background-color: rgba(236, 72, 92, 0.1);
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: right;
+    color: #EC485C;
+  }
+  .Disable{
+    display: none;
+  }
+</style>

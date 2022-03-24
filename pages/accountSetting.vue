@@ -2,7 +2,7 @@
   <div class="row">
       <div class="col accountSetting">
           <div class="row justify-content-center pb-3">
-            <h1 @click="get()" class="w-auto account-title">Account Settings</h1>  
+            <h1 class="w-auto account-title">Account Settings</h1>  
           </div>
           <setting-navigation whereIs="accountSetting"></setting-navigation>
           <div class="row justify-content-center">
@@ -20,7 +20,7 @@
                         <account-setting-dropbox 
                         title="Time zone" 
                         paragraph="What’s your time zone."
-                        :inputData="selectData.timeZone"
+                        :inputData="selectData.timezone"
                         ></account-setting-dropbox>
                     </div>
                     <div class="time-zone-alert pt-2 pb-2">
@@ -429,8 +429,8 @@ export default {
             nameF:'',
             nameS:'',
             selectData:{
-                timeZone:{
-                    id:'timeZone',
+                timezone:{
+                    id:'timezone',
                     data:{
                         time1:'(GMT +01:00) Europe/Coperhegen',
                         time2:'(GMT +02:00) Europe/Coperhegen',
@@ -515,7 +515,7 @@ export default {
                 },
             },
             receivedData:{
-                timeZone:'',
+                timezone:'',
                 startOfWeek:'',
                 taskRolloverPosition:'',
                 workLoad:'',
@@ -743,6 +743,7 @@ export default {
         border-radius: 10px;
     }
     .account-title{
+        margin-left: 4rem;
         font-weight: 600;
         font-size: 28px;
         line-height: 28px;

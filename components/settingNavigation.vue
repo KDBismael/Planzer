@@ -7,7 +7,7 @@
         <div class="color4"></div>
     </div>
     <li :class="whereIs=='accountSetting'? 'active': ''"><nuxt-link to="/accountSetting" class="dropdown-item pb-3" href="#"><UserIcon size="1.5x" stroke="#4C79FF" class="me-2"/> Account settings</nuxt-link></li>
-    <li><a class="dropdown-item pb-3" href="#"><HomeIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Workspace settings</a></li>
+    <li :class="whereIs=='workspaceSetting'? 'active': ''"><a class="dropdown-item pb-3" href="#"><HomeIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Workspace settings</a></li>
     <li><a class="dropdown-item pb-3" href="#"><CreditCardIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Billings</a></li>
     <li><a class="dropdown-item pb-3" href="#"><UserPlusIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Invite team member</a></li>
     <li class="divider"><a class="dropdown-item pb-3" href="#"><CalendarIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Calendar settings</a></li>
