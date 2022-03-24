@@ -520,6 +520,9 @@ ul {
     }
  }
 .task-modal{
+    .modal-title {
+        margin-top: 8px;
+    }
     .modal-content{
         border-radius: 10px !important;
     }
@@ -570,8 +573,8 @@ ul {
                 color: #030229;
             }
         }
-        .subtaskenter{
-            .checkmark{
+        .subtaskenter {
+            .checkmark {
                 top:8px;
                 left: -8px;
                 width: 17px;
@@ -583,14 +586,14 @@ ul {
                     height: 10px;
                 }
             }
-            .subtask-input{
+            .subtask-input {
                 font-weight: 600;
                 font-size: 15px;
                 line-height: 20px;
                 color: rgba(3, 2, 41,0.5);
                 border: none;
                 padding: 0.075rem 0.75rem;
-                &:focus{
+                &:focus {
                     outline: none;
                     box-shadow: none;
                 }
