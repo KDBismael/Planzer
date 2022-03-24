@@ -30,6 +30,7 @@ export const state = () => ({
     },
     async updateAccountSetting({commit,dispatch},data){
       try {
+        console.log(data)
         await this.$axios.put('/user',data).then((res) => console.log(res))
       } catch (exception) {
         console.error(exception)

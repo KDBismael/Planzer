@@ -360,8 +360,8 @@
                             <div class="profil-form">
                                 <h1 class="pt-3">Name</h1>
                                 <div class="row">
-                                    <input v-model="nameF" @change="getFirstName" class="col ms-2 me-2" type="text" placeholder="First name">
-                                    <input v-model="nameS" @change="getSecondName" class="col" type="text" placeholder="Second name">
+                                    <input v-model.lazy="firstName" @change="getFirstName" class="col ms-2 me-2" type="text" placeholder="First name">
+                                    <input v-model.lazy="secondName" @change="getSecondName" class="col" type="text" placeholder="Second name">
                                 </div>
                             </div>
                             <div class="profil-btn mt-3">
@@ -424,10 +424,26 @@ export default {
         accountSettingSwitchCheckbox,
         settingNavigation,
     },
+    computed:{
+        // getFullName(){
+        //     return `${this.firstName} ${this.secondName}`
+        // }
+    },
+    watch:{
+        async fullName(){
+            if(this.fullName!='' && this.fullName==`${this.firstName} ${this.secondName}`){
+                let data={name:this.fullName}
+                console.log(data)
+                await this.$store.dispatch('user/updateAccountSetting',data)
+                this.fullName=''
+            }
+        }
+    },
     data(){
         return{
-            nameF:'',
-            nameS:'',
+            firstName:'',
+            secondName:'',
+            fullName:'',
             selectData:{
                 timezone:{
                     id:'timezone',
@@ -520,8 +536,8 @@ export default {
                 taskRolloverPosition:'',
                 workLoad:'',
                 calendarColor:'',
-                firstName:'',
-                secondName:'',
+                // firstName:'',
+                // secondName:'',
             }
         }
     },
@@ -532,12 +548,18 @@ export default {
     },
     methods:{
         getFirstName(){
-            this.receivedData.firstName=this.nameF
-            console.log(this.receivedData.firstName)
+            if(this.firstName!=''){
+                this.fullName= this.firstName
+            }
+            // this.receivedData.firstName=this.firstName
+            // console.log(this.fullName)
         },
         getSecondName(){
-            this.receivedData.secondName=this.nameS
-            console.log(this.receivedData.secondName)
+            if(this.secondName!=''){
+                this.fullName=`${this.firstName} ${this.secondName}`
+            }
+            // this.receivedData.secondName=this.secondName
+            // console.log(this.fullName)
         },
         getSelectedOption(e){
             Object.values(this.selectData).forEach((item)=>{
