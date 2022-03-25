@@ -1,5 +1,5 @@
 <template>
-  <div class="workspaceCard p-3">
+  <div class="setting-card p-3">
     <div class="row p-0 m-0">
       <div class="title">
         <h1>{{title}}</h1>
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .workspaceCard{
+    .setting-card{
       background-color: #F7F7F7;
       border: 1px solid #F6EDEE;
       box-sizing: border-box;
@@ -34,8 +34,8 @@ export default {
           font-size: 18px;
           line-height: 25px;
           color: #030229;
-          padding-top: 20px;
-          padding-bottom: 11px;
+          padding-top: 5px;
+          padding-bottom: 6px;
         }
       }
     }

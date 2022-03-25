@@ -11,7 +11,7 @@
       </div>
       <div class="col-3 w-auto">
           <div class="row h-100 align-items-center">
-              <div class="col">
+              <div class="col pe-0">
                   <Button :buttonClass='btn.btn1' :text="btn.btn1" ></Button>
               </div>
               <div class="col">

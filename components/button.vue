@@ -46,6 +46,7 @@ export default {
   .Delete{
     border: none;
     outline: none;
+    padding-right: 0.56rem;
     width: 56px;
     height: 28px;
     background-color: rgba(236, 72, 92, 0.1);
@@ -58,5 +59,38 @@ export default {
   }
   .Disable{
     display: none;
+  }
+  .teammate,.adjust-workspace,.copy-email,.rename-workspace-btn{
+    border: none;
+    outline: none;
+    background: #4C79FF;
+    border-radius: 22.5px;
+    width: auto;
+    padding: 0.3rem 0.4rem;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+  }
+  .show-example{
+    border: none;
+    outline: none;
+    background: #FFFFFF;
+    border-radius: 22.5px;
+    padding: 0.3rem 0.4rem;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #5078FB;
+  }
+  .delete-workspace-btn{
+    border: none;
+    outline: none;
+    background: #EC485C;
+    border-radius: 22.5px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
   }
 </style>
