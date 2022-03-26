@@ -10,7 +10,7 @@
     <li :class="whereIs=='workspaceSetting'? 'active': ''"><a class="dropdown-item pb-3" href="#"><HomeIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Workspace settings</a></li>
     <li><a class="dropdown-item pb-3" href="#"><CreditCardIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Billings</a></li>
     <li><a class="dropdown-item pb-3" href="#"><UserPlusIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Invite team member</a></li>
-    <li class="divider"><a class="dropdown-item pb-3" href="#"><CalendarIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Calendar settings</a></li>
+    <li :class="whereIs=='calendarSetting'? 'active': ''" class="divider"><nuxt-link to="/calendarSetting" class="dropdown-item pb-3" href="#"><CalendarIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Calendar settings</nuxt-link></li>
 </div>
 </template>
 
