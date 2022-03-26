@@ -35,12 +35,12 @@ export default {
     methods:{
         getData(e){
             const _data=e.target.value
-                let id=this.inputData.id
+            let id=this.inputData.id
             let toSend={
                 [id]:_data
             }
-            // this.$store.dispatch('user/updateAccountSetting',toSend)
-            this.$axios.get('/user').then((res)=>console.log(res))
+            this.$store.dispatch('user/updateAccountSetting',toSend)
+            // this.$axios.get('/user').then((res)=>console.log(res))
             // $nuxt.$emit('dataSelected',toSend)
         }
     }

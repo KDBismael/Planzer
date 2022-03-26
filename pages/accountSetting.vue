@@ -424,19 +424,18 @@ export default {
         accountSettingSwitchCheckbox,
         settingNavigation,
     },
-    computed:{
-        // getFullName(){
-        //     return `${this.firstName} ${this.secondName}`
-        // }
-    },
     watch:{
         async fullName(){
-            if(this.fullName!='' && this.fullName==`${this.firstName} ${this.secondName}`){
+            if(this.fullName!=''){
                 let data={name:this.fullName}
-                console.log(data)
                 await this.$store.dispatch('user/updateAccountSetting',data)
-                this.fullName=''
+                if(this.fullName==`${this.firstName} ${this.secondName}`){
+                    this.firstName=''
+                    this.secondName=''
+                    this.fullName=''
+                }
             }
+            
         }
     },
     data(){
@@ -551,15 +550,11 @@ export default {
             if(this.firstName!=''){
                 this.fullName= this.firstName
             }
-            // this.receivedData.firstName=this.firstName
-            // console.log(this.fullName)
         },
         getSecondName(){
             if(this.secondName!=''){
                 this.fullName=`${this.firstName} ${this.secondName}`
             }
-            // this.receivedData.secondName=this.secondName
-            // console.log(this.fullName)
         },
         getSelectedOption(e){
             Object.values(this.selectData).forEach((item)=>{

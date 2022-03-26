@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="workspace-setting">
+        <div class="workspace-setting ps-0">
                 <div class="workspace-setting-container p-0">
                     <div class=" row justify-content-center w-100 title">
                         <h1 class="w-auto mb-0 pb-4">workspace Setting</h1>
