@@ -1,5 +1,5 @@
 <template>
-  <div class="account-setting-switchbox pt-1 pb-1 row">
+  <div class="account-settings-switchbox pt-1 pb-1 row">
       <div class="col">
           <div class="row align-items-center h-100">
             <div class="text">
