@@ -21,7 +21,6 @@
 
 <script>
 export default {
-    name:'accountSettingDropbox',
     props:{
         title:String,
         paragraph:String,

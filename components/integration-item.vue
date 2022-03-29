@@ -25,7 +25,6 @@
 <script>
 import Button from '../components/button.vue'
 export default {
-    name:'itegrationsItem',
     props:{
         img:String,
         title:String,

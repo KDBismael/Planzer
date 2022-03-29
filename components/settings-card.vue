@@ -13,7 +13,6 @@
 
 <script>
 export default {
-  name:'settingCard',
   props:{
     title:String
   },

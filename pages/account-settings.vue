@@ -423,7 +423,6 @@ import settingNavigation from '../components/settings-navigation.vue'
 import accountSettingDropbox from '../components/account-settings-dropbox.vue'
 import accountSettingSwitchCheckbox from '../components/account-settings-switch-checkbox.vue'
 export default {
-    name:'accountSetting',
     components:{
         accountSettingDropbox,
         accountSettingSwitchCheckbox,
