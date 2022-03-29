@@ -30,44 +30,4 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-    .privacy-check-item{
-        .text{
-            h1{
-                font-weight: 300;
-                font-size: 12px;
-                line-height: 16px;
-                color: #030229;
-            }
-        }
-        .check{
-            .checkmark{
-                width: 16px;
-                height: 16px;
-                background-color: #FFFFFF;
-                border: 1px solid #CECECE;
-                border-radius: 30px;
-                &::after{
-                    left: 5px;
-                    bottom: 4px;
-                    width: 5px;
-                    height: 9px;
-                    border: solid #FFFFFF;
-                    border-width: 0 2px 2px 0;
-                }
-            }
-            input[type=checkbox] {
-                pointer-events: none;
-            }
-            input:checked ~ .checkmark {
-                background-color: #665BF8;
-                border: 1px solid #665BF8;
-            }
-            .privacy-check-mark-1{
-                margin-left: -10px;
-            }
-            .privacy-check-mark-2{
-                margin-left: 115px;
-            }
-        }
-    }
 </style>

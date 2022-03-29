@@ -32,21 +32,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .workspace-card-top-btn{
-        background: #F7F7F7;
-        border-radius: 10px;
-        padding: 1rem;
-        .top{
-            border-bottom: 1px solid rgba(3, 2, 41,0.05);
-            margin-bottom: 5px;
-            .title{
-                h1{
-                    font-weight: 700;
-                    font-size: 18px;
-                    line-height: 25px;
-                    color: #030229;
-                }
-            }
-        }
-    }
 </style>

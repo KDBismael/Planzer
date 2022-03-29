@@ -2,7 +2,7 @@
     <div class="row">
         <div class="workspace-settings">
                 <div class="workspace-settings-container p-0">
-                    <div class=" row justify-content-center w-100 title">
+                    <div class=" row justify-content-center w-100 main-title">
                         <h1 class="w-auto mb-0 pb-4">workspace Setting</h1>
                     </div>
                     <setting-navigation whereIs="workspace-settings"></setting-navigation>
@@ -16,6 +16,7 @@
                                     :paragraph="content.paragraph"
                                     :img="content.img"
                                     :btn="content.btn"
+                                    :classe="content.classe"
                                 ></integration-item>
                             </setting-card>
                             <workspace-card-top-btn class="mb-3" :btn="membersData.btn" :title="membersData.title">
@@ -65,7 +66,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col mt-3">
-                                        <Button buttonClass='adjust-workspace' text="Adjust workspace privacy"></Button>
+                                        <Button buttonClass='adjust-workspace-btn' text="Adjust workspace privacy"></Button>
                                     </div>
                                 </div>
                             </div>
@@ -85,10 +86,10 @@
                                         <div class="email-btn col">
                                             <div class="row h-100 align-items-center justify-content-end">
                                                 <div class="col-3 w-auto pe-0">
-                                                    <Button text='Copy email address' buttonClass='copy-email'></Button>
+                                                    <Button text='Copy email address' buttonClass='copy-email-btn'></Button>
                                                 </div>
                                                 <div class="col-3 w-auto">
-                                                    <Button text='Show example' buttonClass='show-example'></Button>
+                                                    <Button text='Show example' buttonClass='show-example-btn'></Button>
                                                 </div>
                                             </div>
                                         </div>
@@ -122,6 +123,7 @@
 
 <script>
 import integrationItem from '../components/integration-item.vue'
+import accountSettingSwitchCheckbox from '../components/account-settings-switch-checkbox.vue'
 import settingNavigation from '../components/settings-navigation.vue'
 import settingCard from '../components/settings-card.vue'
 import privacyCheckItem from '../components/privacy-check-item.vue'
@@ -133,64 +135,65 @@ export default {
         integrationItem,
         workspaceCardTopBtn,
         privacyCheckItem,
+        accountSettingSwitchCheckbox,
     },
     data(){
         return{
             integrationItemData:{
                 integrationItem1:{
                     btn:{btn1:'Overview',btn2:'Manage'},
+                    classe:{btn1:'overview-btn',btn2:'manage-btn'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem2:{
                     btn:{btn1:'Overview',btn2:'Delete'},
+                    classe:{btn1:'overview-btn',btn2:'delete-btn'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem3:{
                     btn:{btn1:'Overview',btn2:'Add'},
+                    classe:{btn1:'overview-btn',btn2:'add-btn'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem4:{
                     btn:{btn1:'Disable',btn2:'Add'},
+                    classe:{btn1:'disable-btn',btn2:'add-btn'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem5:{
                     btn:{btn1:'Overview',btn2:'Manage'},
+                    classe:{btn1:'overview-btn',btn2:'manage-btn'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem6:{
                     btn:{btn1:'Overview',btn2:'Delete'},
+                    classe:{btn1:'overview-btn',btn2:'delete-btn'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem7:{
                     btn:{btn1:'Overview',btn2:'Add'},
+                    classe:{btn1:'overview-btn',btn2:'add-btn'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem8:{
                     btn:{btn1:'Disable',btn2:'Add'},
+                    classe:{btn1:'disable-btn',btn2:'add-btn'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
             },
             membersData:{
                 title:'Members',
                 btn:{
                     title:'Invite teammate',
-                    class:'teammate'
+                    class:'teammate-btn'
                 }
             },
             privacyData:{
@@ -235,133 +238,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .workspace-settings{
-        .workspace-settings-container{
-            position: relative;
-            .title{
-                h1{
-                    margin-left: 6rem;
-                    font-weight: 600;
-                    font-size: 28px;
-                    line-height: 28px;
-                    color: #000000;
-                }
-            }
-        }
-        .content{
-            margin-left: 6rem;
-            width: 60%;
-            max-width: 660px;
-            height: 80vh;
-            overflow-y: scroll;
-            &::-webkit-scrollbar {
-                display: none;
-                width: 0;
-            }
-            -ms-overflow-style: none; /* IE 11 */
-            scrollbar-width: none; /* Firefox 64 */
-        }
-    }
-    .privacy{
-        background: #F7F7F7;
-        border: 1px solid #F6EDEE;
-        border-radius: 10px;
-        .privacy-title{
-            h1{
-                font-weight: 700;
-                font-size: 17px;
-                line-height: 23px;
-                color: #030229;
-            }
-        }
-        .privacy-options{
-            span{
-                font-weight: 700;
-                font-size: 12px;
-                line-height: 16px;
-                color: #030229;
-            }
-        }
-        .workspace-in-privacy{
-            border-top: 1px solid rgba(3, 2, 41,0.09);
-            p{
-                font-weight: 300;
-                font-size: 12px;
-                line-height: 16px;
-                color: rgba(3, 2, 41, 0.7);
-            }
-        }
-    }
-    .email-forwarding{
-        background: #F7F7F7;
-        border-radius: 10px;
-        .email{
-            border-bottom: 1px solid rgba(3, 2, 41, 0.09);
-            .text{
-                h1{
-                    font-weight: 700;
-                    font-size: 18px;
-                    line-height: 25px;
-                    color: #030229;
-                }
-            }
-        }
-        .email-description{
-            p{
-                font-weight: 400;
-                font-size: 12px;
-                line-height: 208.4%;
-                color: #030229;
-                span{
-                    color: #4C79FF;
-                    cursor: pointer;
-                }
-            }
-        }
-        .share{
-            border-top: 1px solid rgba(3, 2, 41,0.09);
-            p{
-                font-weight: 300;
-                font-size: 12px;
-                line-height: 16px;
-                color: rgba(3, 2, 41, 0.5);
-            }
-        }
-    }
-    .name{
-        background-color:rgb(255, 255, 255,0.8);
-        border-radius: 10px;
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 16px;
-        color: #030229;
-        padding: 0.5rem;
-        cursor: pointer;
-    }
-    .owner{
-        background: rgba(37, 156, 255, 0.2);
-        border-radius: 10px;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 16px;
-        color: #259CFF;
-        padding: 0.5rem;
-        cursor: pointer;
-    }
-    .rename-workspace{
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 181%;
-        color: rgba(3, 2, 41, 0.7);
-    }
-    .delete-workspace{
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 181%;
-        color: rgba(3, 2, 41, 0.7);
-        span{
-            color: #5078FC;
-            cursor: pointer;
-        }
-    }
 </style>
