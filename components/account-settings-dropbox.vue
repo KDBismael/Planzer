@@ -32,7 +32,7 @@ export default {
         }
     },
     methods:{
-        updateSetting(e){
+        updateSettings(e){
             const _sectedValue=e.target.value
             let id=this.inputData.id
             let dataToSend={
