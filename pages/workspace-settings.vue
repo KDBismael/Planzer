@@ -57,7 +57,7 @@
                                 <div class="mt-2 workspace-in-privacy">
                                     <p class="pt-3">Your workspace in privacy. None of your data will be shared with other people in the workspace.</p>
                                 </div>
-                                <div class="row disable-link">
+                                <div class="row disable-link gx-0">
                                     <account-setting-switch-checkbox 
                                     paragraph="Do not allow users to join via URL, they must be explicity invited by email." 
                                     title="Disable link invites"
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <setting-card class="mb-3" title="Customizations">
+                            <setting-card class="mb-3 customizations" title="Customizations">
                                 <account-setting-switch-checkbox 
                                     paragraph="Enable your task notes to be fully collaborative (a la Google Docs). Adds extra load time when editing task notes." 
                                     title="Real-time collaborative task notes"
