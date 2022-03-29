@@ -745,11 +745,14 @@ ul {
     }
 }
 .account-settings{
+    position: relative;
     .content{
-        margin-left: 4rem;
+        margin-left: 8rem;
         width:60%;
         max-width: 630px;
-        height: 80vh;
+        height: 88vh;
+    }
+    .account-settings-container{
         overflow-y: scroll;
         &::-webkit-scrollbar {
             display: none;
@@ -805,7 +808,7 @@ ul {
     .profil-btn{
         button{
             border-radius: 10px;
-            height: 32px;
+            padding: 6px 12px;
             font-weight: 600;
             font-size: 12px;
             line-height: 16px;
@@ -836,9 +839,15 @@ ul {
                 line-height: 16px;
             }
         }
+        p{
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            color: rgba(3, 2, 41, 0.8);
+        }
     }
     .task-you-follow{
-        font-weight: 400;
+        font-weight: 300;
         font-size: 12px;
         line-height: 16px;
         .check{
@@ -865,7 +874,7 @@ ul {
     .plan-time{
         .time{
             width: 180px;
-            padding: 6px 0px 6px 17px;
+            padding: 6px 12px 6px 12px;
             background-color:rgba(96, 91, 255, 0.2);
             border-radius: 10px;
             font-weight: 400;
@@ -875,26 +884,27 @@ ul {
         }
         .plan{
             width: 104px;
-            padding: 6px 17px 6px 17px;
+            padding: 6px 12px 6px 12px;
             border-radius: 10px;
             background-color:rgba(96, 91, 255,0.2);
         }
     }
     .settings-card{
         position: relative;
+        padding: 35px;
         background: #F7F7F7;
         border: 1px solid #F6EDEE;
         border-radius: 10px;
     }
     .account-title{
-        margin-left: 4rem;
         font-weight: 600;
         font-size: 28px;
         line-height: 28px;
         color: #000000;
     }
     .title{
-        padding-top: 5px;
+        padding-bottom: 11px;
+        margin-bottom: 15px;
         border-bottom: 1px solid rgba(3, 2, 41,0.07);
         h1{
             font-weight: 700;
@@ -905,13 +915,13 @@ ul {
     }
     .text{
         h1{
-            font-weight: 780;
+            font-weight: 700;
             font-size: 17px;
             line-height: 23px;
             color: #030229;
         }
         p{
-            font-weight: 400;
+            font-weight: 300;
             font-size: 12px;
             line-height: 16px;
             color: rgba(3, 2, 41, 0.8);
@@ -934,19 +944,8 @@ ul {
     }
 }
 .account-settings-select{
-    .text{
-        h1{
-            font-weight: 780;
-            font-size: 17px;
-            line-height: 23px;
-            color: #030229;
-        }
-        p{
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 16px;
-            color: rgba(3, 2, 41, 0.8);
-        }
+    .select-text{
+        width: 90%;
     }
     .select-field{
         position: relative;
@@ -954,6 +953,7 @@ ul {
             content: '';
             position: absolute;
             right: 10px;
+            top: 60%;
             width:0;
             height:0;
             border-left:5px solid transparent;
@@ -970,7 +970,8 @@ ul {
         outline: none;
         border-radius: 10px;
         background-color: rgba(96, 91, 255, 0.1);
-        padding: 6px 10px;
+        padding:6px 24px 6px 10px;
+        // margin-right: 30px;
         font-weight: 400;
         font-size: 12px;
         line-height: 16px;
@@ -980,6 +981,9 @@ ul {
     }
 }
 .account-settings-switchbox{
+    .switchbox-text{
+        width: 90%;
+    }
     input[type=checkbox] {
         visibility:visible;
         width: 34px;
@@ -992,38 +996,48 @@ ul {
     input[type=checkbox]:checked {
         background-color: #9B9BFF;
     }
-    .text{
-        h1{
-            font-weight: 780;
-            font-size: 17px;
-            line-height: 23px;
-            color: #030229;
-        }
-        p{
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 16px;
-            color: rgba(3, 2, 41, 0.8);
-        }
-    }
 }
 .navigation-settings{
     position: absolute;
     left: 0;
+    top: 52px;
     list-style: none;
     background: #F8F8F8;
     border-radius: 0px 20px 20px 0px;
     border: 1px solid #F6EDEE;
     li{
-        margin: 0.8rem 0;
+        margin: 1.5rem 0;
         a{
             font-weight: 500;
             font-size: 18px;
-            line-height: 30px;
+            line-height: 20px;
             letter-spacing: -0.02em;
             color: #A3AED0;
+            position: relative;
             svg{
                 stroke: #A3AED0;
+            }
+            &:focus{
+                background-color: transparent;
+            }
+            &:hover{
+                background-color: transparent;
+                // font-weight: 700 !important;
+                color: #1B2559 !important;
+                &:after{
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    margin-top: -18px;
+                    width: 4px;
+                    height: 36px;
+                    background: #615BFE;
+                    border-radius: 25px;
+                }
+                svg{
+                    stroke:  #615BFE !important;
+                }
             }
         }
     }

@@ -1,9 +1,9 @@
 <template>
   <div class="account-settings-switchbox pt-1 pb-1 row">
       <div class="col">
-          <div class="row align-items-center h-100">
+          <div class="row align-items-center h-100 switchbox-text">
             <div class="text">
-                <h1>{{title}}</h1>
+                <h1 class="mb-0">{{title}}</h1>
                 <p class="mb-0">{{paragraph}}</p>
             </div>
           </div>
