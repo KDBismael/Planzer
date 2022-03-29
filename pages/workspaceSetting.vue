@@ -27,7 +27,7 @@
 
 <script>
 import integrationItem from '../components/integrationItem.vue'
-import settingNavigation from '../components/settingNavigation.vue'
+import settingNavigation from '../components/setting-navigation.vue'
 import settingCard from '../components/settingCard.vue'
 export default {
     name:'workspaceSetting',
