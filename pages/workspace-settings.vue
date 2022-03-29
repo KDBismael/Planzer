@@ -30,7 +30,6 @@ import integrationItem from '../components/integration-item.vue'
 import settingNavigation from '../components/settings-navigation.vue'
 import settingCard from '../components/settings-card.vue'
 export default {
-    name:'workspace-settings',
     components:{
         settingCard,
         settingNavigation,

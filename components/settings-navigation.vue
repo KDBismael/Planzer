@@ -26,7 +26,6 @@ import {
     LogOutIcon
   } from "vue-feather-icons"
 export default {
-    name:'settingNavigation',
     components:{
         BellIcon,
         HexagonIcon,

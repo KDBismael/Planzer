@@ -22,7 +22,6 @@
 
 <script>
 export default {
-    name:'accountSettingSwitchCheckbox',
     props:{
         title:String,
         paragraph:String,
