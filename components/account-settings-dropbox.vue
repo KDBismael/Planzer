@@ -10,7 +10,7 @@
       </div>
     <div class="col-3 me-3 w-auto">
         <div class="row align-items-center h-100 select-field">
-            <select @change="getData($event)"  class="select" :id="inputData.id">
+            <select @change="updateSetting($event)"  class="select" :id="inputData.id">
                 <option ref="option" class="" v-for="(item,index) in inputData.data" :key="index" :value="item"><span>{{item}}</span></option>
             </select>
             <div class="custom-arrow"></div>
@@ -32,15 +32,13 @@ export default {
         }
     },
     methods:{
-        getData(e){
-            const _data=e.target.value
-                let id=this.inputData.id
-            let toSend={
-                [id]:_data
+        updateSetting(e){
+            const _sectedValue=e.target.value
+            let id=this.inputData.id
+            let dataToSend={
+                [id]:_sectedValue
             }
-            this.$store.dispatch('user/updateAccountSetting',toSend)
-            // this.$axios.get('/user').then((res)=>console.log(res))
-            // $nuxt.$emit('dataSelected',toSend)
+            this.$store.dispatch('user/updateAccountSetting',dataToSend)
         }
     }
 }

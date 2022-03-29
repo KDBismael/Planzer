@@ -1031,7 +1031,6 @@ ul {
 .settings-cards{
     background-color: #F7F7F7;
     border: 1px solid #F6EDEE;
-    box-sizing: border-box;
     border-radius: 10px;
     .title{
         border-bottom: 1px solid rgba(3, 2, 41,0.07);
@@ -1121,6 +1120,27 @@ ul {
         border-radius: 25px;
     }
 }
+.itegrations-item{
+    img{
+        width: 24px;
+        height: auto;
+        object-fit: cover;
+    }
+    .text{
+        h1{
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 23px;
+            color: #030229;
+        }
+        p{
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            color:rgba(3, 2, 41,0.7);
+        }
+    }
+}
 .overview-btn{
     border: none;
     outline: none;
@@ -1162,4 +1182,31 @@ ul {
 }
 .disable-btn{
     display: none;
+}
+.workspace-settings{
+    .workspace-settings-container{
+        position: relative;
+        .title{
+            h1{
+                margin-left: 6rem;
+                font-weight: 600;
+                font-size: 28px;
+                line-height: 28px;
+                color: #000000;
+            }
+        }
+    }
+    .content{
+        margin-left: 6rem;
+        width: 60%;
+        max-width: 660px;
+        height: 80vh;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+        -ms-overflow-style: none; /* IE 11 */
+        scrollbar-width: none; /* Firefox 64 */
+    }
 }

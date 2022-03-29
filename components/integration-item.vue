@@ -1,7 +1,7 @@
 <template>
   <div class="itegrations-item p-0 w-100 row">
       <div class="col-3 w-auto">
-          <img :src="require('~/assets/'+img)" alt="">
+          <img src="~/assets/calendarArt.png" alt="">
       </div>
       <div class="col">
           <div class="text">
@@ -35,25 +35,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .itegrations-item{
-        img{
-            width: 24px;
-            height: auto;
-            object-fit: cover;
-        }
-        .text{
-            h1{
-                font-weight: 700;
-                font-size: 17px;
-                line-height: 23px;
-                color: #030229;
-            }
-            p{
-                font-weight: 300;
-                font-size: 12px;
-                line-height: 16px;
-                color:rgba(3, 2, 41,0.7);
-            }
-        }
-    }
 </style>

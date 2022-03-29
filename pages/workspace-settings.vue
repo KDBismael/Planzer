@@ -42,49 +42,41 @@ export default {
                     btn:{btn1:'Overview',btn2:'Manage'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem2:{
                     btn:{btn1:'Overview',btn2:'Delete'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem3:{
                     btn:{btn1:'Overview',btn2:'Add'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem4:{
                     btn:{btn1:'Disable',btn2:'Add'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem5:{
                     btn:{btn1:'Overview',btn2:'Manage'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem6:{
                     btn:{btn1:'Overview',btn2:'Delete'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem7:{
                     btn:{btn1:'Overview',btn2:'Add'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
                 integrationItem8:{
                     btn:{btn1:'Disable',btn2:'Add'},
                     title:'Outlook',
                     paragraph:"Synchranize with Outlook Calendar. See what’s on your calendar, create new events, and edit existing events.",
-                    img:"calendarArt.png"
                 },
             }
         }
@@ -93,30 +85,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .workspace-settings{
-        .workspace-settings-container{
-            position: relative;
-            .title{
-                h1{
-                    margin-left: 6rem;
-                    font-weight: 600;
-                    font-size: 28px;
-                    line-height: 28px;
-                    color: #000000;
-                }
-            }
-        }
-        .content{
-            margin-left: 6rem;
-            width: 60%;
-            height: 75vh;
-            overflow-y: scroll;
-            &::-webkit-scrollbar {
-                display: none;
-                width: 0;
-            }
-            -ms-overflow-style: none; /* IE 11 */
-            scrollbar-width: none; /* Firefox 64 */
-        }
-    }
 </style>

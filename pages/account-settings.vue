@@ -540,11 +540,6 @@ export default {
             }
         }
     },
-    mounted(){
-        this.$nuxt.$on('dataSelected',($event)=>{
-            this.getSelectedOption($event)
-        })
-    },
     methods:{
         getFirstName(){
             if(this.firstName!=''){
