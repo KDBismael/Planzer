@@ -1,5 +1,5 @@
 <template>
-  <div class="account-setting-select row pt-1 pb-1">
+  <div class="account-settings-select row pt-1 pb-1">
       <div class="col">
           <div class="row align-items-center h-100">
             <div class="text">

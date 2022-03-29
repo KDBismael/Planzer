@@ -1,14 +1,14 @@
 <template>
   <div class="row">
-      <div class="col account-setting">
+      <div class="col account-settings">
           <div class="row justify-content-center pb-3">
             <h1 class="w-auto account-title">Account Settings</h1>  
           </div>
-          <setting-navigation whereIs="accountSetting"></setting-navigation>
+          <setting-navigation whereIs="account-settings"></setting-navigation>
           <div class="row justify-content-center">
             <div class="content">
-                <div class="account setting-card p-3">
-                    <div class="blur">
+                <div class="account settings-card p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -95,8 +95,8 @@
                         ></account-setting-switch-checkbox>
                     </div>
                 </div>
-                <div class="rituals setting-card mt-4 p-3">
-                    <div class="blur">
+                <div class="rituals settings-card mt-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -209,8 +209,8 @@
                         ></account-setting-switch-checkbox>
                     </div>
                 </div>
-                <div class="timeboxing setting-card mt-4 p-3">
-                    <div class="blur">
+                <div class="timeboxing settings-card mt-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -254,8 +254,8 @@
                         ></account-setting-dropbox>
                     </div>
                 </div>
-                <div class="integrations setting-card mt-4 p-3">
-                    <div class="blur">
+                <div class="integrations settings-card mt-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -271,8 +271,8 @@
                         ></account-setting-switch-checkbox>
                     </div>
                 </div>
-                <div class="notifications setting-card mt-4 p-3">
-                    <div class="blur">
+                <div class="notifications settings-card mt-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -351,7 +351,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="profil setting-card mt-4 p-3">
+                <div class="profil settings-card mt-4 p-3">
+                    <div class="settings-blur">
+                        <div class="color1"></div>
+                        <div class="color2"></div>
+                        <div class="color3"></div>
+                    </div>
                     <div class="title">
                         <h1>Profile</h1>
                     </div>
@@ -376,8 +381,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeboxing-end setting-card mt-4 mb-4 p-3">
-                    <div class="blur">
+                <div class="timeboxing-end settings-card mt-4 mb-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -414,9 +419,9 @@
 </template>
 
 <script>
-import settingNavigation from '../components/setting-navigation.vue'
-import accountSettingDropbox from '../components/account-setting-dropbox.vue'
-import accountSettingSwitchCheckbox from '../components/account-setting-switch-checkbox.vue'
+import settingNavigation from '../components/settings-navigation.vue'
+import accountSettingDropbox from '../components/account-settings-dropbox.vue'
+import accountSettingSwitchCheckbox from '../components/account-settings-switch-checkbox.vue'
 export default {
     name:'accountSetting',
     components:{

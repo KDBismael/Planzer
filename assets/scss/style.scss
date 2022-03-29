@@ -699,17 +699,14 @@ ul {
         }
     }
 }
-.account,.rituals,.timeboxing-end,.notifications,.timeboxing,.integrations,.profile{
-    position: relative;
-}
-.blur{
+.settings-blur{
     pointer-events: none;
     position: absolute;
     top: -15px;
     left: 50%;
     margin-left: -40%;
-    width:80%;
-    height: 500px;
+    width:70%;
+    height: 100%;
     .color1{
         position: absolute;
         top: 0;
@@ -747,7 +744,7 @@ ul {
         transform: rotate(90deg);
     }
 }
-.account-setting{
+.account-settings{
     .content{
         margin-left: 4rem;
         width:60%;
@@ -761,181 +758,182 @@ ul {
         -ms-overflow-style: none; /* IE 11 */
         scrollbar-width: none; /* Firefox 64 */
     }
-}
-.notifications{
-    input[type=radio]{
-        width: 16px;
-        height: 16px;
-    }
-    input[type=radio]:checked{
-        box-shadow: none;
-        background:none;
-        position: relative;
-        border-color: #665BF8;
-        &::after{
-            position: absolute;
-            content: '';
-            width: 12px;
-            height: 12px;
-            background-color: #665BF8;
-            border-radius: 50%;
-            left: 0;
-            right: 0;
-            top: 50%;
-            margin: 0 auto;
-            margin-top: -6px;
+    .notifications{
+        input[type=radio]{
+            width: 16px;
+            height: 16px;
+        }
+        input[type=radio]:checked{
+            box-shadow: none;
+            background:none;
+            position: relative;
+            border-color: #665BF8;
+            &::after{
+                position: absolute;
+                content: '';
+                width: 12px;
+                height: 12px;
+                background-color: #665BF8;
+                border-radius: 50%;
+                left: 0;
+                right: 0;
+                top: 50%;
+                margin: 0 auto;
+                margin-top: -6px;
+            }
         }
     }
-}
-.profil-form{
-    h1{
-        font-weight: 700;
-        font-size: 17px;
-        line-height: 23px;
-    }
-    input{
-        width: 154px;
-        height: 37px;
-        background:rgba(255, 255, 255,0.5);
-        border: none;
-        outline: none;
-        border-radius: 10px;
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 16px;
-        color: #030229;
-    }
-}
-.profil-btn{
-    button{
-        border-radius: 10px;
-        height: 32px;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 16px;
-        color: #FFFFFF;
-        border: none;
-        outline: none;
-        background-color:  #4C79FF;
-        &:last-child{
-            background-color: #EC485C;
-        }
-    }
-}
-.picture-card{
-    width: 110px;
-    height: 110px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-}
-.general{
-    border-top: 1px solid rgba(3, 2, 41,0.07);
-    h1{
-        font-weight: 700;
-        font-size: 17px;
-        line-height: 23px;
-        .email{
-            width:80px ;
-            font-size: 12px;
-            line-height: 16px;
-        }
-    }
-}
-.task-you-follow{
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    .check{
-        width: 40px;
-    }
-}
-.receive-task{
-    h1{
-        color: #030229;
-        font-weight: 700;
-        span:first-child{
+    .profil-form{
+        h1{
+            font-weight: 700;
             font-size: 17px;
             line-height: 23px;
         }
-        div{
-            width: 40px;
-            span:first-child{
+        input{
+            width: 154px;
+            height: 37px;
+            background:rgba(255, 255, 255,0.5);
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            color: #030229;
+        }
+    }
+    .profil-btn{
+        button{
+            border-radius: 10px;
+            height: 32px;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            color: #FFFFFF;
+            border: none;
+            outline: none;
+            background-color:  #4C79FF;
+            &:last-child{
+                background-color: #EC485C;
+            }
+        }
+    }
+    .picture-card{
+        width: 110px;
+        height: 110px;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+    }
+    .general{
+        border-top: 1px solid rgba(3, 2, 41,0.07);
+        h1{
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 23px;
+            .email{
+                width:80px ;
                 font-size: 12px;
                 line-height: 16px;
             }
         }
     }
-}
-.plan-time{
-    .time{
-        width: 180px;
-        padding: 6px 0px 6px 17px;
-        background-color:rgba(96, 91, 255, 0.2);
-        border-radius: 10px;
+    .task-you-follow{
         font-weight: 400;
         font-size: 12px;
         line-height: 16px;
-        color: #605BFF;
+        .check{
+            width: 40px;
+        }
     }
-    .plan{
-        width: 104px;
-        padding: 6px 17px 6px 17px;
+    .receive-task{
+        h1{
+            color: #030229;
+            font-weight: 700;
+            span:first-child{
+                font-size: 17px;
+                line-height: 23px;
+            }
+            div{
+                width: 40px;
+                span:first-child{
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+        }
+    }
+    .plan-time{
+        .time{
+            width: 180px;
+            padding: 6px 0px 6px 17px;
+            background-color:rgba(96, 91, 255, 0.2);
+            border-radius: 10px;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            color: #605BFF;
+        }
+        .plan{
+            width: 104px;
+            padding: 6px 17px 6px 17px;
+            border-radius: 10px;
+            background-color:rgba(96, 91, 255,0.2);
+        }
+    }
+    .settings-card{
+        position: relative;
+        background: #F7F7F7;
+        border: 1px solid #F6EDEE;
         border-radius: 10px;
-        background-color:rgba(96, 91, 255,0.2);
     }
-}
-.setting-card{
-    background: #F7F7F7;
-    border: 1px solid #F6EDEE;
-    border-radius: 10px;
-}
-.account-title{
-    margin-left: 4rem;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 28px;
-    color: #000000;
-}
-.title{
-    padding-top: 5px;
-    border-bottom: 1px solid rgba(3, 2, 41,0.07);
-    h1{
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 25px;
-        color: #030229;
+    .account-title{
+        margin-left: 4rem;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 28px;
+        color: #000000;
     }
-}
-.text{
-    h1{
-        font-weight: 780;
-        font-size: 17px;
-        line-height: 23px;
-        color: #030229;
+    .title{
+        padding-top: 5px;
+        border-bottom: 1px solid rgba(3, 2, 41,0.07);
+        h1{
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 25px;
+            color: #030229;
+        }
     }
-    p{
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 16px;
-        color: rgba(3, 2, 41, 0.8);
+    .text{
+        h1{
+            font-weight: 780;
+            font-size: 17px;
+            line-height: 23px;
+            color: #030229;
+        }
+        p{
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            color: rgba(3, 2, 41, 0.8);
+        }
     }
-}
-.help{
-    border-top: 1px solid rgba(3, 2, 41,0.07);
-    padding-top: 15px;
-    padding-bottom: 5px;
-    p{
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 16px;
-        color: #030229;
-        a{
-            text-decoration-line: underline;
-            color: #4C79FF;
+    .help{
+        border-top: 1px solid rgba(3, 2, 41,0.07);
+        padding-top: 15px;
+        padding-bottom: 5px;
+        p{
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            color: #030229;
+            a{
+                text-decoration-line: underline;
+                color: #4C79FF;
+            }
         }
     }
 }
-.account-setting-select{
+.account-settings-select{
     .text{
         h1{
             font-weight: 780;
@@ -981,7 +979,7 @@ ul {
         position: relative;
     }
 }
-.account-setting-switchbox{
+.account-settings-switchbox{
     input[type=checkbox] {
         visibility:visible;
         width: 34px;
@@ -1009,12 +1007,13 @@ ul {
         }
     }
 }
-.navigation-setting{
+.navigation-settings{
     position: absolute;
     left: 0;
     list-style: none;
     background: #F8F8F8;
     border-radius: 0px 20px 20px 0px;
+    border: 1px solid #F6EDEE;
     li{
         margin: 0.8rem 0;
         a{
@@ -1029,61 +1028,79 @@ ul {
         }
     }
 }
-.setting-blur{
+.settings-cards{
+    background-color: #F7F7F7;
+    border: 1px solid #F6EDEE;
+    box-sizing: border-box;
+    border-radius: 10px;
+    .title{
+        border-bottom: 1px solid rgba(3, 2, 41,0.07);
+        margin-bottom: 30px;
+        h1{
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+        color: #030229;
+        padding-top: 20px;
+        padding-bottom: 11px;
+        }
+    }
+}
+.settings-navigation-blur{
     pointer-events: none;
     position: absolute;
     width: 100%;
     height: 100%;
     .color1{
         position: absolute;
-        top:0px;
+        top:5x;
         left: 0px;
-        width: 100px;
+        width: 100Px;
         height: 100px;
         background-color: #10DA46;
         opacity: 0.15;
-        filter: blur(60px);
+        filter: blur(40px);
         border-radius: 15px;
         transform: rotate(90deg);
     }
     .color2{
         position: absolute;
-        right: 0;
-        top: 0;
+        right: 10px;
+        top: 5px;
         width: 115.1px;
         height:113.519px;
         background: #FF4C58;
         opacity: 0.15;
-        filter: blur(72px);
+        filter: blur(50px);
         border-radius: 15px;
         transform: rotate(90deg);
     }
     .color3{
         position: absolute;
-        bottom: 0px;
-        right:0px;
+        bottom: 10px;
+        right:10px;
         width: 126px;
         height: 126px;
         background: #FF8F6B;
         opacity: 0.15;
-        filter: blur(60px);
+        filter: blur(40px);
         border-radius: 15px;
         transform: rotate(90deg);
     }
     .color4{
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         left: 0;
         width: 126px;
         height: 129px;
         background: #615BFE;
         opacity: 0.15;
-        filter: blur(70px);
+        filter: blur(50px);
         border-radius: 15px;
         transform: rotate(90deg);
     }
 }
-.active-setting{
+.active-settings{
     position: relative;
     a{
         font-weight: 700 !important;

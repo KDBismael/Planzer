@@ -1,5 +1,5 @@
 <template>
-  <div class="itegrationsItem p-0 w-100 row">
+  <div class="itegrations-item p-0 w-100 row">
       <div class="col-3 w-auto">
           <img :src="require('~/assets/'+img)" alt="">
       </div>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .itegrationsItem{
+    .itegrations-item{
         img{
             width: 24px;
             height: auto;
