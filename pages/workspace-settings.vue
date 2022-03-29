@@ -1,11 +1,11 @@
 <template>
     <div class="row">
-        <div class="workspace-setting ps-0">
-                <div class="workspace-setting-container p-0">
+        <div class="workspace-settings">
+                <div class="workspace-settings-container p-0">
                     <div class=" row justify-content-center w-100 title">
                         <h1 class="w-auto mb-0 pb-4">workspace Setting</h1>
                     </div>
-                    <setting-navigation whereIs="workspaceSetting"></setting-navigation>
+                    <setting-navigation whereIs="workspace-settings"></setting-navigation>
                     <div class="row justify-content-center">    
                         <div class="content row p-0">
                             <setting-card class="mb-3" title="Integrations">
@@ -121,14 +121,11 @@
 </template>
 
 <script>
-import accountSettingSwitchCheckbox from '../components/accountSettingSwitchCheckbox.vue'
-import workspaceCardTopBtn from '../components/workspaceCardTopBtn.vue'
-import integrationItem from '../components/integrationItem.vue'
-import settingNavigation from '../components/settingNavigation.vue'
-import settingCard from '../components/settingCard.vue'
-import privacyCheckItem from '../components/privacyCheckItem.vue'
+import integrationItem from '../components/integration-item.vue'
+import settingNavigation from '../components/settings-navigation.vue'
+import settingCard from '../components/settings-card.vue'
 export default {
-    name:'workspace-setting',
+    name:'workspace-settings',
     components:{
         settingCard,
         settingNavigation,
@@ -237,8 +234,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .workspace-setting{
-        .workspace-setting-container{
+    .workspace-settings{
+        .workspace-settings-container{
             position: relative;
             .title{
                 h1{

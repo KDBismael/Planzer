@@ -1,14 +1,14 @@
 <template>
   <div class="row">
-      <div class="col accountSetting">
+      <div class="col account-settings">
           <div class="row justify-content-center pb-3">
             <h1 class="w-auto account-title">Account Settings</h1>  
           </div>
-          <setting-navigation whereIs="accountSetting"></setting-navigation>
+          <setting-navigation whereIs="account-settings"></setting-navigation>
           <div class="row justify-content-center">
             <div class="content">
-                <div class="account setting-card p-3">
-                    <div class="blur">
+                <div class="account settings-card p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -95,8 +95,8 @@
                         ></account-setting-switch-checkbox>
                     </div>
                 </div>
-                <div class="rituals setting-card mt-4 p-3">
-                    <div class="blur">
+                <div class="rituals settings-card mt-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -209,8 +209,8 @@
                         ></account-setting-switch-checkbox>
                     </div>
                 </div>
-                <div class="timeboxing setting-card mt-4 p-3">
-                    <div class="blur">
+                <div class="timeboxing settings-card mt-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -254,8 +254,8 @@
                         ></account-setting-dropbox>
                     </div>
                 </div>
-                <div class="integrations setting-card mt-4 p-3">
-                    <div class="blur">
+                <div class="integrations settings-card mt-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -271,8 +271,8 @@
                         ></account-setting-switch-checkbox>
                     </div>
                 </div>
-                <div class="notifications setting-card mt-4 p-3">
-                    <div class="blur">
+                <div class="notifications settings-card mt-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -351,7 +351,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="profil setting-card mt-4 p-3">
+                <div class="profil settings-card mt-4 p-3">
+                    <div class="settings-blur">
+                        <div class="color1"></div>
+                        <div class="color2"></div>
+                        <div class="color3"></div>
+                    </div>
                     <div class="title">
                         <h1>Profile</h1>
                     </div>
@@ -376,8 +381,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeboxing-end setting-card mt-4 mb-4 p-3">
-                    <div class="blur">
+                <div class="timeboxing-end settings-card mt-4 mb-4 p-3">
+                    <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
                         <div class="color3"></div>
@@ -414,9 +419,9 @@
 </template>
 
 <script>
-import settingNavigation from '../components/settingNavigation.vue'
-import accountSettingDropbox from '../components/accountSettingDropbox.vue'
-import accountSettingSwitchCheckbox from '../components/accountSettingSwitchCheckbox.vue'
+import settingNavigation from '../components/settings-navigation.vue'
+import accountSettingDropbox from '../components/account-settings-dropbox.vue'
+import accountSettingSwitchCheckbox from '../components/account-settings-switch-checkbox.vue'
 export default {
     name:'accountSetting',
     components:{
@@ -569,240 +574,4 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-    .account,.rituals,.timeboxing-end,.notifications,.timeboxing,.integrations,.profile{
-        position: relative;
-    }
-    .blur{
-        pointer-events: none;
-        position: absolute;
-        top: -15px;
-        left: 50%;
-        margin-left: -40%;
-        width:80%;
-        height: 500px;
-        // background-color: rgba(0, 0,0,0.3);
-        .color1{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 217.77px;
-            height: 263.88px;
-            background-color: #FFA34C;
-            opacity: 0.05;
-            filter: blur(25px);
-            border-radius: 15px;
-            transform: rotate(-180deg);
-        }
-        .color2{
-            position: absolute;
-            bottom: 0;
-            right: 51px;
-            width: 145.42px;
-            height: 185.14px;
-            background-color: #4D79FF;
-            opacity: 0.15;
-            filter: blur(80px);
-            border-radius: 15px;
-        }
-        .color3{
-            position: absolute;
-            bottom: 70%;
-            left: 50%;
-            margin-bottom:-100px;
-            width:200px;
-            height:200px;
-            background: #FF4C58;
-            opacity: 0.15;
-            filter: blur(100px);
-            border-radius: 15px;
-            transform: rotate(90deg);
-        }
-    }
-    .accountSetting{
-        .content{
-            margin-left: 4rem;
-            width:60%;
-            height: 80vh;
-            overflow-y: scroll;
-            &::-webkit-scrollbar {
-                display: none;
-                width: 0;
-            }
-            -ms-overflow-style: none; /* IE 11 */
-            scrollbar-width: none; /* Firefox 64 */
-        }
-    }
-    .notifications{
-        input[type=radio]{
-            width: 16px;
-            height: 16px;
-        }
-        input[type=radio]:checked{
-            box-shadow: none;
-            background:none;
-            position: relative;
-            border-color: #665BF8;
-            &::after{
-                position: absolute;
-                content: '';
-                width: 12px;
-                height: 12px;
-                background-color: #665BF8;
-                border-radius: 50%;
-                left: 0;
-                right: 0;
-                top: 50%;
-                margin: 0 auto;
-                margin-top: -6px;
-            }
-        }
-    }
-    .profil-form{
-        h1{
-            font-weight: 700;
-            font-size: 17px;
-            line-height: 23px;
-        }
-        input{
-            width: 154px;
-            height: 37px;
-            background:rgba(255, 255, 255,0.5);
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            font-weight: 300;
-            font-size: 12px;
-            line-height: 16px;
-            color: #030229;
-        }
-    }
-    .profil-btn{
-        button{
-            border-radius: 10px;
-            height: 32px;
-            font-weight: 600;
-            font-size: 12px;
-            line-height: 16px;
-            color: #FFFFFF;
-            border: none;
-            outline: none;
-            background-color:  #4C79FF;
-            &:last-child{
-                background-color: #EC485C;
-            }
-        }
-    }
-    .picture-card{
-        width: 110px;
-        height: 110px;
-        background-color: #FFFFFF;
-        border-radius: 10px;
-    }
-    .general{
-        border-top: 1px solid rgba(3, 2, 41,0.07);
-        h1{
-            font-weight: 700;
-            font-size: 17px;
-            line-height: 23px;
-            .email{
-                width:80px ;
-                font-size: 12px;
-                line-height: 16px;
-            }
-        }
-    }
-    .task-you-follow{
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 16px;
-        .check{
-            width: 40px;
-        }
-    }
-    .receive-task{
-        h1{
-            color: #030229;
-            font-weight: 700;
-            span:first-child{
-                font-size: 17px;
-                line-height: 23px;
-            }
-            div{
-                width: 40px;
-                span:first-child{
-                    font-size: 12px;
-                    line-height: 16px;
-                }
-            }
-        }
-    }
-    .plan-time{
-        .time{
-            width: 180px;
-            padding: 6px 0px 6px 17px;
-            background-color:rgba(96, 91, 255, 0.2);
-            border-radius: 10px;
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 16px;
-            color: #605BFF;
-        }
-        .plan{
-            width: 104px;
-            padding: 6px 17px 6px 17px;
-            border-radius: 10px;
-            background-color:rgba(96, 91, 255,0.2);
-        }
-    }
-    .setting-card{
-        background: #F7F7F7;
-        border: 1px solid #F6EDEE;
-        border-radius: 10px;
-    }
-    .account-title{
-        margin-left: 4rem;
-        font-weight: 600;
-        font-size: 28px;
-        line-height: 28px;
-        color: #000000;
-    }
-    .title{
-        padding-top: 5px;
-        border-bottom: 1px solid rgba(3, 2, 41,0.07);
-        h1{
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 25px;
-            color: #030229;
-        }
-    }
-    .text{
-        h1{
-            font-weight: 780;
-            font-size: 17px;
-            line-height: 23px;
-            color: #030229;
-        }
-        p{
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 16px;
-            color: rgba(3, 2, 41, 0.8);
-        }
-    }
-    .help{
-        border-top: 1px solid rgba(3, 2, 41,0.07);
-        padding-top: 15px;
-        padding-bottom: 5px;
-        p{
-            font-weight: 300;
-            font-size: 12px;
-            line-height: 16px;
-            color: #030229;
-            a{
-                text-decoration-line: underline;
-                color: #4C79FF;
-            }
-        }
-    }
 </style>
