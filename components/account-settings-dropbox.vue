@@ -10,7 +10,7 @@
       </div>
     <div class="col-3 me-3 w-auto">
         <div class="row align-items-center h-100 select-field">
-            <select @change="updateSetting($event)"  class="select" :id="inputData.id">
+            <select @change="updateSettings($event)"  class="select" :id="inputData.id">
                 <option ref="option" class="" v-for="(item,index) in inputData.data" :key="index" :value="item"><span>{{item}}</span></option>
             </select>
             <div class="custom-arrow"></div>
