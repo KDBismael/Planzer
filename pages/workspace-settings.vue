@@ -124,6 +124,8 @@
 import integrationItem from '../components/integration-item.vue'
 import settingNavigation from '../components/settings-navigation.vue'
 import settingCard from '../components/settings-card.vue'
+import privacyCheckItem from '../components/privacy-check-item.vue'
+import workspaceCardTopBtn from '../components/workspace-card-top-btn.vue'
 export default {
     components:{
         settingCard,
@@ -249,7 +251,8 @@ export default {
         .content{
             margin-left: 6rem;
             width: 60%;
-            height: 75vh;
+            max-width: 660px;
+            height: 80vh;
             overflow-y: scroll;
             &::-webkit-scrollbar {
                 display: none;

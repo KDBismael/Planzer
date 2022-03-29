@@ -21,7 +21,6 @@
 <script>
 import Button from './button.vue'
 export default {
-    name:'workspaceCardTopBtn',
     components:{
         Button
     },

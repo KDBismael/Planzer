@@ -22,7 +22,6 @@
 
 <script>
 export default {
-    name:'privacyCheckItem',
     props:{
         title:String,
         id:String,
