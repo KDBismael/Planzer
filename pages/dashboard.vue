@@ -74,23 +74,23 @@
         <div class="modal-content">
           <div class="modal-header pt-4 row">
             <div class="task-head row container-fluid pe-0">
-              <div style="width:30%;" class="col-4">
-                <h5 class="modal-title col" id="taskModalLabel">{{ activeTask.title }}</h5>
+              <div class="col-3">
+                <h5 class="modal-title col" id="taskModalLabel"><span v-if="activeTask.tagName || activeTask.categoryName" v-bind:style="{ color: '#' +(activeTask.tagColor ? activeTask.tagColor : activeTask.categoryColor ? activeTask.categoryColor : '000') }">#</span> {{ activeTask.tagName ? activeTask.tagName : activeTask.categoryName ? activeTask.categoryName : '' }}</h5>
               </div>
-              <div style="width:45%;" class="col-6">
+              <div class="col-6">
                 <div class="row">
                   <button type="button" class="task-top-btn me-3 col btn btn-primary">Start: <span>Mar 9</span></button>
                   <button type="button" style="width:53px;padding: 10px 11px;" class="task-top-btn col-3 btn btn-outline-primary">Due</button>
-                  <button type="button" @click="addSubtask" class="task-top-btn ms-3 col btn btn-outline-primary">Add subtaks</button>
+                  <button type="button" @click="addSubtask" class="task-top-btn ms-3 col btn btn-outline-primary">Add subtask</button>
                 </div>
               </div>
               <div class="col-3">
                 <div class="task-options ps-3 row h-100 align-items-center">
                   <div class="col-4">
-                    <div style="background-color:rgba(255, 158, 44,0.07)" class="circle rounded-circle row jusify-content-center"><ListIcon class="align-self-center" stroke="#FF9E2C"/></div>
+                    <!-- <div style="background-color:rgba(255, 158, 44,0.07)" class="circle rounded-circle row jusify-content-center"><ListIcon class="align-self-center" stroke="#FF9E2C"/></div> -->
                   </div>
                   <div class="col-4">
-                    <div style="background-color:rgba(96, 91, 255,0.05)" class="circle rounded-circle row jusify-content-center"><Maximize2Icon class="align-self-center" stroke="#605BFF"/></div>
+                    <!-- <div style="background-color:rgba(96, 91, 255,0.05)" class="circle rounded-circle row jusify-content-center"><Maximize2Icon class="align-self-center" stroke="#605BFF"/></div> -->
                   </div>
                   <div class="col-4">
                     <div style="background-color:rgba(231, 29, 54,0.05)" class="circle rounded-circle row jusify-content-center"><button type="button" class="btn-close align-self-center close" data-bs-dismiss="modal" aria-label="Close"></button></div>
@@ -112,10 +112,10 @@
                 <div class="col-4">
                   <div class="row">
                     <div class="col-3">
-                      <div style="background-color:rgba(16, 218, 70, 0.07)" class="circle rounded-circle row jusify-content-center"><PlayIcon class="m-auto" fill="#10DA46" stroke="#10DA46"/></div>
+                      <!-- <div style="background-color:rgba(16, 218, 70, 0.07)" class="circle rounded-circle row jusify-content-center"><PlayIcon class="m-auto" fill="#10DA46" stroke="#10DA46"/></div> -->
                     </div>
-                    <div class="time col me-3"><p class=""><span class="row justify-content-center h6">Actual</span><span class="row justify-content-center">--:--</span></p></div>
-                    <div class="time col"><p class=""><span class="row justify-content-center h6">Planned</span><span class="row justify-content-center">--:--</span></p></div>
+                    <!-- <div class="time col me-3"><p class=""><span class="row justify-content-center h6">Actual</span><span class="row justify-content-center">--:--</span></p></div>
+                    <div class="time col"><p class=""><span class="row justify-content-center h6">Planned</span><span class="row justify-content-center">--:--</span></p></div> -->
                   </div>
                 </div>
               </div>
@@ -129,16 +129,16 @@
                 </div>
                 <div class="col-4">
                   <div class="row">
-                     <div class="time col"><span class="row justify-content-end"><span style="margin-right: -6px;" class="w-100 row justify-content-end">--:--</span></span></div>
-                    <div class="time col"><span class="row justify-content-end"><span style="margin-right: 17px;" class="w-100 row justify-content-end">--:--</span></span></div>
+                     <!-- <div class="time col"><span class="row justify-content-end"><span style="margin-right: -6px;" class="w-100 row justify-content-end">--:--</span></span></div>
+                    <div class="time col"><span class="row justify-content-end"><span style="margin-right: 17px;" class="w-100 row justify-content-end">--:--</span></span></div> -->
                   </div>
                 </div>
               </div>
               <div v-if="viewsubtaskInput" class="subtaskenter ms-2 ps-1 row">
-                  <label class="ms-2 checkbox-container subtask-check-mark col-1 w-auto pe-0">
-                    <input type="checkbox" />
-                    <span class="checkmark col"></span>
-                  </label>
+                <label class="ms-2 checkbox-container subtask-check-mark col-1 w-auto pe-0">
+                  <input type="checkbox" />
+                  <span class="checkmark col"></span>
+                </label>
                 <input type="text" v-on:keyup.enter="createSubtask" v-model="subtasktitle" ref="subtaskInput" class="form-control w-50 subtask-input ps-0" id="FormControlInput1" placeholder="">
               </div>
             </div>
@@ -228,7 +228,6 @@ import {
   AnchorIcon,
   Maximize2Icon,
 } from "vue-feather-icons"
-
 export default {
   auth: true,
   components: {
@@ -309,6 +308,8 @@ export default {
     document.getElementById("task-row").removeEventListener("scroll", this.checkDates)
   },
   async beforeMount() {
+    console.log(this.$auth.strategy.token.get())
+    console.log(this.$auth.user)
     this.startDate.setDate(this.startDate.getUTCDate() - 7)
     this.endDate.setDate(this.endDate.getUTCDate() + 7)
     for (var d = this.startDate; d <= this.endDate; d.setDate(d.getUTCDate() + 1)) {
@@ -419,7 +420,6 @@ export default {
     filterDateTasks(columnDate, task) {
       var splitColumnDate = columnDate.split("-")
       var newColumnDate = splitColumnDate[0] + "-" + (parseInt(splitColumnDate[1]) + 1 < 10 ? "0" : "") + (parseInt(splitColumnDate[1]) + 1) + "-" + (splitColumnDate[2] < 10 ? "0" : "") + splitColumnDate[2]
-
       return task.date.substr(0, 10) == newColumnDate
     },
     checkDates(event) {
@@ -427,7 +427,6 @@ export default {
         var newStartDate = this.columns[0].date
         newStartDate.setDate(newStartDate.getUTCDate() - 7)
         var tempArray = []
-
         for (var d = newStartDate; d < this.startDate; d.setDate(d.getUTCDate() + 1)) {
           tempArray.push({
             title: this.weekday[d.getDay()],
@@ -453,7 +452,6 @@ export default {
             date: new Date(d),
           })
         }
-
         document.getElementById("task-row").scrollLeft = (this.columns.length-8)*250
         this.$store.dispatch("task/getTasks", {
           startDate: this.columns[this.columns.length-7].date,

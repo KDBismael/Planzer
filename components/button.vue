@@ -12,11 +12,11 @@
 
 <script>
 export default {
-  name:'Button',
   props: ["loading", "text", "buttonClass", "icon"]
 };
 </script>
 <style lang="scss" scoped>
+<<<<<<< HEAD
   .remove-calendar{
     border: none;
     outline: none;
@@ -92,4 +92,6 @@ export default {
   .Disable{
     display: none;
   }
+=======
+>>>>>>> 8aa265adc61811831d0dc692c95598163aa7fa37
 </style>
