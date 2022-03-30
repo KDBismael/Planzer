@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar-setting-card p-3">
+  <div class="calendar-settings-card">
       <div class="row">
           <div class="col-2 w-auto pe-0">
               <img class="image" src="../assets/calendarArt.png" alt="">
@@ -32,7 +32,8 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-    .calendar-setting-card{
+    .calendar-settings-card{
+        padding: 30px;
         margin-top: 13px;
         background: #F7F7F7;
         border-radius: 10px;

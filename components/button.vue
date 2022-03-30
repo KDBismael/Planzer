@@ -16,11 +16,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-<<<<<<< HEAD
   .remove-calendar{
     border: none;
     outline: none;
-    padding: 0.4rem 0.8rem;
+    padding: 8px 18.75px;
     background: #FFFFFF;
     border-radius: 22.5px;
     font-weight: 600;
@@ -31,7 +30,7 @@ export default {
   .add-outlook-calendar,.refresh-calendar-list{
     border: none;
     outline: none;
-    padding: 0.5rem 1rem;
+    padding: 8px 11px;
     background: #FFFFFF;
     border-radius: 22.5px;
     font-weight: 600;
@@ -42,7 +41,7 @@ export default {
   .add-google-calendar{
     border: none;
     outline: none;
-    padding: 0.5rem 1rem;
+    padding: 8px 11px;
     background: #4C79FF;
     border-radius: 22.5px;
     font-weight: 600;
@@ -50,48 +49,4 @@ export default {
     line-height: 19px;
     color: #FFFFFF;
   }
-  .Overview{
-    border: none;
-    outline: none;
-    width: 73px;
-    height: 28px;
-    background-color: rgba(96, 91, 255, 0.1);
-    border-radius: 10px;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    color: #605BFF;
-  }
-  .Add,.Manage{
-    border: none;
-    outline: none;
-    width: auto;
-    padding: 0 0.8rem;
-    height: 28px;
-    background: #5078FC;
-    border-radius: 10px;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: right;
-    color: #FFFFFF;
-  }
-  .Delete{
-    border: none;
-    outline: none;
-    width: 56px;
-    height: 28px;
-    background-color: rgba(236, 72, 92, 0.1);
-    border-radius: 10px;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: right;
-    color: #EC485C;
-  }
-  .Disable{
-    display: none;
-  }
-=======
->>>>>>> 8aa265adc61811831d0dc692c95598163aa7fa37
 </style>
