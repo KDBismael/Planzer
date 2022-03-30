@@ -1046,6 +1046,8 @@ ul {
     background-color: #F7F7F7;
     border: 1px solid #F6EDEE;
     border-radius: 10px;
+    padding: 30px;
+    position: relative;
     .title{
         border-bottom: 1px solid rgba(3, 2, 41,0.07);
         margin-bottom: 30px;
@@ -1160,6 +1162,7 @@ ul {
     outline: none;
     width: 73px;
     height: 28px;
+    padding: 6px 10px;
     background-color: rgba(96, 91, 255, 0.1);
     border-radius: 10px;
     font-weight: 400;
@@ -1171,7 +1174,7 @@ ul {
     border: none;
     outline: none;
     width: auto;
-    padding: 0 0.8rem;
+    padding: 6px 10px;
     height: 28px;
     background: #5078FC;
     border-radius: 10px;
@@ -1184,6 +1187,7 @@ ul {
 .delete-btn{
     border: none;
     outline: none;
+    padding: 6px 10px;
     width: 56px;
     height: 28px;
     background-color: rgba(236, 72, 92, 0.1);
@@ -1198,23 +1202,16 @@ ul {
     display: none;
 }
 .workspace-settings{
+    position: relative;
     .workspace-settings-container{
-        position: relative;
-        .title{
+        .main-title{
             h1{
-                margin-left: 6rem;
                 font-weight: 600;
                 font-size: 28px;
                 line-height: 28px;
                 color: #000000;
             }
         }
-    }
-    .content{
-        margin-left: 6rem;
-        width: 60%;
-        max-width: 660px;
-        height: 80vh;
         overflow-y: scroll;
         &::-webkit-scrollbar {
             display: none;
@@ -1223,4 +1220,225 @@ ul {
         -ms-overflow-style: none; /* IE 11 */
         scrollbar-width: none; /* Firefox 64 */
     }
+    .content{
+        margin-left: 10rem;
+        width: 60%;
+        max-width: 660px;
+        height: 88vh;
+    }
+    .privacy{
+        background: #F7F7F7;
+        border: 1px solid #F6EDEE;
+        border-radius: 10px;
+        padding: 30px;
+        position: relative;
+        .privacy-title{
+            h1{
+                font-weight: 700;
+                font-size: 17px;
+                line-height: 23px;
+                color: #030229;
+            }
+        }
+        .privacy-options{
+            span{
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 16px;
+                color: #030229;
+            }
+        }
+        .workspace-in-privacy{
+            border-top: 1px solid rgba(3, 2, 41,0.09);
+            p{
+                font-weight: 300;
+                font-size: 12px;
+                line-height: 16px;
+                color: rgba(3, 2, 41, 0.7);
+            }
+        }
+    }
+    .email-forwarding{
+        background: #F7F7F7;
+        border-radius: 10px;
+        padding: 30px;
+        position: relative;
+        .email{
+            border-bottom: 1px solid rgba(3, 2, 41, 0.09);
+            .text{
+                h1{
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 25px;
+                    color: #030229;
+                }
+            }
+        }
+        .email-description{
+            p{
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 208.4%;
+                color: #030229;
+                span{
+                    color: #4C79FF;
+                    cursor: pointer;
+                }
+            }
+        }
+        .share{
+            border-top: 1px solid rgba(3, 2, 41,0.09);
+            p{
+                font-weight: 300;
+                font-size: 12px;
+                line-height: 16px;
+                color: rgba(3, 2, 41, 0.5);
+            }
+        }
+    }
+    .name{
+        background-color:rgb(255, 255, 255,0.8);
+        border-radius: 10px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 16px;
+        color: #030229;
+        padding: 10px 16px;
+        cursor: pointer;
+    }
+    .owner{
+        background: rgba(37, 156, 255, 0.2);
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        color: #259CFF;
+        height: 25px;
+        padding: 4px 12px;
+        cursor: pointer;
+    }
+    .rename-workspace{
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 181%;
+        color: rgba(3, 2, 41, 0.7);
+    }
+    .delete-workspace{
+        p{
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 181%;
+            color: rgba(3, 2, 41, 0.7);
+            span{
+                color: #5078FC;
+                cursor: pointer;
+            }
+        }
+    }
+    .text{
+        h1{
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 23px;
+            color: #030229;
+        }
+        p{
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            color: rgba(3, 2, 41, 0.8);
+        }
+    }
+}
+.privacy-check-item{
+    .text{
+        h1{
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            color: #030229;
+        }
+    }
+    .check{
+        .checkmark{
+            width: 16px;
+            height: 16px;
+            background-color: #FFFFFF;
+            border: 1px solid #CECECE;
+            border-radius: 30px;
+            &::after{
+                left: 5px;
+                bottom: 4px;
+                width: 5px;
+                height: 9px;
+                border: solid #FFFFFF;
+                border-width: 0 2px 2px 0;
+            }
+        }
+        input[type=checkbox] {
+            pointer-events: none;
+        }
+        input:checked ~ .checkmark {
+            background-color: #665BF8;
+            border: 1px solid #665BF8;
+        }
+        .privacy-check-mark-1{
+            margin-left: -7px;
+        }
+        .privacy-check-mark-2{
+            margin-left: 115px;
+        }
+    }
+}
+.workspace-card-top-btn{
+    background: #F7F7F7;
+    border-radius: 10px;
+    padding:30px;
+    position: relative;
+    .top{
+        border-bottom: 1px solid rgba(3, 2, 41,0.05);
+        margin-bottom: 5px;
+        .title{
+            h1{
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 25px;
+                color: #030229;
+            }
+        }
+    }
+}
+.teammate-btn,.adjust-workspace-btn,.copy-email-btn,.rename-workspace-btn{
+    border: none;
+    outline: none;
+    background: #4C79FF;
+    border-radius: 22.5px;
+    width: auto;
+    padding: 6px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+.show-example-btn{
+border: none;
+outline: none;
+background: #FFFFFF;
+border-radius: 22.5px;
+padding: 6px 14px;
+font-weight: 600;
+font-size: 12px;
+line-height: 16px;
+color: #5078FB;
+}
+.delete-workspace-btn{
+border: none;
+outline: none;
+padding: 6px 14px;
+background: #EC485C;
+border-radius: 22.5px;
+font-weight: 600;
+font-size: 12px;
+line-height: 16px;
+color: #FFFFFF;
 }

@@ -431,12 +431,16 @@ export default {
     },
     watch:{
         async fullName(){
-            if(this.fullName!='' && this.fullName==`${this.firstName} ${this.secondName}`){
+            if(this.fullName!=''){
                 let data={name:this.fullName}
-                console.log(data)
                 await this.$store.dispatch('user/updateAccountSetting',data)
-                this.fullName=''
+                if(this.fullName==`${this.firstName} ${this.secondName}`){
+                    this.firstName=''
+                    this.secondName=''
+                    this.fullName=''
+                }
             }
+            
         }
     },
     data(){
