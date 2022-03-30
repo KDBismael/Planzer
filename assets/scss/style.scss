@@ -745,11 +745,14 @@ ul {
     }
 }
 .account-settings{
+    position: relative;
     .content{
-        margin-left: 4rem;
+        margin-left: 8rem;
         width:60%;
         max-width: 630px;
-        height: 80vh;
+        height: 88vh;
+    }
+    .account-settings-container{
         overflow-y: scroll;
         &::-webkit-scrollbar {
             display: none;
@@ -805,7 +808,7 @@ ul {
     .profil-btn{
         button{
             border-radius: 10px;
-            height: 32px;
+            padding: 6px 12px;
             font-weight: 600;
             font-size: 12px;
             line-height: 16px;
@@ -836,9 +839,15 @@ ul {
                 line-height: 16px;
             }
         }
+        p{
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            color: rgba(3, 2, 41, 0.8);
+        }
     }
     .task-you-follow{
-        font-weight: 400;
+        font-weight: 300;
         font-size: 12px;
         line-height: 16px;
         .check{
@@ -865,7 +874,7 @@ ul {
     .plan-time{
         .time{
             width: 180px;
-            padding: 6px 0px 6px 17px;
+            padding: 6px 12px 6px 12px;
             background-color:rgba(96, 91, 255, 0.2);
             border-radius: 10px;
             font-weight: 400;
@@ -875,26 +884,27 @@ ul {
         }
         .plan{
             width: 104px;
-            padding: 6px 17px 6px 17px;
+            padding: 6px 12px 6px 12px;
             border-radius: 10px;
             background-color:rgba(96, 91, 255,0.2);
         }
     }
     .settings-card{
         position: relative;
+        padding: 35px;
         background: #F7F7F7;
         border: 1px solid #F6EDEE;
         border-radius: 10px;
     }
     .account-title{
-        margin-left: 4rem;
         font-weight: 600;
         font-size: 28px;
         line-height: 28px;
         color: #000000;
     }
     .title{
-        padding-top: 5px;
+        padding-bottom: 11px;
+        margin-bottom: 15px;
         border-bottom: 1px solid rgba(3, 2, 41,0.07);
         h1{
             font-weight: 700;
@@ -905,13 +915,13 @@ ul {
     }
     .text{
         h1{
-            font-weight: 780;
+            font-weight: 700;
             font-size: 17px;
             line-height: 23px;
             color: #030229;
         }
         p{
-            font-weight: 400;
+            font-weight: 300;
             font-size: 12px;
             line-height: 16px;
             color: rgba(3, 2, 41, 0.8);
@@ -934,19 +944,8 @@ ul {
     }
 }
 .account-settings-select{
-    .text{
-        h1{
-            font-weight: 780;
-            font-size: 17px;
-            line-height: 23px;
-            color: #030229;
-        }
-        p{
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 16px;
-            color: rgba(3, 2, 41, 0.8);
-        }
+    .select-text{
+        width: 90%;
     }
     .select-field{
         position: relative;
@@ -954,6 +953,7 @@ ul {
             content: '';
             position: absolute;
             right: 10px;
+            top: 60%;
             width:0;
             height:0;
             border-left:5px solid transparent;
@@ -970,7 +970,8 @@ ul {
         outline: none;
         border-radius: 10px;
         background-color: rgba(96, 91, 255, 0.1);
-        padding: 6px 10px;
+        padding:6px 24px 6px 10px;
+        // margin-right: 30px;
         font-weight: 400;
         font-size: 12px;
         line-height: 16px;
@@ -980,6 +981,9 @@ ul {
     }
 }
 .account-settings-switchbox{
+    .switchbox-text{
+        width: 90%;
+    }
     input[type=checkbox] {
         visibility:visible;
         width: 34px;
@@ -992,38 +996,48 @@ ul {
     input[type=checkbox]:checked {
         background-color: #9B9BFF;
     }
-    .text{
-        h1{
-            font-weight: 780;
-            font-size: 17px;
-            line-height: 23px;
-            color: #030229;
-        }
-        p{
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 16px;
-            color: rgba(3, 2, 41, 0.8);
-        }
-    }
 }
 .navigation-settings{
     position: absolute;
     left: 0;
+    top: 52px;
     list-style: none;
     background: #F8F8F8;
     border-radius: 0px 20px 20px 0px;
     border: 1px solid #F6EDEE;
     li{
-        margin: 0.8rem 0;
+        margin: 1.5rem 0;
         a{
             font-weight: 500;
             font-size: 18px;
-            line-height: 30px;
+            line-height: 20px;
             letter-spacing: -0.02em;
             color: #A3AED0;
+            position: relative;
             svg{
                 stroke: #A3AED0;
+            }
+            &:focus{
+                background-color: transparent;
+            }
+            &:hover{
+                background-color: transparent;
+                // font-weight: 700 !important;
+                color: #1B2559 !important;
+                &:after{
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    margin-top: -18px;
+                    width: 4px;
+                    height: 36px;
+                    background: #615BFE;
+                    border-radius: 25px;
+                }
+                svg{
+                    stroke:  #615BFE !important;
+                }
             }
         }
     }
@@ -1032,6 +1046,8 @@ ul {
     background-color: #F7F7F7;
     border: 1px solid #F6EDEE;
     border-radius: 10px;
+    padding: 30px;
+    position: relative;
     .title{
         border-bottom: 1px solid rgba(3, 2, 41,0.07);
         margin-bottom: 30px;
@@ -1146,6 +1162,7 @@ ul {
     outline: none;
     width: 73px;
     height: 28px;
+    padding: 6px 10px;
     background-color: rgba(96, 91, 255, 0.1);
     border-radius: 10px;
     font-weight: 400;
@@ -1157,7 +1174,7 @@ ul {
     border: none;
     outline: none;
     width: auto;
-    padding: 0 0.8rem;
+    padding: 6px 10px;
     height: 28px;
     background: #5078FC;
     border-radius: 10px;
@@ -1170,6 +1187,7 @@ ul {
 .delete-btn{
     border: none;
     outline: none;
+    padding: 6px 10px;
     width: 56px;
     height: 28px;
     background-color: rgba(236, 72, 92, 0.1);
@@ -1184,23 +1202,16 @@ ul {
     display: none;
 }
 .workspace-settings{
+    position: relative;
     .workspace-settings-container{
-        position: relative;
         .main-title{
             h1{
-                margin-left: 6rem;
                 font-weight: 600;
                 font-size: 28px;
                 line-height: 28px;
                 color: #000000;
             }
         }
-    }
-    .content{
-        margin-left: 6rem;
-        width: 60%;
-        max-width: 660px;
-        height: 80vh;
         overflow-y: scroll;
         &::-webkit-scrollbar {
             display: none;
@@ -1209,10 +1220,18 @@ ul {
         -ms-overflow-style: none; /* IE 11 */
         scrollbar-width: none; /* Firefox 64 */
     }
+    .content{
+        margin-left: 10rem;
+        width: 60%;
+        max-width: 660px;
+        height: 88vh;
+    }
     .privacy{
         background: #F7F7F7;
         border: 1px solid #F6EDEE;
         border-radius: 10px;
+        padding: 30px;
+        position: relative;
         .privacy-title{
             h1{
                 font-weight: 700;
@@ -1242,6 +1261,8 @@ ul {
     .email-forwarding{
         background: #F7F7F7;
         border-radius: 10px;
+        padding: 30px;
+        position: relative;
         .email{
             border-bottom: 1px solid rgba(3, 2, 41, 0.09);
             .text{
@@ -1282,7 +1303,7 @@ ul {
         font-size: 12px;
         line-height: 16px;
         color: #030229;
-        padding: 0.5rem;
+        padding: 10px 16px;
         cursor: pointer;
     }
     .owner{
@@ -1292,7 +1313,8 @@ ul {
         font-size: 12px;
         line-height: 16px;
         color: #259CFF;
-        padding: 0.5rem;
+        height: 25px;
+        padding: 4px 12px;
         cursor: pointer;
     }
     .rename-workspace{
@@ -1313,8 +1335,19 @@ ul {
             }
         }
     }
-    .customizations{
-
+    .text{
+        h1{
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 23px;
+            color: #030229;
+        }
+        p{
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            color: rgba(3, 2, 41, 0.8);
+        }
     }
 }
 .privacy-check-item{
@@ -1350,7 +1383,7 @@ ul {
             border: 1px solid #665BF8;
         }
         .privacy-check-mark-1{
-            margin-left: -10px;
+            margin-left: -7px;
         }
         .privacy-check-mark-2{
             margin-left: 115px;
@@ -1360,7 +1393,8 @@ ul {
 .workspace-card-top-btn{
     background: #F7F7F7;
     border-radius: 10px;
-    padding: 1rem;
+    padding:30px;
+    position: relative;
     .top{
         border-bottom: 1px solid rgba(3, 2, 41,0.05);
         margin-bottom: 5px;
@@ -1380,18 +1414,18 @@ ul {
     background: #4C79FF;
     border-radius: 22.5px;
     width: auto;
-    padding: 0.3rem 0.4rem;
+    padding: 6px 14px;
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
     color: #FFFFFF;
-  }
+}
 .show-example-btn{
 border: none;
 outline: none;
 background: #FFFFFF;
 border-radius: 22.5px;
-padding: 0.3rem 0.4rem;
+padding: 6px 14px;
 font-weight: 600;
 font-size: 12px;
 line-height: 16px;
@@ -1400,6 +1434,7 @@ color: #5078FB;
 .delete-workspace-btn{
 border: none;
 outline: none;
+padding: 6px 14px;
 background: #EC485C;
 border-radius: 22.5px;
 font-weight: 600;

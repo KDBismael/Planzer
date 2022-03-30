@@ -1,13 +1,13 @@
 <template>
   <div class="row">
       <div class="col account-settings">
-          <div class="row justify-content-center pb-3">
-            <h1 class="w-auto account-title">Account Settings</h1>  
-          </div>
           <setting-navigation whereIs="account-settings"></setting-navigation>
-          <div class="row justify-content-center">
+          <div class="row account-settings-container justify-content-center">
             <div class="content">
-                <div class="account settings-card p-3">
+                <div class="row justify-content-center pb-3">
+                    <h1 class="w-auto account-title">Account Settings</h1>  
+                </div>
+                <div class="account settings-card">
                     <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
@@ -95,7 +95,7 @@
                         ></account-setting-switch-checkbox>
                     </div>
                 </div>
-                <div class="rituals settings-card mt-4 p-3">
+                <div class="rituals settings-card mt-4">
                     <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
@@ -114,7 +114,7 @@
                         <div class="col-3 w-auto">
                             <div class="row h-100 align-content-center">
                                 <div class="plan-time">
-                                    <span class="time">7:30 AM<span class="plan ms-2">All the Text</span></span>
+                                    <span class="time pe-0">7:30 AM<span class="plan ms-2">All the Text</span></span>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +158,7 @@
                         <div class="col-3 w-auto">
                             <div class="row h-100 align-content-center">
                                 <div class="plan-time">
-                                    <span class="time me-1 pe-3">Monday</span><span class="time pe-3">7:30 AM</span>
+                                    <span class="time me-2 pe-3">Monday</span><span class="time pe-3">7:30 AM</span>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                         <div class="col-3 w-auto">
                             <div class="row h-100 align-content-center">
                                 <div class="plan-time">
-                                    <span class="time me-1 pe-3">Friday</span><span class="time pe-3">7:30 AM</span>
+                                    <span class="time me-2 pe-3">Friday</span><span class="time pe-3">7:30 AM</span>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
                         ></account-setting-switch-checkbox>
                     </div>
                 </div>
-                <div class="timeboxing settings-card mt-4 p-3">
+                <div class="timeboxing settings-card mt-4">
                     <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
@@ -254,7 +254,7 @@
                         ></account-setting-dropbox>
                     </div>
                 </div>
-                <div class="integrations settings-card mt-4 p-3">
+                <div class="integrations settings-card mt-4">
                     <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
@@ -271,7 +271,7 @@
                         ></account-setting-switch-checkbox>
                     </div>
                 </div>
-                <div class="notifications settings-card mt-4 p-3">
+                <div class="notifications settings-card mt-4">
                     <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
@@ -351,7 +351,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="profil settings-card mt-4 p-3">
+                <div class="profil settings-card mt-4">
                     <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
@@ -381,7 +381,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeboxing-end settings-card mt-4 mb-4 p-3">
+                <div class="timeboxing-end settings-card mt-4">
                     <div class="settings-blur">
                         <div class="color1"></div>
                         <div class="color2"></div>
@@ -412,6 +412,7 @@
                         <p class="mb-0">If there’s anything we can help with about your account, just shoot us an email at <a href="#"><span>support@sitename.com</span></a></p>
                     </div>
                 </div>
+                <br><br>
             </div>
           </div>
       </div>

@@ -28,7 +28,7 @@ export const state = () => ({
         await commit('base/setError', exception, {root: true})
       }
     },
-    async updateAccountSetting({commit,dispatch},data){
+    async updateAccountSettings({commit,dispatch},data){
       try {
         console.log(data)
         await this.$axios.put('/user',data).then((res) => console.log(res))
