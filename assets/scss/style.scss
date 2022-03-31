@@ -1056,7 +1056,6 @@ ul {
         font-size: 18px;
         line-height: 25px;
         color: #030229;
-        padding-top: 20px;
         padding-bottom: 11px;
         }
     }
@@ -1441,4 +1440,169 @@ font-weight: 600;
 font-size: 12px;
 line-height: 16px;
 color: #FFFFFF;
+}
+.remove-calendar-btn{
+    border: none;
+    outline: none;
+    padding: 8px 18.75px;
+    background: #FFFFFF;
+    border-radius: 22.5px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #4C79FF;
+}
+.add-outlook-calendar-btn,.refresh-calendar-list-btn{
+border: none;
+outline: none;
+padding: 8px 11px;
+background: #FFFFFF;
+border-radius: 22.5px;
+font-weight: 600;
+font-size: 14px;
+line-height: 19px;
+color: #4C79FF;
+}
+.add-google-calendar-btn{
+border: none;
+outline: none;
+padding: 8px 11px;
+background: #4C79FF;
+border-radius: 22.5px;
+font-weight: 600;
+font-size: 14px;
+line-height: 19px;
+color: #FFFFFF;
+}
+.calendar-settings-card{
+    padding: 30px;
+    margin-top: 13px;
+    background: #F7F7F7;
+    border-radius: 10px;
+    position: relative;
+    .image{
+        width: 24px;
+        height: auto;
+        object-fit: cover;
+    }
+    .title{
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+        color: #030229;
+    }
+    .calendar-action{
+        p{
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 19px;
+            color: #030229;
+        }
+        .calendar{
+            position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                right: -15px;
+                top: 50%;
+                width: 6px;
+                height: 4px;
+                border-right: 3px solid transparent;
+                border-left: 3px solid transparent;
+                border-top: 3px solid rgba(3, 2, 41,0.2);
+                border-radius: 6px;
+            }
+        }
+    }
+    .calendar-switch-check{
+        &:last-child{
+            border-bottom:none;
+            margin-bottom: 0 !important;
+        }
+    }
+}
+.calendar-switch-check{
+    border-bottom: 1px solid rgba(3, 2, 41,0.05);
+    .circle{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+    .title{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        color: #030229;
+    }
+    input[type=checkbox] {
+        visibility:visible;
+        width: 34px;
+        height: 21px;
+        background-color: #D1D1D1;
+        border: none;
+        box-shadow: initial;
+        background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    }
+    input[type=checkbox]:checked {
+        background-color: #9B9BFF;
+    }
+    .orange{
+        background-color: #FFA34C;
+    }
+    .yellow{
+        background-color: #FFCD4C;
+    }
+    .violate{
+        background-color:  #905CFF;
+    }
+    .green{
+        background-color: #65FF4C;
+    }
+}
+.calendar-settings{
+    position: relative;
+    .main-title{
+        h1{
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 28px;
+            color: #000000;
+        }
+    }
+    .calendar-settings-container{
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+        -ms-overflow-style: none; /* IE 11 */
+        scrollbar-width: none; /* Firefox 64 */
+    }
+    .content{
+        margin-left: 8rem;
+        width: 60%;
+        max-width: 610px;
+        height: 88vh;
+    }
+    .default-calendar{
+        background: #F7F7F7;
+        border-radius: 10px;
+        padding: 30px;
+        position: relative;
+        h1{
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 19px;
+            color: #030229;
+        }
+        p{
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 21px;
+            color: #030229;
+            a{
+                color: #4C79FF;
+            }
+        }
+    }
 }

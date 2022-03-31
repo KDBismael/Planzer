@@ -10,17 +10,22 @@
                     <setting-card title="Configure your calendars">
                         <div class="row justify-content-center w-100 ms-0 p-0 mb-2">
                             <div class="col-4 w-auto ps-0 pe-4">
-                                <Button buttonClass="add-google-calendar" text="Add Google Calendar"></Button>
+                                <Button buttonClass="add-google-calendar-btn" text="Add Google Calendar"></Button>
                             </div>
                             <div class="col-4  w-auto ps-0 pe-4">
-                                <Button buttonClass="add-outlook-calendar" text="Add Outlook Calendar"></Button>
+                                <Button buttonClass="add-outlook-calendar-btn" text="Add Outlook Calendar"></Button>
                             </div>
                             <div class="col-4  w-auto ps-0 pe-0">
-                                <Button buttonClass="refresh-calendar-list" text="Refresh calendar list"></Button>
+                                <Button buttonClass="refresh-calendar-list-btn" text="Refresh calendar list"></Button>
                             </div>
                         </div>
                     </setting-card>
                     <calendar-setting-card>
+                            <div class="settings-blur">
+                                <div class="color1"></div>
+                                <div class="color2"></div>
+                                <div class="color3"></div>
+                            </div>
                             <calendar-switch-check v-for="(action,index) in calendarData.email1"
                             :key="index" 
                             :circle="action.color" 
@@ -30,6 +35,11 @@
                             ></calendar-switch-check>
                     </calendar-setting-card>
                     <calendar-setting-card>
+                            <div class="settings-blur">
+                                <div class="color1"></div>
+                                <div class="color2"></div>
+                                <div class="color3"></div>
+                            </div>
                             <calendar-switch-check v-for="(action,index) in calendarData.email2" 
                             :key="index"
                             :circle="action.color" 
@@ -39,6 +49,11 @@
                             ></calendar-switch-check>
                     </calendar-setting-card>
                     <calendar-setting-card>
+                            <div class="settings-blur">
+                                <div class="color1"></div>
+                                <div class="color2"></div>
+                                <div class="color3"></div>
+                            </div>
                             <calendar-switch-check v-for="(action,index) in calendarData.email3" 
                             :key="index"
                             :circle="action.color" 
@@ -48,6 +63,11 @@
                             ></calendar-switch-check>
                     </calendar-setting-card>
                     <div class="default-calendar mt-3">
+                        <div class="settings-blur">
+                            <div class="color1"></div>
+                            <div class="color2"></div>
+                            <div class="color3"></div>
+                        </div>
                         <h1 class="mb-2">Configuring your default calendar:</h1>
                         <p class="mb-0">
                             You can change which calendar your tasks are scheduled to by default (and other calendar preferences) from your <span> <nuxt-link to="/accountSetting">account settings</nuxt-link></span> page.
@@ -148,50 +168,4 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-    .calendar-settings{
-        position: relative;
-        .main-title{
-            h1{
-                font-weight: 600;
-                font-size: 28px;
-                line-height: 28px;
-                color: #000000;
-            }
-        }
-        .calendar-settings-container{
-            overflow-y: scroll;
-            &::-webkit-scrollbar {
-                display: none;
-                width: 0;
-            }
-            -ms-overflow-style: none; /* IE 11 */
-            scrollbar-width: none; /* Firefox 64 */
-        }
-        .content{
-            margin-left: 8rem;
-            width: 60%;
-            max-width: 610px;
-            height: 88vh;
-        }
-        .default-calendar{
-            background: #F7F7F7;
-            border-radius: 10px;
-            padding: 30px;
-            h1{
-                font-weight: 700;
-                font-size: 14px;
-                line-height: 19px;
-                color: #030229;
-            }
-            p{
-                font-weight: 300;
-                font-size: 14px;
-                line-height: 21px;
-                color: #030229;
-                a{
-                    color: #4C79FF;
-                }
-            }
-        }
-    }
 </style>

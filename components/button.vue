@@ -16,37 +16,4 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  .remove-calendar{
-    border: none;
-    outline: none;
-    padding: 8px 18.75px;
-    background: #FFFFFF;
-    border-radius: 22.5px;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 19px;
-    color: #4C79FF;
-  }
-  .add-outlook-calendar,.refresh-calendar-list{
-    border: none;
-    outline: none;
-    padding: 8px 11px;
-    background: #FFFFFF;
-    border-radius: 22.5px;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 19px;
-    color: #4C79FF;
-  }
-  .add-google-calendar{
-    border: none;
-    outline: none;
-    padding: 8px 11px;
-    background: #4C79FF;
-    border-radius: 22.5px;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 19px;
-    color: #FFFFFF;
-  }
 </style>
