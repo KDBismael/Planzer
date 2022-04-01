@@ -16,7 +16,7 @@
           <ul class="dropdown-menu user-settings-dropdown" aria-labelledby="dropdownMenuLink">
               <li><nuxt-link to="/account-settings" class="dropdown-item" href="#"><UserIcon size="1.5x" stroke="#4C79FF" class="me-2"/> Account settings</nuxt-link></li>
               <li><nuxt-link to="/workspace-settings" class="dropdown-item" href="#"><HomeIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Workspace settings</nuxt-link></li>
-              <li><a class="dropdown-item" href="#"><CreditCardIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Billing</a></li>
+              <li><nuxt-link to="/billing-settings" class="dropdown-item" href="#"><CreditCardIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Billing</nuxt-link></li>
               <li><a class="dropdown-item" href="#"><UserPlusIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Invite team member</a></li>
               <li class="divider"><a class="dropdown-item" href="#"><CalendarIcon size="1.5x" stroke="#4C79FF" class="me-2"/>Calendar settings</a></li>
               <li><a @click="signOut()" class="dropdown-item" style="color:#FF5A5A" href="#"><LogOutIcon size="1.5x" class="me-2"/>Sign out</a></li>
