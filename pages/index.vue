@@ -50,17 +50,27 @@ export default {
     // Button
   },
   layout: "not-signed-in",
-  beforeMount() {
+  computed: {
+    user() {
+      return this.$store.state.user.user
+    },
+  },
+  async beforeMount() {
     // Check if Google code is in URL
     const urlParams = new URLSearchParams(window.location.search)
     const code = urlParams.get('code')
     // Send the code to the back-end, where the back-end checks if it's correct
     if(code) {
-      this.signInProcessing = true
-      console.log(code)
-      this.$store.dispatch("user/signInWithGoogle", {
-        googleCode: code
-      })
+        this.signInProcessing = true
+        await this.$store.dispatch("user/signInWithGoogle", {
+            googleCode: code
+        })
+        console.log(this.$auth.user)
+        if(this.user.token) {
+          this.$auth.setUser(this.user)
+          this.$auth.$storage.setUniversal('user', this.$auth.user, true)
+          this.$router.push("/dashboard")
+        }
     }
 
     // google.accounts.id.initialize({
