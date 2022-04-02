@@ -370,7 +370,10 @@
                                 </div>
                             </div>
                             <div class="profil-btn mt-3">
-                                <button class="me-2">Upload Picture</button>
+                                <label class="me-2" for="avatar">
+                                    <span>Upload Picture</span>
+                                    <input @change="getPicture($event)" type="file" id="avatar" accept="image/png, image/jpeg" />
+                                </label>
                                 <button>Delete Picture</button>
                             </div>
                         </div>   
@@ -431,11 +434,15 @@ export default {
     },
     watch:{
         async fullName(){
-            if(this.fullName!='' && this.fullName==`${this.firstName} ${this.secondName}`){
+            if(this.fullName!=''){
                 let data={name:this.fullName}
                 console.log(data)
-                await this.$store.dispatch('user/updateAccountSetting',data)
-                this.fullName=''
+                await this.$store.dispatch('user/updateAccountSettings',data)
+                if(this.fullName==`${this.firstName} ${this.secondName}`){
+                    this.firstName=''
+                    this.secondName=''
+                    this.fullName=''
+                } 
             }
         }
     },
@@ -560,6 +567,11 @@ export default {
                 }
             })
         },
+        getPicture(e){
+            const picture=e.target.files[0]
+            console.log(picture)
+            this.$store.dispatch('user/uploadPictute',picture)
+        }
     }
 }
 </script>

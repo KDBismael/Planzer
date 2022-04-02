@@ -17,6 +17,10 @@ export const state = () => ({
     setGoogleResponse(state, googleResponse) {
         state.googleResponse = googleResponse
     },
+    setAccountSettings(state,option){
+      state.user[Object.keys(option)]=Object.values(option)[0]
+      console.log(state.user)
+    }
   }
   
   export const actions = {
@@ -31,7 +35,15 @@ export const state = () => ({
     async updateAccountSettings({commit,dispatch},data){
       try {
         console.log(data)
-        await this.$axios.put('/user',data).then((res) => console.log(res))
+        await this.$axios.put('/user',data).then((res) => commit('setAccountSettings',data))
+      } catch (exception) {
+        console.error(exception)
+        await commit('base/setError', exception, {root: true})
+      }
+    },
+    async uploadPictute({dispatch,commit},data){
+      try {
+        await this.$axios.post('/user/profile-picture',data).then((res) => console.log(res))
       } catch (exception) {
         console.error(exception)
         await commit('base/setError', exception, {root: true})
