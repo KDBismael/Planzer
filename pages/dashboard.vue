@@ -228,7 +228,6 @@ import {
   AnchorIcon,
   Maximize2Icon,
 } from "vue-feather-icons"
-
 export default {
   auth: true,
   components: {
@@ -421,7 +420,6 @@ export default {
     filterDateTasks(columnDate, task) {
       var splitColumnDate = columnDate.split("-")
       var newColumnDate = splitColumnDate[0] + "-" + (parseInt(splitColumnDate[1]) + 1 < 10 ? "0" : "") + (parseInt(splitColumnDate[1]) + 1) + "-" + (splitColumnDate[2] < 10 ? "0" : "") + splitColumnDate[2]
-
       return task.date.substr(0, 10) == newColumnDate
     },
     checkDates(event) {
@@ -429,7 +427,6 @@ export default {
         var newStartDate = this.columns[0].date
         newStartDate.setDate(newStartDate.getUTCDate() - 7)
         var tempArray = []
-
         for (var d = newStartDate; d < this.startDate; d.setDate(d.getUTCDate() + 1)) {
           tempArray.push({
             title: this.weekday[d.getDay()],
@@ -455,7 +452,6 @@ export default {
             date: new Date(d),
           })
         }
-
         document.getElementById("task-row").scrollLeft = (this.columns.length-8)*250
         this.$store.dispatch("task/getTasks", {
           startDate: this.columns[this.columns.length-7].date,

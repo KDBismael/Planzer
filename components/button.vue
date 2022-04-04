@@ -15,3 +15,5 @@ export default {
   props: ["loading", "text", "buttonClass", "icon"]
 };
 </script>
+<style lang="scss" scoped>
+</style>
