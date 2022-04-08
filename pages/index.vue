@@ -12,7 +12,10 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label">Password</label>
+            <div class="row justify-content-between">
+              <div class="col-3 w-auto"><label class="form-label">Password</label></div>
+              <div class="col-3 w-auto forgot-link"><NuxtLink to="/recover-password">Forgot Password ?</NuxtLink></div>
+            </div>
             <input type="password" class="form-control" v-model="password">
           </div>
 
@@ -20,7 +23,7 @@
             <button class="button login" @click="login()">SIGN IN</button>
           </div>
 
-          <p class="register-text"><NuxtLink to="/register">Sign up</NuxtLink> if you don't have an account</p>
+          <p class="register-text"><NuxtLink to="/sign-up">Sign up</NuxtLink> if you don't have an account</p>
           <p class="or-hr"><span>OR</span></p>
 
           <div class="sign-in-other-options">
