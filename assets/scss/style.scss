@@ -806,7 +806,8 @@ ul {
         }
     }
     .profil-btn{
-        button{
+        label{
+            cursor: pointer;
             border-radius: 10px;
             padding: 6px 12px;
             font-weight: 600;
@@ -816,9 +817,20 @@ ul {
             border: none;
             outline: none;
             background-color:  #4C79FF;
-            &:last-child{
-                background-color: #EC485C;
+            input{
+                display: none;
             }
+        }
+        button{
+            border-radius: 10px;
+            padding: 6px 12px;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            color: #FFFFFF;
+            border: none;
+            outline: none;
+            background-color: #EC485C;
         }
     }
     .picture-card{
