@@ -1618,3 +1618,207 @@ color: #FFFFFF;
         }
     }
 }
+.billing-settings{
+    position: relative;
+    .billing-settings-container{
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+        -ms-overflow-style: none; /* IE 11 */
+        scrollbar-width: none; /* Firefox 64 */
+    }
+    .content{
+        width: 60%;
+        max-width: 590px;
+        height: 88vh;
+        .main-title{
+            h1{
+                font-weight: 600;
+                font-size: 28px;
+                line-height: 28px;
+                color: #000000;
+            }
+        }
+        .user-info{
+            .user{
+                span{
+                    font-weight: 300;
+                    font-size: 30px;
+                    line-height: 41px;
+                    color: #030229;
+                }
+            }
+            .active-user{
+                background-color: rgba(84, 119, 248, 0.1);
+                border-radius: 22.5px;
+                cursor: pointer;
+                span{
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #5477F8;
+                    padding: 5px 15px;
+                }
+            }
+        }
+        .billing-plan-item{
+            .billing-plan-title{
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 19px;
+                color: #030229;
+                position: relative;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: 40%;
+                    left: -15px;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: #4C79FF;
+                }
+            }
+            h4{
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 22px;
+                color: #030229;
+            }
+        }
+        .plan-detail-btn{
+            border: none;
+            outline: none;
+            background-color: #4C79FF;
+            border-radius: 22.5px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 19px;
+            color: #FFFFFF;
+            padding: 8px 14px;
+        }
+        .add-billing-btn,.swap-btn,.edit-btn{
+            cursor: pointer;
+            padding: 1px 7px;
+            background-color: rgba(77, 121, 255, 0.15);
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 167.5%;
+            color: #4C79FF;
+        }
+        .cancel-subscription-btn,.swap-annual-btn{
+            border: none;
+            outline: none;
+            background-color: #FFFFFF;
+            border-radius: 22.5px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 19px;
+            color: #4C79FF;
+            padding: 8px 14px;      
+        }
+        .team-changes{
+            .date{
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 19px;
+                color: #030229;
+            }
+            .name{
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 22px;
+                color: #030229;
+            }
+            .admin{
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 19px;
+                color: #030229;
+            }
+            .promo{
+                font-weight: 200;
+                font-size: 14px;
+                line-height: 19px;
+                color: #030229;
+            }
+        }
+        .billing-history{
+            position: relative;
+            background: #F7F7F7;
+            border: 1px solid #F6EDEE;
+            border-radius: 10px;
+            padding: 30px;
+            .title{
+                h1{
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 33px;
+                    color: #030229;
+                }
+            }
+            h3{
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 19px;
+                color: #030229;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right:-15px;
+                    border-radius: 6px;
+                    border-right: 5px solid transparent;
+                    border-left: 5px solid transparent;
+                    border-top: 5px solid rgba(3, 2, 41,0.2);
+                }
+            }
+            .amount{
+                padding-left: 180px;
+            }
+            .billing-history-item{
+                border-bottom: 1px solid rgba(3, 2, 41, 0.05);
+                .date{
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #0068DD;
+                    width: 80px;
+                }
+                .description{
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #030229;
+                    padding-left: 45px;
+                }
+                .price{
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #2B9943;
+                    margin-left:75px;
+                    direction: rtl;
+                    width: 100px;
+                }
+                .circle{
+                    background-color: rgba(96, 91, 255,0.05);
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    margin-left: 20px;
+                    svg{
+                        width: 13px;
+                        height: 13px;
+                        margin-left: 8px;
+                        margin-top: 6px;
+                    }
+                }
+            }
+        }
+    }
+}

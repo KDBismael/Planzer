@@ -40,8 +40,8 @@ export const state = () => ({
         console.log(data)
         await this.$axios.put('/user',data).then((res) => commit('setAccountSettings',data))
       } catch (exception) {
-        console.error(exception)
-        await commit('base/setError', exception, {root: true})
+          console.error(exception)
+          await commit('base/setError', exception, { root: true })
       }
     },
     async uploadPictute({dispatch,commit},data){
