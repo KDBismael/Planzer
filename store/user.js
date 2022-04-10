@@ -48,8 +48,17 @@ export const state = () => ({
       try {
         await this.$axios.post('/user/profile-picture',data).then((res) => console.log(res))
       } catch (exception) {
+          console.error(exception)
+          await commit('base/setError', exception, { root: true })
+      }
+  },
+    async updateAccountSettings({commit,dispatch},data){
+        try {
+        console.log(data)
+        await this.$axios.put('/user',data).then((res) => console.log(res))
+        } catch (exception) {
         console.error(exception)
         await commit('base/setError', exception, {root: true})
-      }
+        }
     }
-  }
+}
