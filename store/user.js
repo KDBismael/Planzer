@@ -48,5 +48,14 @@ export const actions = {
             console.error(exception)
             await commit('base/setError', exception, { root: true })
         }
+    },
+    async signUpWithGoogle({commit,dispatch},data){
+        try {
+            console.log(data)
+            await this.$axios.post('/sign-up/google',data).then((res) => console.log(res))
+        } catch (exception) {
+            console.error(exception)
+            await commit('base/setError', exception, { root: true })
+        }
     }
 }
