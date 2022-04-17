@@ -7,9 +7,9 @@ export const state = () => ({
         about: '',
     },
     googleResponse: ''
-})
-
-export const mutations = {
+  })
+  
+  export const mutations = {
     setUser(state, user) {
         if (!user) user = {}
         state.user = user
@@ -20,9 +20,13 @@ export const mutations = {
         else
             state.googleResponse = googleResponse
     },
-}
-
-export const actions = {
+    setAccountSettings(state,option){
+      state.user[Object.keys(option)]=Object.values(option)[0]
+      console.log(state.user)
+    }
+  }
+  
+  export const actions = {
     async signInWithGoogle({ commit, dispatch }, googleCode) {
         try {
             await this.$axios.post('login/google', googleCode).then((res) => commit('setGoogleResponse', res.data))
@@ -31,7 +35,23 @@ export const actions = {
             await commit('base/setError', exception, { root: true })
         }
     },
-
+    async updateAccountSettings({commit,dispatch},data){
+        try {
+          console.log(data)
+          await this.$axios.put('/user',data).then((res) => commit('setAccountSettings',data))
+        } catch (exception) {
+            console.error(exception)
+            await commit('base/setError', exception, { root: true })
+        }
+    },
+      async uploadPictute({dispatch,commit},data){
+        try {
+          await this.$axios.post('/user/profile-picture',data).then((res) => console.log(res))
+        } catch (exception) {
+            console.error(exception)
+            await commit('base/setError', exception, { root: true })
+        }
+    },
     async revoverLink({ commit, dispatch },data){
         try {
             await this.$axios.post('/forgot-password',data).then((res) => console.log(res))
@@ -40,7 +60,6 @@ export const actions = {
             await commit('base/setError', exception, { root: true })
         }
     },
-
     async setNewPassword({ commit, dispatch },data){
         try {
             await this.$axios.post('/change-forgot-password',data).then((res) => console.log(res))
@@ -51,7 +70,6 @@ export const actions = {
     },
     async signUpWithGoogle({commit,dispatch},data){
         try {
-            console.log(data)
             await this.$axios.post('/sign-up/google',data).then((res) => console.log(res))
         } catch (exception) {
             console.error(exception)
