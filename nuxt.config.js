@@ -108,7 +108,7 @@ export default {
      */
     env: {
         stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY || "pk_test_rHexF1dsPqOyjRf3EYA1YmXh003fzbVUZM",
-        API_URL: process.env.API_URL || 'https://todophil.herokuapp.com'
+        API_URL: process.env.API_URL || 'https://api-stage.planzer.io/'
     },
 
     /*
@@ -116,7 +116,8 @@ export default {
      */
     axios: {
         // baseURL: process.env.API_URL,
-        baseURL: 'https://todophil.herokuapp.com',
+        baseURL: 'https://api-stage.planzer.io/',
+        // baseURL: 'http://localhost:5000',
         headers: {
             "Content-Type": "application/json",
         },
