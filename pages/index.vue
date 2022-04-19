@@ -8,12 +8,12 @@
 
           <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="email" class="form-control" v-model="email">
+            <input type="email" @keyup.enter="login()" class="form-control" v-model="email">
           </div>
 
           <div class="mb-3">
             <label class="form-label">Password</label>
-            <input type="password" class="form-control" v-model="password">
+            <input type="password" @keyup.enter="login()" class="form-control" v-model="password">
           </div>
 
           <div class="sign-in-button">
