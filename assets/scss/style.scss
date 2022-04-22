@@ -1827,7 +1827,9 @@ color: #FFFFFF;
     position: relative;
     .white-card{
         background-color: white;
-        height: 100vh;
+        @media (min-width:1440px) {
+            height: 100vh;
+        }
         .step-one{
             .sign-btn{
                 margin-top: 60px;

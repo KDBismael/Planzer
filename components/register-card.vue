@@ -9,7 +9,7 @@
         <div class="register-content">
             <div class="row">
                 <div class="logo">
-                    <img src="../assets/white-logo.png" alt="">
+                    <img src="images/logo.svg" alt="">
                 </div>
                 <p class="mb-1">{{paragraph}}</p>
                 <h1 class="mb-0">{{title}}</h1>

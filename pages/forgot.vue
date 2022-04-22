@@ -44,7 +44,7 @@
           </div>
           <div class="col-4 orange-card">
               <div class="logo">
-                  <img src="../assets/white-logo.png" alt="">
+                  <img src="images/logo.svg" alt="">
               </div>
           </div>
       </div>
