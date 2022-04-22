@@ -2,7 +2,7 @@ export default {
     ssr: false,
 
     head: {
-        title: "Todo",
+        title: "Planzer.io",
         htmlAttrs: {
             lang: "en",
         },
