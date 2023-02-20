@@ -229,7 +229,7 @@ import {
   Maximize2Icon,
 } from "vue-feather-icons"
 export default {
-  auth: true,
+  // auth: true,
   components: {
     draggable,
     Task,
@@ -420,7 +420,7 @@ export default {
     filterDateTasks(columnDate, task) {
       var splitColumnDate = columnDate.split("-")
       var newColumnDate = splitColumnDate[0] + "-" + (parseInt(splitColumnDate[1]) + 1 < 10 ? "0" : "") + (parseInt(splitColumnDate[1]) + 1) + "-" + (splitColumnDate[2] < 10 ? "0" : "") + splitColumnDate[2]
-      return task.date.substr(0, 10) == newColumnDate
+      // return task.date.substr(0, 10) == newColumnDate
     },
     checkDates(event) {
       if (document.getElementById("task-row").scrollLeft == 0) {

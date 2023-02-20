@@ -116,7 +116,7 @@ export default {
      */
     axios: {
         // baseURL: process.env.API_URL,
-        baseURL: 'https://api-stage.planzer.io/',
+        // baseURL: 'https://api-stage.planzer.io/',
         // baseURL: 'http://localhost:5000',
         headers: {
             "Content-Type": "application/json",
@@ -128,7 +128,7 @@ export default {
      */
     router: {
         linkActiveClass: 'mm-active',
-        middleware: ['auth', 'check-access']
+        // middleware: ['auth', 'check-access']
     },
 
     build: {},
